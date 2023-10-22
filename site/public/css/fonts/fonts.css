@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Montserrat&family=Open+Sans:wght@500&family=Questrial&display=swap');
+
+:root{
+
+    --font-first: 'Arimo', sans-serif;
+    --font-secundary: 'Montserrat', sans-serif;
+    --font-third: 'Open Sans', sans-serif;
+    --font-fourth: 'Questrial', sans-serif;
+};
