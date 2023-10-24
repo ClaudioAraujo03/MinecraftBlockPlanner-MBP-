@@ -217,3 +217,112 @@ body{
     background-color: #563C85;
     cursor: pointer;
 }
+.calculated{
+    width: 100%;
+    height: 25%;
+     display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.minecraft-dowload{
+    width: 30%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #563C85;
+    border-radius: 3rem;
+}
+.minecraft-dowload img{
+    width: 100%;
+}
+.minecraft-dowload button{
+    width: 90%;
+    height: 15%;
+    background-color: #758749;
+    border: none;
+    border-radius: 2.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.minecraft-dowload button img{
+    width: 60%;
+}
+.minecraft-dowload h5{
+    color: #fff;
+    font-family: var(--font-first);
+    font-size: 25px;
+    width: 90%;
+    font-weight: 400;
+    margin-top: 2%;
+    margin-bottom: 10%;
+    text-align: justify;
+}
+.calculated-display{
+    width: 50%;
+    height: 90%;
+    background-color: #758749;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+.div-insert-values{
+    height: 100%;
+    background-color: #758749;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.inputs-values{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.inputs-values input{
+    width: 100%;
+}
+.inputs-values div{
+    width: 100%;
+}
+.inputs-values label{
+    width: 100%;
+    color: #fff;
+    font-family: var(--font-first);
+    text-align: left;
+}
+.inputs-values input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #563C85;
+    outline: none;
+    color: #fff;
+}
+.div-insert-values button{
+    width: 80%;
+    height: 10%;
+    background-color: #563C85;
+    color: #fff;
+    border-radius: 2rem;
+    font-weight: bold;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+}
+.div-insert-values h5{
+    color: #fff;
+    font-family: var(--font-third);
+    font-weight: 300;
+    width: 80%;
+}
+
+.div-show-result{
+    width: 55%;
+    background-color: #563C85;
+    height: 100%;
+}
