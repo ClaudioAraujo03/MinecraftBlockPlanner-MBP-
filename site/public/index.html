@@ -10,14 +10,14 @@
 <body>
     <header class="first-content">
         <nav class="nav-bar">
-            <h5>CALCULADORA</h5>
-            <h5>SOBRE</h5>
+            <a id="link_cal">CALCULADORA</a>
+            <a id="link_abt">SOBRE</a>
             <h4>MBP</h4>
-            <h5>HOME</h5>
-            <h5>LOGIN/CADASTRO</h5>
+            <a id="link_home">HOME</a>
+            <a id="link_login" style="z-index: 1;">LOGIN/CADASTRO</a>
         </nav>
     </header>
-    <section class="banner">
+    <section class="banner" id="home">
         <div class="giant-text">
             <h1>Minecraft</h1>
             <h1>BlockPlanner</h1>
@@ -96,7 +96,7 @@
             <img class="img-card-valores" src="./assets/steve and alex 2.png" alt="">
         </div>
     </section>
-    <section class="second-section">
+    <section class="second-section" id="section_about">
         <div class="sobre-img">
             <div class="form-background"></div>
             <div class="img-sobre"></div>
@@ -123,7 +123,7 @@
             <button class="btn-calc">Tenha um gostinho clicando aqui!</button>
         </div>
     </section>
-    <section class="calculated">
+    <section class="calculated" id="section_calculator">
         <div class="minecraft-dowload">
             <img src="./assets/minecraft banner.jpg" alt="">
             <h5>Ainda não tem minecraft?<br>
@@ -199,3 +199,4 @@
     </footer>
 </body>
 </html>
+<script src="js/links.js"></script>

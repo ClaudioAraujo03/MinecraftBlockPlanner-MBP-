@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
 body{
     width: 100%;
@@ -25,7 +26,9 @@ body{
     margin-top: 2%;
     font-family: var(--font-sans2);
 }
-.nav-bar h5{
+.nav-bar a{
+    text-decoration: none;
+    color: #000;
     font-size: 10px;
     cursor: pointer;
 }
