@@ -18,13 +18,32 @@ body{
     align-items: center;
 }
 .nav-bar{
-    width: 90%;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
     background-color: #EDEDED;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 2%;
     font-family: var(--font-sans2);
+    z-index: 4;
+    transition: 0.5s;
+    height: 7%;
+}
+.sticky{
+    background-color: #d0d0d08b;
+    width: 100%;
+    height: 5%;
+    margin-top: 0;
+    box-shadow: 0 0 20px 0 #6c6c6c;
+    transition: all 0.5s ease-in-out;
+}
+.sticky:hover{
+    background-color:#d0d0d0;
+}
+nav h4{
+    color: #563C85;
 }
 .nav-bar a{
     text-decoration: none;
@@ -105,16 +124,19 @@ body{
     justify-content: space-around;
     border-radius: 1rem;
     cursor: pointer;
+    transition: 0.8s ease-in-out;
 }
 .letters-card{
     color: #fff;
     font-family: var(--font-first);
-    font-size: 15px;
+    font-size: 13px;
     display: flex;
     flex-direction: column;
+    transition: 0.8s;
 }
 .img-card-valores{
     width: 180px;
+    transition: 0.8s;
 }
 .card:nth-child(3){
     background-color: #D68B53;

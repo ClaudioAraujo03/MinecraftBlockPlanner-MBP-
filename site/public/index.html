@@ -6,13 +6,14 @@
     <title>MinecraftBlockPlanner</title>
     <link rel="stylesheet" href="./css/site.css">
     <link rel="stylesheet" href="./css/fonts/fonts.css">
+    <link rel="stylesheet" href="./css/card.css">
 </head>
 <body>
     <header class="first-content">
-        <nav class="nav-bar">
+        <nav class="nav-bar" id="navbar">
             <a id="link_cal">CALCULADORA</a>
             <a id="link_abt">SOBRE</a>
-            <h4>MBP</h4>
+            <h4><span style="color: #758749;">M</span><span style="color: #563C85;">B</span><span style="color: #D68B53;">P</span></h4>
             <a id="link_home">HOME</a>
             <a id="link_login" style="z-index: 1;">LOGIN/CADASTRO</a>
         </nav>
@@ -42,7 +43,7 @@
             <span>E</span>
             <span>S</span>
         </div>
-        <div class="card">
+        <div class="card" id="card_paz">
             <div class="letters-card">
                 <span>P</span>
                 <span>A</span>
@@ -50,10 +51,11 @@
             </div>
             <img class="img-card-valores" src="./assets/frog.png" alt="">
         </div>
-        <div class="card">
+        <div class="card" id="card_criatividade">
             <div class="letters-card">
                 <span>C</span>
                 <span>R</span>
+                <span>I</span>
                 <span>A</span>
                 <span>T</span>
                 <span>I</span>
@@ -66,7 +68,7 @@
             </div>
             <img class="img-card-valores" src="./assets/steve.png" alt="">
         </div>
-        <div class="card">
+        <div class="card" id="card_equilibrio">
             <div class="letters-card">
                 <span>E</span>
                 <span>Q</span>
@@ -81,7 +83,7 @@
             </div>
             <img class="img-card-valores" src="./assets/pig.png" alt="">
         </div>
-        <div class="card">
+        <div class="card" id="card_elegancia">
             <div class="letters-card">
                 <span>E</span>
                 <span>L</span>
@@ -120,7 +122,7 @@
                 você algumas estimativas para seu projeto, como tempo e 
                 recursos.
             </h3>
-            <button class="btn-calc">Tenha um gostinho clicando aqui!</button>
+            <button id="link_cal_btn" class="btn-calc">Tenha um gostinho clicando aqui!</button>
         </div>
     </section>
     <section class="calculated" id="section_calculator">
@@ -199,4 +201,5 @@
     </footer>
 </body>
 </html>
-<script src="js/links.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/card.js"></script>

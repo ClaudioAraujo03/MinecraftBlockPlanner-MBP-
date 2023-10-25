@@ -1,0 +1,12 @@
+.growup{
+    width: 35%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    transition: 0.8s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
