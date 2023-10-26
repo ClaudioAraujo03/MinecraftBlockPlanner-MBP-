@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts/fonts.css">
+</head>
+<body>
+    <header class="first-content">
+        <nav class="nav-bar" id="navbar">
+            <a href="index.html">HOME</a>
+            <h4><span style="color: #758749;">M</span><span style="color: #563C85;">B</span><span style="color: #D68B53;">P</span></h4>
+            <a href="loginSignup.html" style="z-index: 1;">LOGIN/CADASTRO</a>
+        </nav>
+    </header>
+    <section class="content">
+        <div class="login" id="div_login">
+            <div class="circles">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <h3 class="title">Login</h3>
+            <label for="email">Email</label>
+            <input type="email" name="senha" id="inp_email">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="inp_senha">
+            <button id="btn_entrar">ENTRAR</button>
+            <h6 id="signup_link">Não tenho uma conta.</h6>
+        </div>
+        <img src="assets/wallpaper1.png" alt="#" class="img-content" id="img_content">
+        <div class="signup" id="div_signup">
+            <div class="circles">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <h3 class="title">CADASTRE-SE</h3>
+            <label for="email">Email</label>
+            <input type="email" name="senha" id="inp_signup_email">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="inp_signup_senha">
+            <div class="names">
+                <div class="nome-nick">
+                    <label for="nome">NOME</label>
+                    <input type="text" name="nome" id="inp_nome">
+                </div>
+                <div class="nome-nick">
+                    <label for="nick">NICKNAME</label>
+                    <input type="text" name="nick" id="inp_nick">
+                </div>
+            </div>
+            <div class="dtNasc">
+                <label for="dtNasc">DATA DE NASCIMENTO</label>
+                <input type="date" name="dtNasc" class="inp-date" id="inp_dt_nasc">
+            </div>
+            <button id="btn_entrar">CADASTRAR-SE</button>
+            <h6 id="login_link">Já tenho uma conta.</h6>
+         </div>
+    </section>
+</body>
+</html>
+<script src="js/nav.js"></script>
+<script src="js/styleLogin.js"></script>
