@@ -6,7 +6,6 @@
     <title>MinecraftBlockPlanner</title>
     <link rel="stylesheet" type="text/css" href="./css/site.css">
     <link rel="stylesheet" type="text/css" href="./css/fonts/fonts.css">
-    <link rel="stylesheet" type="text/css" href="./css/card.css">
 </head>
 <body>
     <header class="first-content">
@@ -34,7 +33,7 @@
         </div>
     </section>
     <section class="valores">
-        <div class="letters-valores">
+        <div class="letters-valores" >
             <span>V</span>
             <span>A</span>
             <span>L</span>
@@ -44,15 +43,18 @@
             <span>S</span>
         </div>
         <div class="card" id="card_paz">
-            <div class="letters-card">
+            <div class="letters-card" id="name_valuesP">
                 <span>P</span>
                 <span>A</span>
                 <span>Z</span>
             </div>
-            <img class="img-card-valores" src="./assets/frog.png" alt="">
+            <h6 id="text_card_paz" class="text-card">Alguns jogadores apreciam a paz que o jogo proporciona, permitindo que eles relaxem, desestressem e escapem da agitação da vida cotidiana.</h6>
+            <button id="btn_close_paz" class="btn-close">
+                X
+            </button>
         </div>
         <div class="card" id="card_criatividade">
-            <div class="letters-card">
+            <div class="letters-card" id="name_valuesC">
                 <span>C</span>
                 <span>R</span>
                 <span>I</span>
@@ -66,10 +68,13 @@
                 <span>D</span>
                 <span>E</span>
             </div>
-            <img class="img-card-valores" src="./assets/steve.png" alt="">
+            <h6 id="text_card_criatividade" class="text-card"> A capacidade de conceber, planejar e executar projetos criativos em Minecraft proporciona uma grande sensação de realização. Quando os jogadores veem suas criações tomando forma, eles experimentam um senso de orgulho e satisfação.</h6>
+            <button id="btn_close_criatividade" class="btn-close">
+                X
+            </button>
         </div>
         <div class="card" id="card_equilibrio">
-            <div class="letters-card">
+            <div class="letters-card" id="name_valuesEq">
                 <span>E</span>
                 <span>Q</span>
                 <span>U</span>
@@ -81,10 +86,13 @@
                 <span>I</span>    
                 <span>O</span>           
             </div>
-            <img class="img-card-valores" src="./assets/pig.png" alt="">
+            <h6 id="text_card_equilibrio" class="text-card">Para jogadores interessados na criatividade e construção, o equilíbrio envolve o acesso a ferramentas e materiais para criar, bem como desafios ou objetivos que possam dar propósito às construções.</h6>
+            <button id="btn_close_equilibrio" class="btn-close">
+                X
+            </button>
         </div>
         <div class="card" id="card_elegancia">
-            <div class="letters-card">
+            <div class="letters-card" id="name_valuesEl">
                 <span>E</span>
                 <span>L</span>
                 <span>E</span>
@@ -95,7 +103,10 @@
                 <span>I</span>
                 <span>A</span>
             </div>
-            <img class="img-card-valores" src="./assets/steve and alex 2.png" alt="">
+            <h6 id="text_card_elegancia" class="text-card">Muitos jogadores de Minecraft apreciam a elegância das construções que podem criar. A habilidade de planejar e construir estruturas impressionantes, como castelos, cidades, pontes e palácios, demonstra a criatividade e o senso estético do jogador.</h6>
+            <button id="btn_close_elegancia" class="btn-close">
+                X
+            </button>
         </div>
     </section>
     <section class="second-section" id="section_about">
@@ -191,7 +202,7 @@
                 <h6>clausilvaaraujo11@gmail.com</h6>
             </div>
             <div class="input-suport">
-                <input type="text">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
                 <img src="./assets/creeper face.png" alt="">
             </div>
         </div>

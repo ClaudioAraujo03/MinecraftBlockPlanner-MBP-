@@ -15,7 +15,7 @@ const linkhome = document.getElementById('link_home').addEventListener('click', 
 });
 
 const linkLogin = document.getElementById('link_login').addEventListener('click', () => {
-    window.location.href = 'loginSignup.html'
+    window.location.href = '/login'
 });
 
 window.addEventListener('scroll', () => {

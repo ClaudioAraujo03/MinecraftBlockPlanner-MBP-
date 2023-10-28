@@ -1,20 +1,36 @@
-const signup = document.getElementById('signup_link');
-const login = document.getElementById('login_link');
-const divLogin = document.getElementById('div_login');
-const divSignup = document.getElementById('div_signup')
-const imgContent = document.getElementById('img_content');
+const changeBtn = document.getElementById('change_btn');
 
-signup.addEventListener('click', () => {
-    divLogin.style.opacity = '0';
-    setTimeout(function oculta(){
-        divLogin.style.display = 'none';
-    }, 2000)
-    setTimeout(function exibe(){
-        divSignup.style.display = 'flex';
-        setTimeout(function mudaOpacity() {
-            divSignup.style.opacity = '1';
-        }, 1000)
-        imgContent.style.borderRadius = '2rem 0 0 2rem'
-        imgContent.src = 'assets/wallpaper2.png'
-    }, 2000)
-})
+const overlayer = document.getElementById('overlayer_div');
+const signIn = document.getElementById('sign_in');
+const signUp = document.getElementById('sign_up');
+const container = document.getElementById('container');
+
+var btnClick = 0
+
+changeBtn.addEventListener('click', () => {
+    if(btnClick == 0){
+        overlayer.classList.add('overlayer-2');
+        changeBtn.innerText = 'LOGIN';
+
+        container.style.backgroundColor = '#563C85'
+        container.style.border = '1px solid #563C85'
+        container.style.boxShadow = '#563C85 0 0 10px 0'
+
+        btnClick++;
+
+        signIn.style.opacity = '0';
+        signUp.style.opacity = '1';
+    } else{
+        overlayer.classList.remove('overlayer-2');
+        changeBtn.innerText = 'CADASTRE-SE';
+
+        container.style.backgroundColor = '#00BF63'
+        container.style.border = '1px solid #00BF63'
+        container.style.boxShadow = '#00BF63 0 0 10px 0'
+
+        btnClick = 0;
+
+        signIn.style.opacity = '1';
+        signUp.style.opacity = '0';
+    }
+});

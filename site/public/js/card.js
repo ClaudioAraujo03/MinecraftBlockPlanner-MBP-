@@ -2,129 +2,94 @@ var cardPaz = document.getElementById('card_paz');
 var cardCriatividade = document.getElementById('card_criatividade');
 var cardEquilibrio = document.getElementById('card_equilibrio');
 var cardElegancia = document.getElementById('card_elegancia');
-const IndexCardPaz = cardPaz.innerHTML;
-const IndexCardCriatividade = cardCriatividade.innerHTML;
-const IndexCardEquilibrio = cardEquilibrio.innerHTML;
-const IndexCardElegancia = cardElegancia.innerHTML;
 
-cardPaz.addEventListener('click', () => {
-    if (cardPaz.classList.contains('card')) {
-        cardPaz.classList.remove('card');
-        cardPaz.classList.add('growup');
-        cardPaz.style.backgroundColor = '#758749'
-        document.body.style.overflow = 'hidden';
-        cardPaz.innerHTML = `
-        <div class='letters-card'>
-            <span>P</span>
-            <span>A</span>
-            <span>Z</span>
-        </div>
-        `;
+var textPaz = document.getElementById('text_card_paz');
+var textCria = document.getElementById('text_card_criatividade');
+var textEq = document.getElementById('text_card_equilibrio');
+var textEl = document.getElementById('text_card_elegancia');
+
+var btnClosePaz = document.getElementById('btn_close_paz')
+var btnCloseCriatividade = document.getElementById('btn_close_criatividade')
+var btnCloseEquilibrio = document.getElementById('btn_close_equilibrio')
+var btnCloseElegancia = document.getElementById('btn_close_elegancia')
+
+var namePaz = document.getElementById('name_valuesP')
+var nameCriatividade = document.getElementById('name_valuesC')
+var nameEquilibrio = document.getElementById('name_valuesEq')
+var nameElegancia = document.getElementById('name_valuesEl')
+
+
+const imgPaz = cardPaz.style.backgroundImage
+const imgCria = cardCriatividade.style.backgroundImage
+const imgEq = cardEquilibrio.style.backgroundImage
+const imgEl = cardEquilibrio.style.backgroundImage
+
+var listCard = [cardPaz, cardCriatividade, cardElegancia, cardEquilibrio]
+var textCards = [textPaz, textCria, textEl, textEq]
+var listBtn = [btnClosePaz, btnCloseCriatividade, btnCloseElegancia, btnCloseEquilibrio]
+var listNames = [namePaz, nameCriatividade, nameElegancia, nameEquilibrio]
+var listImg = [imgPaz, imgCria, imgEl, imgEq]
+
+function abreCard(card){
+    
+    for(var i = 0; i < listCard.length; i++){
+        var texto = textCards[i];
+        var btn = listBtn[i];
+        var name = listNames[i];
+        var img = listImg[i];
+        
+        btn.style.zIndex = '4'
+
+        var cards = listCard[i];
+        var texto = textCards[i];
+
+        cards.style.width = '15%';
+        texto.classList.remove('text-card-show')
+        btn.classList.remove('btn-close-show')
+        name.style.width = '100%'
+
+        cards.style.backgroundImage = img
+
+
+        if(listCard[i] == card){
+            card.style.width = '60%';
+            texto.classList.add('text-card-show')
+            btn.classList.add('btn-close-show')
+            name.style.width = '20%'
+            card.style.backgroundImage = 'none'
+        } else{
+            var cardNoSelected = listCard[i];
+            cardNoSelected.style.width = '6%';
+            texto.classList.remove('text-card-show')
+            btn.classList.remove('btn-close-show')
+            name.style.width = '100%'
+            cards.style.backgroundImage = img
+        }
+        btn.addEventListener('click', () => {
+            for(let i = 0; i <= listCard.length; i++){
+                var cards = listCard[i];
+                var texto = textCards[i];
+                var btns = listBtn[i];
+                
+                cards.style.width = '15%';
+                texto.classList.remove('text-card-show')
+                btns.classList.remove('btn-close-show')
+                name.style.width = '100%'
+                cards.style.backgroundImage = img
+            }
+        })
     }
-    document.addEventListener('keydown', function(event) {
-        if(event.key === 'Escape'){
+}
 
-            cardPaz.classList.remove('growup');
-            cardPaz.classList.add('card');
-            document.body.style.overflow = 'auto';
-            cardPaz.innerHTML = IndexCardPaz;
-        }
-    })
-});
-
-cardCriatividade.addEventListener('click', () => {
-    if (cardCriatividade.classList.contains('card')) {
-        cardCriatividade.classList.remove('card');
-        cardCriatividade.classList.add('growup');
-        cardCriatividade.style.backgroundColor = '#D68B53'
-        document.body.style.overflow = 'hidden';
-        cardCriatividade.innerHTML = `
-        <div class='letters-card'>
-            <span>C</span>
-            <span>R</span>
-            <span>I</span>
-            <span>A</span>
-            <span>T</span>
-            <span>I</span>
-            <span>V</span>
-            <span>I</span>
-            <span>D</span>
-            <span>A</span>
-            <span>D</span>
-            <span>E</span>
-        </div>       
-        `;
-    } 
-    document.addEventListener('keydown', function(event) {
-        if(event.key === 'Escape'){
-
-            cardCriatividade.classList.remove('growup');
-            cardCriatividade.classList.add('card');
-            document.body.style.overflow = 'auto';
-            cardCriatividade.innerHTML = IndexCardCriatividade;
-        }
-    })
-});
-
-cardEquilibrio.addEventListener('click', () => {
-    if (cardEquilibrio.classList.contains('card')) {
-        cardEquilibrio.classList.remove('card');
-        cardEquilibrio.classList.add('growup');
-        cardEquilibrio.style.backgroundColor = '#8E9593'
-        document.body.style.overflow = 'hidden';
-        cardEquilibrio.innerHTML = `
-        <div class='letters-card'>
-            <span>E</span>
-            <span>Q</span>
-            <span>U</span>
-            <span>I</span>
-            <span>L</span>
-            <span>Í</span>
-            <span>B</span>
-            <span>R</span>
-            <span>I</span>    
-            <span>O</span>           
-        </div>        
-        `;
-    } 
-    document.addEventListener('keydown', function(event) {
-        if(event.key === 'Escape'){
-
-            cardEquilibrio.classList.remove('growup');
-            cardEquilibrio.classList.add('card');
-            document.body.style.overflow = 'auto';
-            cardEquilibrio.innerHTML = IndexCardEquilibrio;
-        }
-    })
-});
-
-cardElegancia.addEventListener('click', () => {
-    if (cardElegancia.classList.contains('card')) {
-        cardElegancia.classList.remove('card');
-        cardElegancia.classList.add('growup');
-        cardElegancia.style.backgroundColor = '#563C85'
-        document.body.style.overflow = 'hidden';
-        cardElegancia.innerHTML = `
-        <div class='letters-card'>
-            <span>E</span>
-            <span>L</span>
-            <span>E</span>
-            <span>G</span>
-            <span>Â</span>
-            <span>N</span>
-            <span>C</span>
-            <span>I</span>
-            <span>A</span>
-        </div>
-        `;
-    } 
-    document.addEventListener('keydown', function(event) {
-        if(event.key === 'Escape'){
-
-            cardElegancia.classList.remove('growup');
-            cardElegancia.classList.add('card');
-            document.body.style.overflow = 'auto';
-            cardElegancia.innerHTML = IndexCardElegancia;
-        }
-    })
-});
+namePaz.addEventListener('click', () => {
+    abreCard(cardPaz)
+})
+nameCriatividade.addEventListener('click', () => {
+    abreCard(cardCriatividade)
+})
+nameElegancia.addEventListener('click', () => {
+    abreCard(cardElegancia)
+})
+nameEquilibrio.addEventListener('click', () => {
+    abreCard(cardEquilibrio)
+})

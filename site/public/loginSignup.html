@@ -15,52 +15,52 @@
             <a href="loginSignup.html" style="z-index: 1;">LOGIN/CADASTRO</a>
         </nav>
     </header>
-    <section class="content">
-        <div class="login" id="div_login">
-            <div class="circles">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
+    <section class="container" id="container">
+        <div class="login" id="sign_in">
+            <div class="head-card">
+                <h2>
+                    LOGIN
+                </h2>
             </div>
-            <h3 class="title">Login</h3>
-            <label for="email">Email</label>
-            <input type="email" name="senha" id="inp_email">
-            <label for="senha">Senha</label>
-            <input type="password" name="senha" id="inp_senha">
-            <button id="btn_entrar">ENTRAR</button>
-            <h6 id="signup_link">Não tenho uma conta.</h6>
+            <form class="formulario" action="">
+                <img src="assets/creeper gif.gif" alt="">
+                <label for="email">EMAIL</label>
+                <input type="email" name="email" id="input_email">
+                <label for="">SENHA</label>
+                <input type="password" name="password" id="input_password">
+                <button class="btn-invite">ENTRAR</button>
+            </form>
         </div>
-        <img src="assets/wallpaper1.png" alt="#" class="img-content" id="img_content">
-        <div class="signup" id="div_signup">
-            <div class="circles">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
+        <div class="cadastro" id="sign_up">
+            <div class="head-card">
+                <h2>
+                    CADASTRO
+                </h2>
             </div>
-            <h3 class="title">CADASTRE-SE</h3>
-            <label for="email">Email</label>
-            <input type="email" name="senha" id="inp_signup_email">
-            <label for="senha">Senha</label>
-            <input type="password" name="senha" id="inp_signup_senha">
-            <div class="names">
-                <div class="nome-nick">
-                    <label for="nome">NOME</label>
-                    <input type="text" name="nome" id="inp_nome">
+            <form class="formulario" action="">
+                <img src="assets/steve gif.gif" alt="">
+                <label for="email">EMAIL</label>
+                <input type="email" name="email" id="input_email">
+                <label for="">SENHA</label>
+                <input type="password" name="password" id="input_password">
+                <div class="names-inputs">
+                    <div class="name-div">
+                        <label for="">NOME</label>
+                        <input type="text" name="nome" id="inp_nome">
+                    </div>
+                    <div class="nickname-div">
+                        <label for="">NICKNAME</label>
+                        <input type="text" name="nick" id="inp_name">
+                    </div>
                 </div>
-                <div class="nome-nick">
-                    <label for="nick">NICKNAME</label>
-                    <input type="text" name="nick" id="inp_nick">
-                </div>
-            </div>
-            <div class="dtNasc">
                 <label for="dtNasc">DATA DE NASCIMENTO</label>
-                <input type="date" name="dtNasc" class="inp-date" id="inp_dt_nasc">
-            </div>
-            <button id="btn_entrar">CADASTRAR-SE</button>
-            <h6 id="login_link">Já tenho uma conta.</h6>
-         </div>
+                <input type="date" name="" id="dtNasc" class="data-nascimento">
+                <button class="btn-invite">CRIAR CONTA</button>
+            </form>
+        </div>
+        <div class="overlayer" id="overlayer_div">
+            <button class="btn-change" id="change_btn">CADASTRE-SE</button>
+        </div>
     </section>
 </body>
 </html>

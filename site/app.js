@@ -1,14 +1,19 @@
-const express = require('express');
-const app = express();
+var express = require("express");
+var cors = require("cors");
+var path = require("path");
 
-app.use(express.static(__dirname + '/public'));
+var app = express();
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + "/public/index.html");
-});
+var indexRouter = require("./src/routes/index");
+var loginRouter = require("./src/routes/login");
 
-app.get('/login', function(req, res){
-    res.sendFile(__dirname + "/public/loginSignup.html");
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(cors());
+
+app.use("/", indexRouter);
+app.use("login", loginRouter);
 
 app.listen(3000);
