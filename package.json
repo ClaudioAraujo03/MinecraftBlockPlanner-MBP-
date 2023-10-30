@@ -4,7 +4,7 @@
   "description": "Análise e desenvolvimento de sistemas \r MinecraftBlockPlanner\r (MBP)\r Tecnologia da informação",
   "main": "app.js",
   "scripts": {
-    "start": "node ./site/app.js",
+    "dev": "nodemon ./site/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,6 +13,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mysql": "^2.18.1",
+    "mysql2": "^3.6.2",
     "path": "^0.12.7"
   },
   "devDependencies": {

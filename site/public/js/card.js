@@ -18,7 +18,6 @@ var nameCriatividade = document.getElementById('name_valuesC')
 var nameEquilibrio = document.getElementById('name_valuesEq')
 var nameElegancia = document.getElementById('name_valuesEl')
 
-
 const imgPaz = cardPaz.style.backgroundImage
 const imgCria = cardCriatividade.style.backgroundImage
 const imgEq = cardEquilibrio.style.backgroundImage
@@ -49,7 +48,6 @@ function abreCard(card){
         name.style.width = '100%'
 
         cards.style.backgroundImage = img
-
 
         if(listCard[i] == card){
             card.style.width = '60%';

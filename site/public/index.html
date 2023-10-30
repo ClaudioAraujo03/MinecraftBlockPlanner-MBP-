@@ -149,28 +149,32 @@
                 <div class="inputs-values">
                     <label for="">Escolha seu material principal:</label>
                     <div class="more-inputs">
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="name_block">
+                        <select name="" id="chose_block">
+                            <option value="Madeira">Madeira</option>
+                            <option value="Pedra">Pedra</option>
+                        </select>
                     </div>
                 </div>
                 <div class="inputs-values">
                     <label for="">Informe a altura das paredes:</label>
-                    <input type="text" name="" id="">
+                    <input type="text" name="" id="input_altura">
                 </div>
                 <div class="inputs-values">
                     <label for="">Informe a largura de suas paredes:</label>
-                    <input type="text" name="" id="">
+                    <input type="text" name="" id="input_largura">
                 </div>
                 <div class="inputs-values">
                     <label for="">Informe o comprimento:</label>
-                    <input type="text" name="" id="">
+                    <input type="text" name="" id="input_comprimento">
                 </div>
-                <button>CALCULAR</button>
+                <button id="btn_calc">CALCULAR</button>
                 <h5>
                     A simulação feita acima é apenas um sabor da nossa plataforma, 
                     faça seu cadastro gratuitamente e tenha acesso a todos os nossos recursos.
                 </h5>
             </div>
-            <div class="div-show-result"></div>
+            <div class="div-show-result" id="results"></div>
         </div>
     </section>
     <footer>
@@ -214,3 +218,4 @@
 </html>
 <script src="js/nav.js"></script>
 <script src="js/card.js"></script>
+<script src="js/calculadora.js"></script>

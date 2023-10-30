@@ -10,7 +10,7 @@
 <body>
     <header class="first-content">
         <nav class="nav-bar" id="navbar">
-            <a href="index.html">HOME</a>
+            <a href="/">HOME</a>
             <h4><span style="color: #758749;">M</span><span style="color: #563C85;">B</span><span style="color: #D68B53;">P</span></h4>
             <a href="loginSignup.html" style="z-index: 1;">LOGIN/CADASTRO</a>
         </nav>
@@ -22,14 +22,14 @@
                     LOGIN
                 </h2>
             </div>
-            <form class="formulario" action="">
+            <div class="formulario" action="">
                 <img src="assets/creeper gif.gif" alt="">
                 <label for="email">EMAIL</label>
                 <input type="email" name="email" id="input_email">
                 <label for="">SENHA</label>
                 <input type="password" name="password" id="input_password">
                 <button class="btn-invite">ENTRAR</button>
-            </form>
+            </div>
         </div>
         <div class="cadastro" id="sign_up">
             <div class="head-card">
@@ -37,26 +37,26 @@
                     CADASTRO
                 </h2>
             </div>
-            <form class="formulario" action="">
+            <div class="formulario" id="cadastroForm">
                 <img src="assets/steve gif.gif" alt="">
                 <label for="email">EMAIL</label>
-                <input type="email" name="email" id="input_email">
+                <input type="email" name="email" id="email_input">
                 <label for="">SENHA</label>
-                <input type="password" name="password" id="input_password">
+                <input type="password" name="password" id="senha_input">
                 <div class="names-inputs">
                     <div class="name-div">
                         <label for="">NOME</label>
-                        <input type="text" name="nome" id="inp_nome">
+                        <input type="text" name="nome" id="nome_input">
                     </div>
                     <div class="nickname-div">
                         <label for="">NICKNAME</label>
-                        <input type="text" name="nick" id="inp_name">
+                        <input type="text" name="nick" id="nick_input">
                     </div>
                 </div>
                 <label for="dtNasc">DATA DE NASCIMENTO</label>
-                <input type="date" name="" id="dtNasc" class="data-nascimento">
-                <button class="btn-invite">CRIAR CONTA</button>
-            </form>
+                <input type="date" name="" id="dtNasc_input" class="data-nascimento">
+                <button id="btn_cadastro" onclick="cadastrar()" class="btn-invite">CRIAR CONTA</button>
+            </div>
         </div>
         <div class="overlayer" id="overlayer_div">
             <button class="btn-change" id="change_btn">CADASTRE-SE</button>
@@ -66,3 +66,47 @@
 </html>
 <script src="js/nav.js"></script>
 <script src="js/styleLogin.js"></script>
+<script>
+    function cadastrar() {
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var nickVar = nick_input.value;
+    var dtNascVar = dtNasc_input.value
+
+    fetch("/login/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        nickServer: nickVar,
+        dtNascServer: dtNascVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
+
+          setTimeout(() => {
+            window.location = "loginSignup.html";
+          }, "2000");
+
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!, erro no HTML";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+</script>
