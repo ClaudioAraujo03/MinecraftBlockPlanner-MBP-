@@ -54,8 +54,11 @@
                     </div>
                 </div>
                 <label for="dtNasc">DATA DE NASCIMENTO</label>
-                <input type="date" name="" id="dtNasc_input" class="data-nascimento">
-                <button id="btn_cadastro" onclick="cadastrar()" class="btn-invite">CRIAR CONTA</button>
+                <div class="data-nascimento">
+                  <input type="date" name="" id="dtNasc_input" class="dtInput">
+                  <span id="valid_span"></span>
+                </div>
+                <button id="btn_cadastro" class="btn-invite">CRIAR CONTA</button>
             </div>
         </div>
         <div class="overlayer" id="overlayer_div">
@@ -67,45 +70,3 @@
 <script src="js/nav.js"></script>
 <script src="js/styleLogin.js"></script>
 <script src="js/loginCadastrar.js"></script>
-<script>
-    function cadastrar() {
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var nickVar = nick_input.value;
-    var dtNascVar = dtNasc_input.value
-
-    fetch("/login/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        nickServer: nickVar,
-        dtNascServer: dtNascVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
-
-          setTimeout(() => {
-            window.location = "loginSignup.html";
-          }, "2000");
-
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!, erro no HTML";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-
-    return false;
-  }
-</script>
