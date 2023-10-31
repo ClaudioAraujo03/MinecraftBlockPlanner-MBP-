@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+
 }
 body{
     width: 100%;
@@ -9,7 +10,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 .first-content{
     width: 100%;
@@ -23,12 +24,12 @@ body{
     left: 50%;
     transform: translate(-50%);
     width: 100%;
-    background-color: #EDEDED;
+    background-color: #ffffff;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-family: var(--font-sans2);
-    z-index: 4;
+    z-index: 110;
     transition: 0.5s;
     height: 7%;
 }
@@ -40,17 +41,21 @@ body{
     box-shadow: 0 0 20px 0 #6c6c6c;
     transition: all 0.5s ease-in-out;
 }
+.nav-bar a{
+    color: #000;
+    text-decoration: none;
+    font-size: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
 .sticky:hover{
     background-color:#d0d0d0;
 }
+.sticky a{
+    color: #fff;
+}
 nav h4{
     color: #563C85;
-}
-.nav-bar a{
-    text-decoration: none;
-    color: #000;
-    font-size: 10px;
-    cursor: pointer;
 }
 .banner{
     width: 88%;
@@ -64,7 +69,9 @@ nav h4{
     height: 100%;
     font-size: 88px;
     font-family: var(--font-first);
-    text-shadow: 0px 0px 8px #00000095;
+    text-shadow: 0px 2px 5px #00000095;
+    letter-spacing: 2px;
+    color: #000000;
 }
 .giant-text h1:nth-child(2){
     margin-left: 12%;
@@ -84,9 +91,9 @@ nav h4{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #E8E4E4;
+    background-color: #D68B53;
     border-radius: 100%;
-    box-shadow: 8px 5px 0px 5px #F2F3F5;
+    box-shadow: 8px 5px 0px 5px #563C85;
 }
 .circle-img img{
     width: 300px;
@@ -95,17 +102,21 @@ nav h4{
 .img-more-description h6{
     font-size: 12px;
     font-family: var(--font-fourth);
-    margin-top: 2%;
+    margin-top: 5%;
     width: 90%;
+    color: #000000;
 }
 .valores{
     width: 100%;
     height: 10%;
-    background-color: #000;
+    background-color: #000000;
     display: flex;
     justify-content: space-around;
     align-items: center;
     transition: all 0.2s ease-in-out;
+    box-shadow: 0px 15px 37px 0px rgba(0,0,0,0.44);
+    -webkit-box-shadow: 0px 15px 37px 0px rgba(0,0,0,0.44);
+    -moz-box-shadow: 0px 15px 37px 0px rgba(0,0,0,0.44);
 }
 .letters-valores{
     display: flex;
@@ -113,12 +124,14 @@ nav h4{
     align-items: center;
     flex-direction: column;
     text-align: center;
-    color: #fff;
+    color: #ffffff;
     font-family: var(--font-first);
     font-size: 29px;
+    text-shadow: 0 0 15px #000;
 }
 
 .card{
+    box-shadow: #000 0 0 8px 0;
     height: 85%;
     width: 15%;
     background-color: #758749;
@@ -172,18 +185,21 @@ nav h4{
     text-align: center;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 .second-section{
     width: 100%;
-    height: 30%;
+    height: 35%;
     margin-top: 10%;
     justify-content: space-around;
+    align-items: center;
     display: flex;
+    background-color: #fff;
 }
 .sobre-img{
     background-color: #D68B53;
     width: 25%;
-    height: 50%;
+    height: 55%;
     border-radius: 2rem;
     display: block;
     align-items: center;
@@ -192,12 +208,12 @@ nav h4{
 .img-sobre{
     background-repeat: no-repeat;
     background-size: cover;
-    width: 400px;
-    height: 400px;
+    width: 390px;
+    height: 390px;
     z-index: 2;
     background-image: url(../assets/steve\ alex\ pig.png);
     position: absolute;
-    bottom: -500px;
+    bottom: -580px;
 }
 .form-background{
     width: 100%;
@@ -212,7 +228,7 @@ nav h4{
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: -225px;
+    bottom: -305px;
     width: 600px;
     left: 120px;
 }
@@ -248,127 +264,154 @@ nav h4{
     font-size: 15px;
     font-weight: 400;
 }
-.div-text-sobre button{
+.third-section{
     width: 100%;
-    border-radius: 2rem;
-    height: 15%;
-    border: none;
-    font-size: 18px;
-    color: #fff;
-    background-color: #563C85;
-    cursor: pointer;
-}
-.calculated{
-    width: 100%;
-    height: 25%;
-     display: flex;
+    height: 45%;
+    display: flex;
     align-items: center;
     justify-content: space-around;
+    background-image: url("../assets/background\ 4k.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.minecraft-dowload{
-    width: 30%;
-    height: 90%;
+.left-inform{
+    width: 50%;
+    height: 100%;
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: var(--font-sans2);
+}
+.left-inform h1{
+    margin-left: 5%;
+    text-shadow: 0px 10px 10px #00000095;
+}
+.left-inform h1:nth-child(1){
+    color: #fff;
+    font-size: 120px;
+}
+.left-inform h1:nth-child(2){
+    color: #fff;
+    font-size: 130px;
+}
+.right-inform{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #563C85;
-    border-radius: 3rem;
-}
-.minecraft-dowload img{
-    width: 100%;
-}
-.minecraft-dowload button{
-    width: 90%;
-    height: 15%;
-    background-color: #758749;
-    border: none;
-    border-radius: 2.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.minecraft-dowload button img{
-    width: 60%;
-}
-.minecraft-dowload h5{
-    color: #fff;
-    font-family: var(--font-first);
-    font-size: 25px;
-    width: 90%;
-    font-weight: 400;
-    margin-top: 2%;
-    margin-bottom: 10%;
+    font-family: var(--font-sans2);
+    gap: 2%;
     text-align: justify;
 }
-.calculated-display{
-    width: 50%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center ;
-}
-.div-insert-values{
-    height: 100%;
-    background-color: #5858587d;
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 3rem 0 0 3rem;
-}
-.inputs-values{
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.inputs-values input{
-    width: 100%;
-}
-.inputs-values div{
-    width: 100%;
-}
-.inputs-values label{
-    width: 100%;
-    color: #fff;
-    font-family: var(--font-first);
-    text-align: left;
-}
-.inputs-values input{
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #563C85;
-    outline: none;
-    color: #fff;
-}
-.div-insert-values button{
-    width: 80%;
-    height: 10%;
-    background-color: #563C85;
-    color: #fff;
+.card1{
+    width: 90%;
+    height: 25%;
     border-radius: 2rem;
-    font-weight: bold;
-    font-size: 25px;
-    border: none;
-    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-image: url(../assets/background\ 4k\ 3.jpg);
+    background-size: cover;
+    box-shadow: 0 0 10px 0 #00000071;
 }
-.div-insert-values h5{
-    color: #fff;
-    font-family: var(--font-third);
-    font-weight: 300;
+.text-card-right{
+    box-shadow: 0 0 10px 0 #00000071;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2rem 0 0 2rem;
+}
+.text-card-right h1{
+    width: 90%;
+    font-size: 12px;
+    font-weight: 400;
+    height: 100%;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    
+}
+.group1{
+    width: 90%;
+    height: 25%;
+    gap: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.card2{
+    width: 90%;
+    border-radius: 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
     width: 80%;
 }
-.div-show-result{
-    width: 55%;
-    background-color: #563C85;
+.card2:nth-child(1){
+    background-image: url(../assets/background.jpg);
+    background-size: cover;
+}
+.card2:nth-child(2){
+    background-image: url(../assets/backgroun\ 5.jpg);
+    background-size: cover;
+}
+.card2 h1{
+    font-size: 12px;
+    font-weight: 500;
+    width: 70%;
+}
+.group2{
+    width: 90%;
+    height: 25%;
+    gap: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.card3{
+    width: 30%;
     height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 2rem;
+}
+.card3 .text-card-right{
+    width: 100%;
+    height: 40%;
+    border-radius: 0 0 2rem 2rem;
+}
+.card3:nth-child(1){
+    background-image: url(../assets/backgroun\ 6.jpg);
+    background-size: cover;
+}
+.card3:nth-child(2){
+    background-image: url(../assets/backgroun\ 7.jpg);
+    background-size: cover;
+}
+.card3:nth-child(3){
+    background-image: url(../assets/background\ 8.png);
+    background-size: cover;
+}
+.card3 h1{
+    width: 90%;
+    font-weight: 500;
+    font-size: 10px;
+    text-align: justify;
 }
 footer{
     width: 100%;
-    height: 17%;
+    height: 22%;
     background-color: #D68B53;
     display: flex;
     justify-content: center;

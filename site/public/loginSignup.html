@@ -10,8 +10,8 @@
 <body>
     <header class="first-content">
         <nav class="nav-bar" id="navbar">
+          <h4><span style="color: #758749;">M</span><span style="color: #563C85;">B</span><span style="color: #D68B53;">P</span></h4>
             <a href="/">HOME</a>
-            <h4><span style="color: #758749;">M</span><span style="color: #563C85;">B</span><span style="color: #D68B53;">P</span></h4>
             <a href="loginSignup.html" style="z-index: 1;">LOGIN/CADASTRO</a>
         </nav>
     </header>
@@ -46,7 +46,7 @@
                 <div class="names-inputs">
                     <div class="name-div">
                         <label for="">NOME</label>
-                        <input type="text" name="nome" id="nome_input">
+                        <input type="text" name="nome" id="nome_input" required="">
                     </div>
                     <div class="nickname-div">
                         <label for="">NICKNAME</label>
@@ -66,10 +66,9 @@
 </html>
 <script src="js/nav.js"></script>
 <script src="js/styleLogin.js"></script>
+<script src="js/loginCadastrar.js"></script>
 <script>
     function cadastrar() {
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
