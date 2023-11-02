@@ -8,15 +8,16 @@ Tecnologia da informação
 
 # Contexto do Negócio
 
-Minecraft é um jogo de aventura onde você pode usar sua criatividade para criar cidades, vilas do seu jeito, porém certos projetos demandam tempo e organização, pois precisam ser planejados, obtendo recursos e alinhando seu tempo com isso, más por falta desse planejamento os jogadores desistem de seus projetos pela sua complexidade e demanda de tempo, e isso acaba reduzindo as vezes o número de jogadores no minecraft.
-Portanto a ausência de uma plataforma para os jogadores organizarem seus projetos acarreta na perda de jogadores e de projetos e construções incríveis.
+Minecraft é um jogo de aventura onde você pode usar sua criatividade para criar cidades, vilas do seu jeito, porém certos projetos demandam tempo e organização, pois precisam ser planejados, obtendo recursos e alinhando seu tempo com isso, más por falta desse planejamento os jogadores desistem de seus projetos pela sua complexidade e demanda de tempo.
+A criação de uma plataforma, para gerenciar o tempo e recurso e essencial para a organização dos jogadores dentro do game.
+Para fazer isso usei como fonte de pesquisa a MinecraftWiki que me fornece informações precisas de cada bloco no jogo.
 
 # Objetivo
-Reduzir os jogadores que desistem de seus projetos no jogo e consequentemente acabam muitas vezes ficando desanimados e deixando de jogar.
+Criar uma plataforma que ajude jogadores a organizarem seus projetos e seu tempo nele.
 
 # Justificativa
 
-Minecraft é um grande jogo, que fez sucesso entre as crianças jovens e adultos por poderem exercitar sua criatividade, e no decorrer dos anos tem perdido alguns jogadores, pois não conseguem  concluir seus projetos e desta forma podem desmotivar possíveis novos jogadores.
+Escolhi este tema pois o Minecraft é um jogo que fez parte da minha infância e meu primeiro contato  e aproximação de computadores foi por causa dele, então esse jogo tem um valor sentimental gigante para mim, porque nele eu vejo possibilidades infinitas de usar minha criatividade para criar cidades e desenvolver sistemas, ainda mais por ser um jogo em mundo aberto, meu projeto tem relação com um dos princípios da ONU que é o princípio de número 12 de produção e consumo sustentável pois ajuda os jogadores a gerirem seus recursos melhores e não os desperdice e não percam tempo também.
 
 # Escopo
 
@@ -37,16 +38,6 @@ Minecraft é um grande jogo, que fez sucesso entre as crianças jovens e adultos
 •	Tela de criação do projeto, o usuário cria seu projeto informando o nome, descrição, e adicionando áreas para a construção onde dependendo se a área for quadrada ou redonda os valores informados serão diferentes, onde na quadrada o usuário informa o número de paredes, com a largura e altura de cada uma e o material específico que será usado em sua construção, na circular ele informa a altura, a fração do círculo, o material e o raio dele.
 •	Tela de observação do projeto, onde o usuário tem acesso a um gráfico sobre o tempo para a obtenção de cada recurso, aquecimento de cada, a quantidade de cada um deles e ele pode alterar para deixar o projeto público ou privado, assim como alterar o nome e descrição do projeto, salvar as alterações ou excluir o projeto.
 •	 O feed, o usuário tem acesso a outros projetos de outras pessoas, projetos públicos, onde ele pode marcar como gostei os projetos das outras pessoas e pesquisar pelo nome do projeto ou nick da pessoa também.
-
-# Premissas e Restrições
-
-## Premissas:
-•	O usuário deve ter acesso a internet.
-•	Deve possuir um computador ou celular para acessar o site.
-•	O jogo minecraft.
-
-## Restrições:
-•	É necessário que o usuário informe as medidas de seu projeto.
 
 ## Fontes de Pesquisa
 Minecraft wiki: https://minecraft.wiki
