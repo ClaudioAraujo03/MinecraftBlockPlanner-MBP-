@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração de usuário</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/createProject.css">
+    <link rel="stylesheet" href="../css/fonts/fonts.css">
+    <script src="https://kit.fontawesome.com/265fd07209.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="side-bar">
+        <div class="banner-user">
+            <img src="../assets/creeper face.png" class="logo" alt="">
+            <img src="../assets/pig.png" class="pig-logo" alt="">
+            <h6 class="nick-user">nick</h6>
+            <h6 class="email-user">user@email.com</h6>
+        </div>
+        <div class="navigation">
+            <ul class="itens">
+                <li><i class="fa-solid fa-list" ></i><h6>FEED</h6></li>
+                <li><i class="fa-solid fa-newspaper" ></i><h6>Meus Projetos</h6></li>
+                <li><i class="fa-regular fa-square-plus" ></i><h6>Criar Projeto</h6></li>
+            </ul>
+        </div>
+        <div class="low-nav">
+            <ul class="low-itens">
+                <li><i class="fa-solid fa-door-open" ></i><h6>Sair</h6></li>
+                <li><i class="fa-solid fa-gears" ></i><h6>Configurações</h6></li>
+            </ul>
+        </div>
+    </div>
+    <section class="content">
+        <h1 class="title-page">CRIAR PROJETO</h1>
+        <div class="create-project">
+            <div class="left-project">
+                <label for="nomeProjeto">Nome do projeto</label>
+                <input class="name-project" type="text" name="nomeProjeto" id="" placeholder="Insira o nome do seu projeto">
+                <div class="project-info">
+                    <details class="info" id="info_project">
+                        <summary class="area-title"><span>Áreas</span></summary>
+                        <button class="btn-add-area">Adicionar área</button>
+                        <details class="dtl-area">
+                           <summary class="area-title">Área x</summary> 
+                           <div class="area-display">
+                                <span>Circular <input type="checkbox" name="" id=""></span>
+                                <span>Paralelogramo <input type="checkbox" name="" id=""></span>
+                           </div>
+                           <div class="area-largura">
+                                <span>Largura:</span>
+                                <input class="input-num" type="number" name="" id="">
+                           </div>
+                           <div class="area-comprimento">
+                                <span>Comprimento:</span>
+                                <input class="input-num" type="number" name="" id="">
+                           </div>
+                           <div class="area-altura">
+                                <span>Altura:</span>
+                                <input class="input-num" type="number" name="" id="">
+                           </div>
+                           <div class="area-material">
+                                <span>Material:</span>
+                                <input class="input-material" type="text" placeholder="Material">
+                                <i class="fa-solid fa-cube"></i>
+                            </div>          
+                        </details>
+                        <details class="dtl-area">
+                            <summary class="area-title">Área x</summary> 
+                            <div class="area-display">
+                                 <span>Circular <input type="checkbox" name="" id=""></span>
+                                 <span>Paralelogramo <input type="checkbox" name="" id=""></span>
+                            </div>
+                            <div class="area-largura">
+                                 <span>Raio:</span>
+                                 <input class="input-num" type="number" name="" id="">
+                            </div>
+                            <div class="area-altura">
+                                 <span>Altura:</span>
+                                 <input class="input-num" type="number" name="" id="">
+                            </div>
+                            <div class="area-material">
+                                 <span>Material:</span>
+                                 <input class="input-material" type="text" placeholder="Material">
+                                 <i class="fa-solid fa-cube"></i>
+                             </div>          
+                         </details>
+                    </details>
+                </div>
+            </div>
+            <div class="center-project">
+                <label for="">Descrição do projeto</label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <div class="btn-proj">
+                    <button class="save-btn">SALVAR <br> PROJETO</button>
+                    <button class="del-btn">DELETAR</button>
+                </div>
+            </div>
+            <div class="right-project">
+                <label class="title-priv" for="">Projeto público:</label>
+                <div class="privacity">
+                    <div class="public">
+                        <span for="">SIM</span>
+                        <input type="checkbox" name="" id="">
+                    </div>
+                    <div class="public">
+                        <span for="">NÃO</span>
+                        <input type="checkbox" name="" id="">
+                    </div>
+                </div>
+                <img src="../assets/scary guy.png" alt="" class="person">
+            </div>
+        </div>
+    </section>
+</body>
+</html>
