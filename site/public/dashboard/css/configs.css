@@ -107,10 +107,36 @@ input{
     transition: all 0.5s ease-in-out;
     box-shadow: #8E9593 0 0 8px 0, #00000070 0 0 10px 0;
 }
-input:focus{
-    box-shadow: #1295c9 0 0 8px 0, #00000070 0 0 10px 0;
-    background-color: #d1eaf5;
-    color: #fff;
+.input-more{
+    background-color: #EDEDED;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    width: 80%;
+    margin-bottom: 15%;
+    height: 8%;
+    font-size: 18px;
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    box-shadow: #8E9593 0 0 8px 0, #00000070 0 0 10px 0;
+    align-items: center;
+    justify-content: center;
+}
+.input-more input{
+    background-color: #00000000;
+    outline: none;
+    height: 100%;
+    width: 75%;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+}
+.input-more i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
 }
 .inputs-right{
     width: 50%;
@@ -122,33 +148,9 @@ input:focus{
 }
 .horse{
     height: 50%;
-    margin-bottom: 8%;
+    margin-bottom: 5%;
 }
-.btn-limp{
-    width: 80%;
-    height: 8%;
-    margin-bottom: 20%;
-    border: none;
-    background-color: #FF5757;
-    border-radius: 2rem;
-    color: #fff;
-    font-family: var(--font-third);
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    gap: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.btn-limp:hover{
-    height: 9%;
-    width: 85%;
-    background-color: #fff;
-    color: #FF5757;
-    border: #FF5757 2px solid;
-    border-radius: 2px;
-    font-size: 18px;
-}
+
 .btn-save{
     width: 80%;
     height: 8%;
@@ -157,13 +159,13 @@ input:focus{
     border-radius: 2rem;
     color: #fff;
     font-family: var(--font-third);
-    margin-bottom: 10%;
     cursor: pointer;
     transition: 0.5s all ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5%;
+    margin-top: 30%;
 }
 .btn-save:hover{
     height: 9%;

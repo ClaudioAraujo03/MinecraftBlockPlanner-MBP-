@@ -77,7 +77,7 @@ const btnCadastrar = document.getElementById('btn_cadastro').addEventListener('c
               alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
     
               setTimeout(() => {
-                window.location = "loginSignup.html";
+                window.location = "/login";
               }, "2000");
     
             } else {

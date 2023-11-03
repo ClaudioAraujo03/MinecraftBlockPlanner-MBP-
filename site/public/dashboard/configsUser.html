@@ -14,8 +14,8 @@
         <div class="banner-user">
             <img src="../assets/creeper face.png" class="logo" alt="">
             <img src="../assets/pig.png" class="pig-logo" alt="">
-            <h6 class="nick-user">nick</h6>
-            <h6 class="email-user">user@email.com</h6>
+            <h6 class="nick-user" id="nick_user">nick</h6>
+            <h6 class="email-user" id="email_user">user@email.com</h6>
         </div>
         <div class="navigation">
             <ul class="itens">
@@ -26,7 +26,7 @@
         </div>
         <div class="low-nav">
             <ul class="low-itens">
-                <li><i class="fa-solid fa-door-open" ></i><h6>Sair</h6></li>
+                <li><i class="fa-solid fa-door-open" id="exit_icon"></i><h6>Sair</h6></li>
                 <li><i class="fa-solid fa-gears" ></i><h6>Configurações</h6></li>
             </ul>
         </div>
@@ -34,7 +34,7 @@
     <section class="content">
         <div class="left-side">
             <img src="../assets/creeper face.png" class="logo-user" alt="">
-            <h6>Conta criada em xx/xx/xxxx</h6>
+            <h6 id="dt_cia">Conta criada em xx/xx/xxxx</h6>
             <button class="del-conta" id="del_conta">DELETAR CONTA<i class="fa-solid fa-face-sad-tear"></i></button>
             <img src="../assets/alex.png" class="alex" alt="">
         </div>
@@ -43,21 +43,33 @@
             <div class="inputs-configs">
                 <div class="inputs-left">
                     <label for="">Seu nome</label>
-                    <input type="text">
+                    <div class="input-more">
+                        <input type="text" id="input_name" disabled>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
                     <label for="">NickName</label>
-                    <input type="text">
+                    <div class="input-more">
+                        <input type="text" id="input_nick">
+                        <i class="fa-solid fa-pen"></i>                    </div>
                     <label for="">Email</label>
-                    <input type="text">
+                    <div class="input-more">
+                        <input type="text" id="input_email" disabled>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
                     <label for="">Senha</label>
-                    <input type="password">
+                    <div class="input-more">
+                        <input type="password" id="input_senha">
+                        <i style="cursor: pointer;" class="fa-solid fa-eye" id="show_password"></i>
+                    </div>
                 </div>
                 <div class="inputs-right">
                     <img src="../assets/steve rand horse.png" class="horse" alt="">
-                    <button class="btn-limp">LIMPAR <i class="fa-solid fa-trash"></i></button>
-                    <button class="btn-save">SALVAR <i class="fa-regular fa-floppy-disk"></i></button>
+                    <button  id="btn_save" class="btn-save">SALVAR <i class="fa-regular fa-floppy-disk"></i></button>
                 </div>
             </div>
         </div>
     </section>
 </body>
 </html>
+<script src="js/configsUser.js"></script>
+<script src="js/navSideBar.js"></script>

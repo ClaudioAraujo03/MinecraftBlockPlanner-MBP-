@@ -32,9 +32,11 @@ btnLogin.addEventListener('click', () => {
                     sessionStorage.NOME_USER = json.nome
                     sessionStorage.ID_USER = json.id
                     sessionStorage.SENHA_USER = json.senha
+                    sessionStorage.NICK_USER = json.nick
+                    sessionStorage.DT_USER = json.dtCriacao
 
                     setTimeout(function(){
-                        window.location = '/'
+                        window.location = '/dashboard/configuracao'
                     }, 1000)
                 })
             } else{
@@ -43,7 +45,6 @@ btnLogin.addEventListener('click', () => {
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
                 });
             }
         }).catch(function(erro){
