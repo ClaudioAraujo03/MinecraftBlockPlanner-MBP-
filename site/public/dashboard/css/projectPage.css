@@ -1,0 +1,204 @@
+section{
+    display: flex;
+    flex-direction: column;
+}
+.title-page{
+    width: 90%;
+    text-align: left;
+    font-size: 50px;
+    font-family: var(--font-secundary);
+    font-weight: 700;
+    text-shadow: 0px 2px 5px #00000095;
+}
+.div-projetos{
+    width: 90%;
+    height: 88%;
+    display: flex;
+    align-items: center;
+    border-radius: 1.5rem;
+    background-color: #EDEDED;
+    box-shadow: #EDEDED 0 0 10px 0, #000 0 0 8px 0;
+    flex-direction: column;
+}
+.top-info-project{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.description{
+    width: 20%;
+    max-height: 85%;
+    height: 90%;
+    overflow: auto;
+    border-radius: 1rem;
+    background-color: #E8E4E4;
+    box-shadow: #E8E4E4 0 0 10px 0, #000 0 0 8px 0;
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-sans2);
+    font-weight: 400;
+}
+.text-description{
+    width: 90%;
+    text-align: justify;
+    font-size: 10px;
+    font-family: var(--font-secundary);
+    max-height: 85%;
+    overflow: auto;
+}
+.title-desc{
+    width: 90%;
+    margin-bottom: 2%;
+}
+.resume-project{
+    width: 70%;
+    height: 90%;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    border-radius: 1rem;
+    background-color: #E8E4E4;
+    box-shadow: #E8E4E4 0 0 10px 0, #000 0 0 8px 0;
+    font-family: var(--font-sans2);
+}
+.bottom-info-project{
+    width: 100%;
+    height: 52%;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+.chart-info{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background-color: #E8E4E4;
+    box-shadow: #E8E4E4 0 0 10px 0, #000 0 0 8px 0;
+    font-family: var(--font-sans2);
+}
+.alter-configs{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans2);
+}
+.privacidade-div{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+.confg{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.priv{
+    width: 90%;
+    margin-top: 10%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.steve{
+    width: 150px;
+}
+.btn-configs{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+.btn-save{
+    width: 100%;
+    height: 40%;
+    margin-bottom: 5%;
+    border: none;
+    background-color: #0277B5;
+    color: #fff;
+    border-radius: 1rem;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.btn-save span{
+    width: 10%;
+    background-color: transparent;
+    height: 100%;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    color: #fff;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    border-radius: 20px;
+}
+.btn-save:hover{
+    border-radius: 20px;
+}
+.btn-save:hover span{
+    width: 100%;
+    background-color: #EDEDED;
+    height: 100%;
+    color: #0277B5;
+    font-weight: 700;
+    border: 3px solid #0277B5;
+    font-size: 18px;
+}
+.btn-del{
+    width: 100%;
+    height: 40%;
+    border: none;
+    background-color: #D68B53;
+    color: #fff;
+    border-radius: 1rem;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+}
+.btn-del span{
+    width: 50%;
+    background-color: transparent;
+    height: 100%;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    color: #fff;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    border-radius: 20px;
+}
+.btn-del:hover{
+    border-radius: 20px;
+}
+.btn-del:hover span{
+    width: 100%;
+    background-color: #EDEDED;
+    height: 100%;
+    color: #D68B53;
+    font-weight: 700;
+    border: 3px solid #D68B53;
+    font-size: 18px;
+}
