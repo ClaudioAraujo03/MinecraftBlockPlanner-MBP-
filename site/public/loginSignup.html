@@ -6,6 +6,7 @@
     <title>Entrar</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" type="text/css" href="css/fonts/fonts.css">
+    <script src="https://kit.fontawesome.com/265fd07209.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="first-content">
@@ -41,8 +42,6 @@
                 <img src="assets/steve gif.gif" alt="">
                 <label for="email">EMAIL</label>
                 <input type="email" name="email" id="email_input">
-                <label for="">SENHA</label>
-                <input type="password" name="password" id="senha_input">
                 <div class="names-inputs">
                     <div class="name-div">
                         <label for="">NOME</label>
@@ -55,9 +54,15 @@
                 </div>
                 <label for="dtNasc">DATA DE NASCIMENTO</label>
                 <div class="data-nascimento">
-                  <input type="date" name="" id="dtNasc_input" class="dtInput">
-                  <span id="valid_span"></span>
+                    <input type="date" name="" id="dtNasc_input" class="dtInput">
+                    <span id="valid_span"></span>
                 </div>
+                <label for="">SENHA</label>
+                <input type="password" name="password" id="senha_input">
+                <h6 class="verificacao" id="ver_num">Pelo menos um caractere numérico <i class="fa-solid fa-xmark" id="icon_num"></i></h6>
+                <h6 class="verificacao" id="ver_mai">Pelo menos um caractere alfabético maiúsculo <i class="fa-solid fa-xmark" id="icon_mai"></i></h6>
+                <h6 class="verificacao" id="ver_min">Pelo menos um caractere alfabético minúsculo <i class="fa-solid fa-xmark" id="icon_min"></i></h6>
+                <h6 class="verificacao" id="ver_len">No mínimo 8 caracteres <i class="fa-solid fa-xmark" id="icon_len"></i></h6>
                 <button id="btn_cadastro" class="btn-invite">CRIAR CONTA</button>
             </div>
         </div>

@@ -330,6 +330,14 @@ nav h4{
     border-radius: 1rem 0 0 1rem;
     transition: all 0.5s ease-in-out;
 }
+.card1:hover .text-card-right{
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.1px);
+    -webkit-backdrop-filter: blur(4.1px);
+    width: 100%;
+}
 .text-card-right h1{
     width: 90%;
     font-size: 12px;
@@ -367,8 +375,17 @@ nav h4{
     -webkit-backdrop-filter: blur(4.1px);
     width: 100%;
 }
+.card1:hover .text-card-right h1{
+    color: #fff;
+    text-shadow: 0px 2px 5px #00000095;
+}
 .card2:hover .text-card-right h1{
     color: #fff;
+    text-shadow: 0px 2px 5px #00000095;
+}
+.card3:hover .text-card-right h1{
+    color: #fff;
+    text-shadow: 0px 2px 5px #00000095;
 }
 .card2:nth-child(1){
     background-image: url(../assets/background.jpg);
@@ -404,6 +421,16 @@ nav h4{
     height: 40%;
     border-radius: 0 0 1rem 1rem;
 }
+.card3:hover .text-card-right{
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.1px);
+    -webkit-backdrop-filter: blur(4.1px);
+    height: 100%;
+    color: #fff;
+}
+
 .card3:nth-child(1){
     background-image: url(../assets/backgroun\ 6.jpg);
     background-size: cover;
@@ -510,10 +537,6 @@ footer{
 .img-footer img{
     width: 100%;
     transition: all 2s ease-in-out;
-}
-.img-footer:hover{
-    width: 103%;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
 }
 .text-card{
     font-size: 18px;

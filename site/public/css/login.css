@@ -123,7 +123,7 @@ nav h4{
 }
 .formulario label{
     color: #fff;
-    font-size: 20px;
+    font-size: 15px;
     font-family: var(--font-sans2);
     width: 90%;
     font-weight: 300;
@@ -132,12 +132,12 @@ nav h4{
 }
 .formulario input{
     width: 90%;
-    font-size: 20px;
+    font-size: 17px;
     border: none;
     outline: none;
     background-color: transparent;
     border-bottom: 2px #ffffff solid;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
     color: #fff;
 }
 .formulario button{
@@ -152,6 +152,7 @@ nav h4{
     cursor: pointer;
     transition: all ease-in-out 0.3s;
     box-shadow: #0277B5 0 0 5px 0;
+    margin-top: 5%;
 }
 .formulario button:hover{
     width: 90%;
@@ -208,11 +209,22 @@ nav h4{
     font-weight: 300;
 }
 .formulario img{
-    width: 10%;
+    width: 8%;
     margin-top: 5%;
     margin-bottom: 5%;
     background-color: #fff;
     padding: 10px;
     border-radius: 100%;
     box-shadow: #afafaf 0 0 10px 0;
+}
+.verificacao{
+    font-size: 8px;
+    color: rgb(255, 000, 000);
+    font-family: var(--font-sans2);
+    font-weight: 400;
+    width: 90%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 2%;
 }

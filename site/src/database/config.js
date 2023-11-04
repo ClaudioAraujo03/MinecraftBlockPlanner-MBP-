@@ -1,15 +1,16 @@
 var mysql = require('mysql2');
 
-var conexao = mysql.createConnection({
+var mySqlConfig = {
     host: "localhost",
     database: "mbp",
     user: "root",
     password: "54157592808",
-})
+}
 
 function executar(instrucao) {
     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         return new Promise(function (resolve, reject) {
+            var conexao = mysql.createConnection(mySqlConfig)
             conexao.connect();
             conexao.query(instrucao, function (erro, resultados) {
                 conexao.end();
