@@ -69,17 +69,29 @@ section{
     font-size: 16px;
     font-weight: 700;
 }
+.title-form-area{
+    width: 80%;
+    text-align: left;
+    margin-bottom: 10px;
+}
 .area-display{
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-left: 2.5%;
 }
-.area-display span{
+.area-display span:nth-child(1){
     width: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
+    gap: 2%;
+}
+.area-display span:nth-child(2){
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
     gap: 2%;
 }
 .area-largura, .area-comprimento, .area-altura, .area-material{
@@ -108,6 +120,15 @@ section{
     justify-content: center;border-radius: 1rem;
     margin-top: 5%;
     padding: 5px;
+}
+.input-name-area{
+    border: none;
+    width: 95%;
+    background-color: transparent;
+    border-bottom: 2px solid #000;
+    outline: none;
+    margin-left: 2.5%;
+    margin-bottom: 5px;
 }
 .input-material{
     width: 50%;
@@ -148,7 +169,7 @@ label{
     border: none;
     outline: none;
     border-radius: 2rem;
-    width: 70%;
+    width: 90%;
     margin-bottom: 15%;
     height: 6%;
     font-size: 15px;
@@ -178,6 +199,14 @@ textarea{
     background-color: #EDEDED;
     box-shadow: #8E9593 0 0 8px 0, #00000070 0 0 10px 0;
     outline: none;
+}
+.max-num{
+    width: 90%;
+    text-align: right;
+    font-size: 10px;
+    font-family: var(--font-third);
+    color: #00BF63;
+    font-weight: bolder;
 }
 .btn-proj{
     margin-top: 5%;
@@ -258,4 +287,30 @@ textarea{
 }
 .person{
     height: 60%;
+}
+.del-area{
+    width: 70%;
+    height: 35px;
+    border-radius: 2.5rem;
+    background-color: #8f440b;
+    border: none;
+    color: #EDEDED;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 15%;
+    box-shadow: 0 0 8px 0 #000;
+    font-weight: 500;
+}
+.del-area:hover{
+    width: 70%;
+    height: 35px;
+    border-radius: 2.5rem;
+    background-color: #EDEDED;
+    border: 2px solid #8f440b;
+    color: #8f440b;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    
 }

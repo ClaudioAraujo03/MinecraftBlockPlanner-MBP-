@@ -16,7 +16,8 @@ app.use(cors());
 
 var indexRoutes = require("./src/routes/index");
 var loginRoutes = require("./src/routes/login");
-var dashboardRoutes = require("./src/routes/configsUser");
+var dashboardRoutesConfigs = require("./src/routes/configsUser");
+var dashboardRoutesCreateProject = require("./src/routes/createProject");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -24,7 +25,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRoutes);
 app.use("/login", loginRoutes);
-app.use("/dashboard", dashboardRoutes);
+app.use("/dashboard", dashboardRoutesConfigs);
+app.use("/dashboard", dashboardRoutesCreateProject);
 
 app.listen(PORTA, () => {
     console.log(`Servidor rodando em : http://localhost:${PORTA}`);

@@ -1,5 +1,3 @@
-var nickUser = document.getElementById('nick_user');
-var emailUser = document.getElementById('email_user')
 var dtCriacaoSession = document.getElementById('dt_cia')
 
 var dtCriacao = new Date(sessionStorage.DT_USER)
@@ -7,8 +5,6 @@ var dia = dtCriacao.getDate()
 var mes = dtCriacao.getMonth() + 1
 var ano = dtCriacao.getFullYear()
 
-nickUser.innerHTML = sessionStorage.NICK_USER;
-emailUser.innerHTML = sessionStorage.EMAIL_USER 
 dtCriacaoSession.innerHTML = `Conta criada em ${dia}/${mes}/${ano}`
 
 var inputName = document.getElementById('input_name')

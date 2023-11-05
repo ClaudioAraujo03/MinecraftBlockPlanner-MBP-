@@ -14,20 +14,20 @@
         <div class="banner-user">
             <img src="../assets/creeper face.png" class="logo" alt="">
             <img src="../assets/pig.png" class="pig-logo" alt="">
-            <h6 class="nick-user">nick</h6>
-            <h6 class="email-user">user@email.com</h6>
+            <h6 class="nick-user" id="nick_user">nick</h6>
+            <h6 class="email-user" id="email_user">user@email.com</h6>
         </div>
         <div class="navigation">
             <ul class="itens">
-                <li><i class="fa-solid fa-list" ></i><h6>FEED</h6></li>
-                <li><i class="fa-solid fa-newspaper" ></i><h6>Meus Projetos</h6></li>
-                <li><i class="fa-regular fa-square-plus" ></i><h6>Criar Projeto</h6></li>
+                <li><i class="fa-solid fa-list" id="feed_area"></i><h6>FEED</h6></li>
+                <li><i class="fa-solid fa-newspaper" id="my_project_area"></i><h6>Meus Projetos</h6></li>
+                <li><i class="fa-regular fa-square-plus" id="crate_project_area"></i><h6>Criar Projeto</h6></li>
             </ul>
         </div>
         <div class="low-nav">
             <ul class="low-itens">
-                <li><i class="fa-solid fa-door-open" ></i><h6>Sair</h6></li>
-                <li><i class="fa-solid fa-gears" ></i><h6>Configurações</h6></li>
+                <li><i class="fa-solid fa-door-open" id="exit_icon"></i><h6>Sair</h6></li>
+                <li><i class="fa-solid fa-gears" id="configs_area"></i><h6>Configurações</h6></li>
             </ul>
         </div>
     </div>
@@ -40,57 +40,19 @@
                 <div class="project-info">
                     <details class="info" id="info_project">
                         <summary class="area-title"><span>Áreas</span></summary>
-                        <button class="btn-add-area">Adicionar área</button>
-                        <details class="dtl-area">
-                           <summary class="area-title">Área x</summary> 
-                           <div class="area-display">
-                                <span>Circular <input type="checkbox" name="" id=""></span>
-                                <span>Paralelogramo <input type="checkbox" name="" id=""></span>
-                           </div>
-                           <div class="area-largura">
-                                <span>Largura:</span>
-                                <input class="input-num" type="number" name="" id="">
-                           </div>
-                           <div class="area-comprimento">
-                                <span>Comprimento:</span>
-                                <input class="input-num" type="number" name="" id="">
-                           </div>
-                           <div class="area-altura">
-                                <span>Altura:</span>
-                                <input class="input-num" type="number" name="" id="">
-                           </div>
-                           <div class="area-material">
-                                <span>Material:</span>
-                                <input class="input-material" type="text" placeholder="Material">
-                                <i class="fa-solid fa-cube"></i>
-                            </div>          
-                        </details>
-                        <details class="dtl-area">
-                            <summary class="area-title">Área x</summary> 
-                            <div class="area-display">
-                                 <span>Circular <input type="checkbox" name="" id=""></span>
-                                 <span>Paralelogramo <input type="checkbox" name="" id=""></span>
-                            </div>
-                            <div class="area-largura">
-                                 <span>Raio:</span>
-                                 <input class="input-num" type="number" name="" id="">
-                            </div>
-                            <div class="area-altura">
-                                 <span>Altura:</span>
-                                 <input class="input-num" type="number" name="" id="">
-                            </div>
-                            <div class="area-material">
-                                 <span>Material:</span>
-                                 <input class="input-material" type="text" placeholder="Material">
-                                 <i class="fa-solid fa-cube"></i>
-                             </div>          
-                         </details>
+                        <span class="title-form-area">Formato da área:</span>
+                        <div class="area-display">
+                            <span>Circular <input type="checkbox" name="" id="check_cir"></span>
+                            <span>Paralelogramo <input type="checkbox" checked name="" id="check_par"></span>
+                        </div>
+                        <button id="btn_add_area" class="btn-add-area">Adicionar área</button>
                     </details>
                 </div>
             </div>
             <div class="center-project">
                 <label for="">Descrição do projeto</label>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea name="" id="text_desc" cols="30" rows="10"></textarea>
+                <span class="max-num" id="count">/2000</span>
                 <div class="btn-proj">
                     <button class="save-btn">SALVAR <br> PROJETO</button>
                     <button class="del-btn">DELETAR</button>
@@ -114,3 +76,6 @@
     </section>
 </body>
 </html>
+<script src="js/navSideBar.js"></script>
+<script src="js/createProject.js"></script>
+<script src="js/loadSideBarValues.js"></script>
