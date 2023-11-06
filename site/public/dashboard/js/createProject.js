@@ -6,9 +6,6 @@ var btnCreateProj = document.getElementById('btn_add_area');
 
 var checkCir = document.getElementById('check_cir');
 var checkPar = document.getElementById('check_par');
-
-var textAreaCount = document.getElementById("text_desc");
-
 checkCir.addEventListener('change', () => {
     if(checkCir.checked){
         checkPar.checked = false;
@@ -16,7 +13,6 @@ checkCir.addEventListener('change', () => {
         checkPar.checked = true;
     };
 });
-
 checkPar.addEventListener('change', () => {
     if(checkPar.checked){
         checkCir.checked = false;
@@ -24,6 +20,27 @@ checkPar.addEventListener('change', () => {
         checkCir.checked = true;
     };
 });
+
+var textAreaCount = document.getElementById("text_desc");
+
+var checkPrivYes = document.getElementById('check_yes');
+var checkPrivNo = document.getElementById('check_no');
+checkPrivYes.addEventListener('change', () => {
+    if(checkPrivYes.checked){
+        checkPrivNo.checked = false;
+    } else{
+        checkPrivNo.checked = true;
+    };
+});
+
+checkPrivNo.addEventListener('change', () => {
+    if(checkPrivNo.checked){
+        checkPrivYes.checked = false;
+    } else{
+        checkPrivYes.checked = true;
+    };
+});
+
 
 btnCreateProj.addEventListener('click', () => {
     var numDetails = `dtl${numberArea}`;
@@ -50,7 +67,7 @@ btnCreateProj.addEventListener('click', () => {
        <div class="area-material">
             <span>Material:</span>
             <input class="input-material" type="text" placeholder="Material">
-            <i class="fa-solid fa-cube"></i>
+            <i id="open_inventory" class="fa-solid fa-cube"></i>
         </div> 
         <button class="del-area" id="btn_del_area">Deletar área</button>         
         `;
@@ -70,11 +87,13 @@ btnCreateProj.addEventListener('click', () => {
         <div class="area-material">
              <span>Material:</span>
              <input class="input-material" type="text" placeholder="Material">
-             <i class="fa-solid fa-cube"></i>
+             <i id="open_inventory" class="fa-solid fa-cube"></i>
         </div> 
         <button class="del-area" id="btn_del_area">Deletar área</button>                 
         `;
     }
+
+    newDetails.querySelector("#open_inventory").addEventListener('click', () => divInventoryMinecraft.style.display = 'flex')
 
     newDetails.querySelector('#input_name_area').addEventListener('keyup', () => {
         var name = newDetails.querySelector('#input_name_area').value;
@@ -99,6 +118,11 @@ textAreaCount.addEventListener('keyup', (e) => {
     if(tamanhoTextArea.length >= 2000){
         contador.style.color = 'red';
     } else{
-        contador.style.color = 'green'
+        contador.style.color = 'green';
     };
 });
+
+const divInventoryMinecraft = document.getElementById('chose_block');
+const btnCloseInventoryMinecraft = document.getElementById('close_chose_block');
+
+btnCloseInventoryMinecraft.addEventListener('click', () => divInventoryMinecraft.style.display = 'none')

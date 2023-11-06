@@ -314,3 +314,100 @@ textarea{
     transition: all 0.5s ease-in-out;
     
 }
+.chose-block{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    backdrop-filter: blur(7px);
+    background-color: #00000071;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+.chose-block i{
+    margin-top: 5%;
+    font-size: 30px;
+    color: #00BF63;
+    margin-left: 80%;
+    background-color: #fff;
+    border: #000 2px solid;
+    border-radius: 100%;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: #000 0 0 8px 0;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.chose-block i:hover{
+    margin-top: 5%;
+    font-size: 25px;
+    color: #8f440b;
+    margin-left: 80%;
+    background-color: #c1baba;
+    border: #000 2px solid;
+    border-radius: 100%;
+    padding: 5px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: #000 0 0 8px 0;
+    justify-content: center;
+    cursor: pointer;
+}
+.inventory{
+    margin-top: 10%;
+    width: 70%;
+    height: 30%;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 14%;
+    background-color: #C6C6C6;
+    box-shadow: #C6C6C6 5px 1px 1px 1px,
+        #C6C6C6 -1px 5px 1px 2px,
+        #c6c6c6 5px -8px 1px 0px,
+        #FFFFFF -15px 2.5px 1px 3px,
+        #FFFFFF 4px -15px 1px 2px,
+        #FFFFFF -7.5px -7.5px 1px 2px,
+        #555555 8px -4px 1px 5px,
+        #555555 8px 4px 1px 5px,
+        #555555 0px 10px 1px 5px,
+        #C6C6C6 -10px 12px 1px 3px,
+        #C6C6C6 10px -12px 1px 3px,
+        #000 8px 10px 1px 5px, 
+        #000 0px 15px 1px 5px,
+        #000 -15px 12px 1px 3px, 
+        #000 -8px 15px 1px 5px, 
+        #000 15px 5px 1px 5px,
+        #000 -20px 2.5px 1px 3px,
+        #000 -15px -7.5px 1px 3px,
+        #000 -7.5px -15px 1px 3px,
+        #000 7px -20px 1px 6px,
+        #000 15px -12px 1px 6px
+        ;
+}
+.line{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.line img{
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    background-color: #8B8B8B;
+    border-top: solid #373737 3px;
+    border-left: solid #373737 3px;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
