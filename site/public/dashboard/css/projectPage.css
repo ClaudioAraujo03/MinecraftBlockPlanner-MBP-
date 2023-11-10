@@ -2,23 +2,18 @@ section{
     display: flex;
     flex-direction: column;
 }
-.title-page{
-    width: 90%;
-    text-align: left;
-    font-size: 50px;
-    font-family: var(--font-secundary);
-    font-weight: 700;
-    text-shadow: 0px 2px 5px #00000095;
-}
 .div-projetos{
     width: 90%;
-    height: 88%;
+    height: 80%;
     display: flex;
     align-items: center;
     border-radius: 1.5rem;
     background-color: #EDEDED;
     box-shadow: #EDEDED 0 0 10px 0, #000 0 0 8px 0;
     flex-direction: column;
+}
+.title-page{
+    margin-bottom: 2%;
 }
 .top-info-project{
     width: 100%;

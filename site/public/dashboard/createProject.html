@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/265fd07209.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="side-bar">
+    <div class="side-bar" id="side_bar">
         <div class="banner-user">
             <img src="../assets/creeper face.png" class="logo" alt="">
             <img src="../assets/pig.png" class="pig-logo" alt="">
@@ -31,22 +31,42 @@
             </ul>
         </div>
     </div>
-    <section class="content">
+    <i class="fa-solid fa-bars" id="event_side_bar"></i>
+    <section class="content" id="content">
         <h1 class="title-page">CRIAR PROJETO</h1>
         <div class="create-project">
             <div class="left-project">
                 <label for="nomeProjeto">Nome do projeto</label>
-                <input class="name-project" type="text" name="nomeProjeto" id="" placeholder="Insira o nome do seu projeto">
+                <input class="name-project" type="text" name="nomeProjeto" id="name_project" placeholder="Insira o nome do seu projeto">
                 <div class="project-info">
-                    <details class="info" id="info_project">
-                        <summary class="area-title"><span>Áreas</span></summary>
+                    <div class="info" id="info_project">
                         <span class="title-form-area">Formato da área:</span>
                         <div class="area-display">
                             <span>Circular <input type="checkbox" name="" id="check_cir"></span>
-                            <span>Paralelogramo <input type="checkbox" checked name="" id="check_par"></span>
+                            <span>Paralelepípedo <input type="checkbox" checked name="" id="check_par"></span>
                         </div>
-                        <button id="btn_add_area" class="btn-add-area">Adicionar área</button>
-                    </details>
+                        <h4 class="area-title" id="name_area">Área</h4> 
+                        <input class="input-name-area" type="text" id="input_name_area" placeholder="Insira o nome da área">
+                        <div id="area_medidas" class="area-medida">
+                            <div class="area-largura">
+                                <span>Largura:</span>
+                                <input class="input-num" type="number" name="" id="input_largura">
+                            </div>
+                            <div class="area-comprimento">
+                                <span>Comprimento:</span>
+                                <input class="input-num" type="number" name="" id="input_largra">
+                            </div>
+                            <div class="area-altura">
+                                <span>Altura:</span>
+                                <input class="input-num" type="number" name="" id="input_altura">
+                            </div>
+                        </div>
+                        <div class="area-material">
+                            <span>Material:</span>
+                            <input id="input_material" disabled class="input-material" type="text" placeholder="Clique no ícone">
+                            <i id="input_icon_material" class="fa-solid fa-cube"></i>
+                        </div> 
+                    </div>
                 </div>
             </div>
             <div class="center-project">
@@ -54,8 +74,8 @@
                 <textarea name="" id="text_desc" cols="30" rows="10"></textarea>
                 <span class="max-num" id="count">/2000</span>
                 <div class="btn-proj">
-                    <button class="save-btn">SALVAR <br> PROJETO</button>
-                    <button class="del-btn">DELETAR</button>
+                    <button id="btn_save" class="save-btn">SALVAR <br> PROJETO</button>
+                    <button class="del-btn" id="clear_btn" >LIMPAR CAMPOS</button>
                 </div>
             </div>
             <div class="right-project">
@@ -77,60 +97,99 @@
     <div class="chose-block" id="chose_block">
         <i class="fa-solid fa-xmark" id="close_chose_block"></i>
         <div class="inventory">
-            <div class="line">
-                <img src="./minecraftBlocksImg/andesito polido.webp" alt="">
-                <img src="./minecraftBlocksImg/andesito.webp" alt="">
-                <img src="./minecraftBlocksImg/areia.webp" alt="">
-                <img src="./minecraftBlocksImg/basalto.webp" alt="">
-                <img src="./minecraftBlocksImg/bloco de cascalho.webp" alt="">
-                <img src="./minecraftBlocksImg/bloco de deepslate.webp" alt="">
-                <img src="./minecraftBlocksImg/bloco de grama.webp" alt="">
-                <img src="./minecraftBlocksImg/bloco de minerio de cobre ouro de lapis.webp" alt="">
-                <img src="./minecraftBlocksImg/bloco de minério da deepslate.webp" alt="">
-                <img src="./minecraftBlocksImg/bloco de musgo.webp" alt="">
-                <img src="./minecraftBlocksImg/bloco de netherite.webp" alt="">
-                <img src="./minecraftBlocksImg/prismarinho.gif" alt="">
-                <img src="./minecraftBlocksImg/bloco de quartzo.webp" alt="">
-                <img src="./minecraftBlocksImg/blocos de concreto.webp" alt="">
-                <img src="./minecraftBlocksImg/blocos de minerio ferro diamante e esmeralda.webp" alt="">
-                <img src="./minecraftBlocksImg/blocos de minerio puro.webp" alt="">
+            <div class="line" style="margin-top: 1%;">
+                <img id="block_material" src="./minecraftBlocksImg/andesito.webp" value="Andesito" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/andesito polido.webp" value="Andesito polido" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/areia.webp" value="Areia" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/basalto.webp" value="Basalto liso" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de cascalho.webp" value="Cascalho" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de deepslate.webp" value="Deepslate" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de grama.webp" value="Grama" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de minerio de cobre ouro de lapis.webp" value="Bloco de cobre" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de minério da deepslate.webp" value="Bloco de diamante da deepslate" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de musgo.webp" value="Musgo" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de netherite.webp" value="Bloco de netherite" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/prismarinho.gif" value="Prismarinho" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de quartzo.webp" value="Quartzo" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/blocos de concreto.webp" value="Bloco de concreto" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/blocos de minerio ferro diamante e esmeralda.webp" value="Bloco de ferro" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/blocos de minerio puro.webp" value="Bloco de ouro puro" alt="">
             </div>
             <div class="line">
-                <img src="./minecraftBlocksImg/blocos de minério.webp" alt="">
-                <img src="./minecraftBlocksImg/gravel.webp" alt="">
-                <img src="./minecraftBlocksImg/cogumelo brilhante.webp" alt="">
-                <img src="./minecraftBlocksImg/diorito polido.webp" alt="">
-                <img src="./minecraftBlocksImg/diorito.webp" alt="">
-                <img src="./minecraftBlocksImg/dripstone.webp" alt="">
-                <img src="./minecraftBlocksImg/gelo azul.webp" alt="">
-                <img src="./minecraftBlocksImg/gelo.webp" alt="">
-                <img src="./minecraftBlocksImg/granito polido.webp" alt="">
-                <img src="./minecraftBlocksImg/granito.webp" alt="">
-                <img src="./minecraftBlocksImg/lama acumulada.webp" alt="">
-                <img src="./minecraftBlocksImg/lama.webp" alt="">
-                <img src="./minecraftBlocksImg/netherQuartz ore.webp" alt="">
-                <img src="./minecraftBlocksImg/minério ancestral.webp" alt="">
-                <img src="./minecraftBlocksImg/netherrack.webp" alt="">
-                <img src="./minecraftBlocksImg/obsidian chorona.webp" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/blocos de minério.webp" value="Minério de ferro" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/gravel.webp" value="Cascalho" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/cogumelo brilhante.webp" value="Cogumelo brilhante" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/diorito polido.webp" value="Diorito polido" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/diorito.webp" value="Diorito" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/dripstone.webp" value="Dripstone" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/gelo azul.webp" value="Gelo azul" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/gelo.webp" value="Gelo" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/granito polido.webp" value="Granito polido" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/granito.webp" value="Granito" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/lama acumulada.webp" value="Lama acumulada" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/lama.webp" value="Lama" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/netherQuartz ore.webp" value="Minério de quartzo" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério ancestral.webp" value="Minério de netherite" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/netherrack.webp" value="Netherrack" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/obsidian chorona.webp" value="Obsidian chorona" alt="">
             </div>
             <div class="line">
-                <img src="./minecraftBlocksImg/obsidian.webp" alt="">
-                <img src="./minecraftBlocksImg/packed ice.webp" alt="">
-                <img src="./minecraftBlocksImg/pedra lisa.png" alt="">
-                <img src="./minecraftBlocksImg/pedra negra.webp" alt="">
-                <img src="./minecraftBlocksImg/pedra.webp" alt="">
-                <img src="./minecraftBlocksImg/po de concreto.webp" alt="">
-                <img src="./minecraftBlocksImg/sandstone.webp" alt="">
-                <img src="./minecraftBlocksImg/smosh sandstone.webp" alt="">
-                <img src="./minecraftBlocksImg/tabuas.webp" alt="">
-                <img src="./minecraftBlocksImg/terracota.webp" alt="">
-                <img src="./minecraftBlocksImg/tijolos de lama.webp" alt="">
-                <img src="./minecraftBlocksImg/tijolos de pedra.webp" alt="">
-                <img src="./minecraftBlocksImg/tijolos do nether.webp" alt="">
-                <img src="./minecraftBlocksImg/tijolos.webp" alt="">
-                <img src="./minecraftBlocksImg/tora de madeira.webp" alt="">
-                <img src="./minecraftBlocksImg/vidro.webp" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/obsidian.webp" value="Obsidian" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/gelo compactado.webp" value="Gelo compactado" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/pedra lisa.png" value="Pedra lisa" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/pedra negra.webp" value="Pedra negra" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/pedra.webp" value="Pedra" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/po de concreto.webp" value="Pó de concreto" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/sandstone.webp" value="Arenito" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/smosh sandstone.webp" value="Arenito liso" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/tabuas.webp" value="Tábua de carvalho" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/terracota.webp" value="Terracota" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/tijolos de lama.webp" value="Tijolos de lama" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/tijolos de pedra.webp" value="Tijolos de pedra" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/tijolos do nether.webp" value="Tijolos do nether" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/tijolos.webp" value="Tijolos" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/tora de madeira.webp" value="Tronco de carvalho" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/vidro.webp" value="Vidro" alt="">
             </div>
+            <div class="line">
+                <img id="block_material" src="./minecraftBlocksImg/areia vermelha.webp" value="Areia vermelha" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/argila.png" value="Argila" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de ametista.png" value="Bloco de ametista" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/tijolo de prismarinho.png" value="Tijolos de prismarinho" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de carvão.png" value="Bloco de carvão" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de cobre puro.webp" value="Bloco de cobre puro" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de diamante.png" value="Bloco de diamante" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de esmeralda.png" value="Bloco de esmeralda" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de lapis lazuli.png" value="Bloco de lapis lazuli" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de ouro.png" value="Bloco de ouro" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/bloco de redstone.png" value="Bloco de redstone" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/cut cooper.png" value="Cut cooper" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/Gilded blackstone.png" value="Gilded blackstone" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de carvão da deepslate.png" value="Minério de carvão da deepslate" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de carvão.png" value="Minério de carvão" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de cobre da deepslate.webp" value="Minério de cobre da deepslate" alt="">
+            </div>
+            <div class="line">
+                <img id="block_material" src="./minecraftBlocksImg/minério de cobre.png" value="Minério de cobre" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de diamante.png" value="Minério de diamante" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de esmeralda da deepslate.png" value="Minério de esmeralda da deepslate" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de esmeralda.png" value="Minério de esmeralda" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de ferro da deeepslate.png" value="Minério de ferro da deepslate" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de lapis lazuli.webp" value="Minério de lapis lazuli" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de lapiz lazuli da deepslate.webp" value="Minério de lapis lazuli da deepslate" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de ouro da deepslate.png" value="Minério de ouro da deepslate" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/Minério de ouro do nether.webp" value="Minério de ouro do nether" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de ouro.webp" value="Minério de ouro" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de redstone da deepslate.png" value="Minério de redstone da deepslate" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/minério de redstone.webp" value="Minério de redstone" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/pedra do end.png" value="Pedra do end" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/pedra negra polida.png" value="Pedra negra polida" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/prismarinho escuro.webp" value="Prismarinho escuro" alt="">
+                <img id="block_material" src="./minecraftBlocksImg/red sandstone.webp" value="Red sandstone" alt="">
+            </div>
+            <div class="line" style="justify-content: left;">
+                <img id="block_material" src="./minecraftBlocksImg/basalt.webp" value="Basalto" alt="">
+            </div>            
         </div>
     </div>
 </body>

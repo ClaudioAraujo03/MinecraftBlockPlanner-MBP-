@@ -48,7 +48,7 @@ const btnCadastrar = document.getElementById('btn_cadastro').addEventListener('c
     }
     if(nickVar == '' || nickVar.length < 5){
         nickInput.value = '';
-        nickInput.placeholder = 'Nick inválido';
+        nickInput.placeholder = 'Nick não pode estar vazio e deve ter no min 5 caractéres';
         erros++;
     }
     if(dtNascVar == ''){
