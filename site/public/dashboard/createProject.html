@@ -54,7 +54,7 @@
                             </div>
                             <div class="area-comprimento">
                                 <span>Comprimento:</span>
-                                <input class="input-num" type="number" name="" id="input_largra">
+                                <input class="input-num" type="number" name="" id="input_comprimento">
                             </div>
                             <div class="area-altura">
                                 <span>Altura:</span>
@@ -75,7 +75,6 @@
                 <span class="max-num" id="count">/2000</span>
                 <div class="btn-proj">
                     <button id="btn_save" class="save-btn">SALVAR <br> PROJETO</button>
-                    <button class="del-btn" id="clear_btn" >LIMPAR CAMPOS</button>
                 </div>
             </div>
             <div class="right-project">
@@ -190,6 +189,15 @@
             <div class="line" style="justify-content: left;">
                 <img id="block_material" src="./minecraftBlocksImg/basalt.webp" value="Basalto" alt="">
             </div>            
+        </div>
+    </div>
+    <div id="overlayer" class="overlayer">
+        <div class="popup">
+            <i class="fa-solid fa-circle-xmark" id="close-popup"></i>
+            <img src="../assets/alert.gif" class="alert-gif" alt="">
+            <h6 class="text-alert" id="alert">
+                
+            </h6>
         </div>
     </div>
 </body>

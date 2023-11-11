@@ -9,6 +9,7 @@ router.get('/criarProjeto', function(req, res){
 
 router.post('/criarProjeto/:idUsuario', function(req, res){
     controllerCreateProject.criarProjeto(req, res);
+    controllerCreateProject.criaAreaController(req, res);
 });
 
 module.exports = router;

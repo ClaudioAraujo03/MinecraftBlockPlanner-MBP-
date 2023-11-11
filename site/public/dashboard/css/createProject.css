@@ -48,29 +48,6 @@ section{
     justify-content: center;
     flex-direction: column;
 }
-.btn-add-area{
-    width: 90%;
-    height: 30px;
-    margin-top: 2%;
-    background-color: #00BF63;
-    color: #fff;
-    border: none;
-    border-radius: 0.8rem;
-    font-family: var(--font-third);
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-}
-.btn-add-area:hover{
-    box-shadow: #000 0 0 8px 0, #EDEDED 0 0 5px 0;
-    background-color: transparent;
-    color: #00BF63;
-    border: 2px solid #00BF63;
-    border-radius: 5px;
-    width: 95%;
-    margin-left: 2.5%;
-    font-size: 16px;
-    font-weight: 700;
-}
 .title-form-area{
     width: 90%;
     text-align: left;
@@ -221,47 +198,33 @@ textarea{
 }
 .btn-proj{
     margin-top: 5%;
-    width: 90%;
+    width: 100%;
     height: 20%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
-.btn-proj button:nth-child(1){
-    width: 40%;
+.save-btn{
+    width: 90%;
     height: 100%;
     border-radius: 2.5rem;
     background-color: #00BF63;
+    font-size: 18px;
     border: none;
     color: #fff;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
+    box-shadow: 0 5px 2px 0 #0a5732, 0 5px 2px 0 #000;
 }
-.btn-proj button:nth-child(2){
-    width: 40%;
-    height: 100%;
-    border-radius: 2.5rem;
-    background-color: #D68B53;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
+.save-btn:hover{
+    background-color: #75deab;
 }
-.btn-proj button:nth-child(1):hover{
-    width: 40%;
+.save-btn:active{
+    width: 90%;
     background-color: #fff;
-    border: 2px solid #00BF63;
-    color: #00BF63;
-    box-shadow: 0 0 10px 0 #0a5732, 0 0 8px 0 #000;
-    font-weight: 600;
-    font-size: 20px;
-}
-.btn-proj button:nth-child(2):hover{
-    width: 40%;
-    background-color: #fff;
-    border: 2px solid #D68B53;
-    color: #D68B53;
-    box-shadow: 0 0 10px 0 #8f440b, 0 0 8px 0 #000;
-    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0px 2.5px 2px #000, 0px -2px 6px #000;
+    font-weight: 400;
+    box-shadow: inset 0 5px 2px 0 #0a5732, inset 0 0px 5px 0 #000;
     font-size: 20px;
 }
 .right-project{
@@ -298,32 +261,6 @@ textarea{
 }
 .person{
     height: 60%;
-}
-.del-area{
-    width: 70%;
-    height: 35px;
-    border-radius: 2.5rem;
-    background-color: #8f440b;
-    border: none;
-    color: #EDEDED;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-left: 15%;
-    box-shadow: 0 0 8px 0 #000;
-    font-weight: 500;
-}
-.del-area:hover{
-    width: 70%;
-    height: 35px;
-    border-radius: 2.5rem;
-    background-color: #EDEDED;
-    border: 2px solid #8f440b;
-    color: #8f440b;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    
 }
 .chose-block{
     width: 100%;
@@ -426,4 +363,71 @@ textarea{
 .line img:hover{
     scale: 1.1;
     box-shadow: #000 0 0 5px 0;
+}
+.overlayer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #0000005d;
+    backdrop-filter: blur(2px);
+    position: absolute;
+    display: none;
+
+}
+.popup{
+    width: 30%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #EDEDED;
+    box-shadow: #EDEDED 0 0 8px 0, #000 0 0 20px 5px;
+    border-radius: 3rem;
+    transition: all ease-in-out 0.5s;
+}
+.alert-gif{
+    width: 40%;
+    margin-bottom: 4%;
+}
+.text-alert{
+    width: 80%;
+    font-size: 15px;
+    text-align: justify;
+    font-family: var(--font-third);
+    font-weight: 400;
+    margin-top: 5%;
+}
+.popup i{
+    font-size: 26px;
+    color: #000;
+    margin-left: 75%;
+    cursor: pointer;
+}
+.btn-confirm{
+    width: 80%;
+    height: 10%;
+    border-radius: 2rem;
+    background-color: #D68B53;
+    box-shadow: 0 0 10px 0 #D68B53,0 0 5px 0 #000;
+    color: #fff;
+    font-family: var(--font-third);
+    font-weight: 400;
+    border: none;
+    margin-top: 5%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+.btn-confirm:hover{
+    width: 90%;
+    height: 11%;
+    border-radius: 10px;
+    background-color: #EDEDED;
+    border: 2px solid #D68B53;
+    color: #D68B53;
+    font-size: 18px;
+    font-weight: 700;
 }

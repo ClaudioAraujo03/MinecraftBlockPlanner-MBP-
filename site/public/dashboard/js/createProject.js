@@ -99,15 +99,13 @@ textArea.addEventListener('keyup', (e) => {
     };
 });
 var areaPar = `
-    <h4 class="area-title" id="name_area">Área</h4> 
-    <input class="input-name-area" type="text" id="input_name_area" placeholder="Insira o nome da área">
     <div class="area-largura">
         <span>Largura:</span>
         <input class="input-num" type="number" name="" id="input_largura">
     </div>
     <div class="area-comprimento">
         <span>Comprimento:</span>
-        <input class="input-num" type="number" name="" id="input_largra">
+        <input class="input-num" type="number" name="" id="input_comprimento">
     </div>
     <div class="area-altura">
         <span>Altura:</span>
@@ -115,8 +113,6 @@ var areaPar = `
     </div>
 `;
 var areaCir = `
-    <h4 class="area-title" id="name_area">Área</h4> 
-    <input class="input-name-area" type="text" id="input_name_area" placeholder="Insira o nome da área">
     <div class="area-largura">
             <span>Raio:</span>
             <input class="input-num" type="number" name="" id="input_raio">
@@ -143,6 +139,7 @@ const btnSaveProj = document.getElementById("btn_save").addEventListener('click'
     descricao = textArea.value;
     nomeProjeto = document.getElementById('name_project').value;
     var idBloco = 0;
+    
     const nomesDosBlocos = [
         'Andesito',
         'Andesito polido',
@@ -226,7 +223,93 @@ const btnSaveProj = document.getElementById("btn_save").addEventListener('click'
     ];
     var idBloco = nomesDosBlocos.indexOf(material);
     console.log(idBloco + 1);
-})
+    var erros = 0;
+    var mensagemErro = ``
+    altura = document.getElementById('input_altura').value
+    if(nomeProjeto == '' || nomeProjeto.length < 3){
+        erros++;
+        mensagemErro += 'Nome do projeto inválido, vazio ou menos de 4 caracteres.<br>'
+    }
+    if(nomeArea == '' || nomeArea.length < 3){
+        erros++;
+        mensagemErro += 'Nome da área inválido, vazio ou menos de 4 caracteres.<br>'
+    }
+    if(material == ''){
+        erros++
+        mensagemErro += 'Você não selecionou nenhum material<br>'
+    }
+    if(areaFormato == 'paralelepipedo'){
+        largura = document.getElementById('input_largura').value;
+        comprimento = document.getElementById('input_comprimento').value;
+        if(largura == null || largura == '' || altura == null || altura == "" || comprimento == null || comprimento == ''){
+            erros++
+            mensagemErro += 'Você deixou alguma medida de sua área vazia!<br>'
+        }
+    } else{
+        raio = document.getElementById('input_raio').value;
+        if(raio == null || raio == '' || altura == null || altura == ""){
+            erros++
+            mensagemErro += 'Você deixou alguma medida de sua área vazia!<br>'
+        }  
+    }
+    if(erros == 0){
+        var dataInteira = new Date();
+        var ano = dataInteira.getFullYear();
+        var mes = padLeft(dataInteira.getMonth() + 1, 2);
+        var dia = padLeft(dataInteira.getDate(), 2);
+        var hora = padLeft(dataInteira.getHours(), 2);
+        var minuto = padLeft(dataInteira.getMinutes(), 2);
+        var segundos = padLeft(dataInteira.getSeconds(), 2);
+        
+        var dataCriacao = `${ano}-${mes}-${dia} ${hora}:${minuto}:${segundos}`;
+        
+        function padLeft(value, length) {
+            return (value.toString().length < length) ? '0' + value : value;
+        }
+        
+        fetch(`/dashboard/criarProjeto/${sessionStorage.getItem("ID_USER")}`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeProjetoServer: nomeProjeto,
+                privacidadeProjetoServer: privacidade,
+                dtCriacaoServer: dataCriacao,
+                descricaoServer: descricao,
+                nomeAreaServer: nomeArea,
+                materialServer: idBloco + 1,
+                formatoAreaServer: areaFormato,
+                larguraAreaServer: largura,
+                alturaAreaServer: altura,
+                comprimentoAreaServer: comprimento,
+                raioAreaServer: raio,
+                dtCriacaoKeyServer: dataCriacao
+            }),
+        }).then(function(resultado){
+            console.log("resposta", resultado);
 
-const btnClearProj = document.getElementById("clear_btn")
+            if(resultado.ok){
+                alert("Projeto criado com sucesso!!!")
+                setTimeout(() => {
+                    window.location = "/dashboard/criarProjeto"
+                }, 1000);
+            } else{
+                throw "Erro HTML"
+            }
+        }).catch((resposta) => {
+            console.log(`#ERRO: ${resposta}`);
+        });
+        return false
+    } else{
+        var alerta = document.getElementById('alert');
+        alerta.innerHTML = mensagemErro;
+        popup.style.display = 'flex'
+    }
+})
+const popup = document.getElementById('overlayer');
+
+const closePopUp = document.getElementById('close-popup').addEventListener('click', () => {
+    popup.style.display = 'none';
+});
 
