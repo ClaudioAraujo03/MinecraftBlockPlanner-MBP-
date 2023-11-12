@@ -90,8 +90,8 @@ section{
 }
 .description{
     width: 90%;
-    height: 40%;
-    max-height: 40%;
+    height: 80px;
+    max-height: 35%;
     overflow: auto;
 }
 .text-description{

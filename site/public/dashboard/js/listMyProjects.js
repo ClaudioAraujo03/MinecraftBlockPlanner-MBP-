@@ -25,8 +25,11 @@ function mostrarProjetos(resposta){
         var data = new Date(resposta[i].dtCriacaoProjeto);
 
         var ano = data.getFullYear();
-        var mes = ("0" + (data.getMonth() + 1)).slice(-2);  
-        var dia = ("0" + data.getDate()).slice(-2);
+        var mes = data.getMonth() + 1;
+        var dia = data.getDate();
+        if(mes < 10) mes = "0" + mes;
+        if(dia < 10) dia = "0" + dia; 
+        
 
         var dataFormatada = ano + "/" + mes + "/" + dia;
 
@@ -53,7 +56,7 @@ function mostrarProjetos(resposta){
                         ${resposta[i].descricao}
                     </h6>
                 </div>
-                <button class="btn-abrir">
+                <button class="btn-abrir" onclick="abrirProjeto(${resposta[i].idProjeto})">
                     <span>
                         Abrir Projeto
                     </span>
@@ -62,3 +65,7 @@ function mostrarProjetos(resposta){
         `;
     }
 };
+function abrirProjeto(idProjeto) {
+    sessionStorage.ID_PROJ = idProjeto;
+    window.location = `/dashboard/project`;
+}

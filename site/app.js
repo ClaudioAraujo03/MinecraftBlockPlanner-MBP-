@@ -19,6 +19,7 @@ var loginRoutes = require("./src/routes/login");
 var dashboardRoutesConfigs = require("./src/routes/configsUser");
 var dashboardRoutesCreateProject = require("./src/routes/createProject");
 var dashboardRoutesMyListProjects = require("./src/routes/myProjects");
+var dashboardRoutesProject = require("./src/routes/project");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,6 +30,7 @@ app.use("/login", loginRoutes);
 app.use("/dashboard", dashboardRoutesConfigs);
 app.use("/dashboard", dashboardRoutesCreateProject);
 app.use("/dashboard", dashboardRoutesMyListProjects);
+app.use("/dashboard", dashboardRoutesProject);
 
 app.listen(PORTA, () => {
     console.log(`Servidor rodando em : http://localhost:${PORTA}`);
