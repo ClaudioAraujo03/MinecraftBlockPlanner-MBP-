@@ -2,12 +2,16 @@ const exitIcon = document.getElementById('exit_icon').addEventListener('click', 
     window.location = "/";
 });
 
-const configIcon = document.getElementById('configs_area').addEventListener('click', () => {
+var configIcon = document.getElementById('configs_area').addEventListener('click', () => {
     window.location = "/dashboard/configuracao";
 });
 
-const createProjectIcon = document.getElementById('crate_project_area').addEventListener('click', () => {
+var createProjectIcon = document.getElementById('crate_project_area').addEventListener('click', () => {
     window.location = "/dashboard/criarProjeto";
+});
+
+var listProjectIcon = document.getElementById('my_project_area').addEventListener('click', () => {
+    window.location = `/dashboard/myListProjects`;
 });
 
 var sideBar = document.getElementById('side_bar');

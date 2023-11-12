@@ -2,11 +2,12 @@ var database = require("../database/config");
 
 function criarProjeto(nomeProj, privacidade, dtCriacao, descricao, idUser){
     var instrucao1 = `
-        insert into projeto (nome, descricao, privacidade, dtCriacaoProjeto, fkUsuario) values ('${nomeProj}', '${descricao}', '${privacidade}', '${dtCriacao}', ${idUser});
+        insert into projeto (nomeProjeto, descricao, privacidade, dtCriacaoProjeto, fkUsuario) values ('${nomeProj}', '${descricao}', '${privacidade}', '${dtCriacao}', ${idUser});
     `;
     return database.executar(instrucao1);
 }
 function achaProjeto(idUser, data){
+    if(idUser == undefined) return false;
     var instrucao2 = `
         select idProjeto from projeto where fkUsuario = ${idUser} and dtCriacaoProjeto = '${data}';
     `;
@@ -14,7 +15,7 @@ function achaProjeto(idUser, data){
 }
 function criaArea(nomeArea, material, formato, largura, altura, comprimento, raio, idProj){
     var instrucao3 = `
-        insert into areaProj (nome, formato, altura, largura, comprimento, raio, fkProjeto, fkBloco) values ('${nomeArea}', '${formato}', ${altura}, ${largura}, ${comprimento}, ${raio}, ${idProj}, ${material});
+        insert into areaProj (nomeArea, formato, altura, largura, comprimento, raio, fkProjeto, fkBloco) values ('${nomeArea}', '${formato}', ${altura}, ${largura}, ${comprimento}, ${raio}, ${idProj}, ${material});
     `;
     return database.executar(instrucao3);
 }

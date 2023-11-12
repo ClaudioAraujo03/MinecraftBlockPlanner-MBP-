@@ -255,15 +255,15 @@ const btnSaveProj = document.getElementById("btn_save").addEventListener('click'
     if(erros == 0){
         var dataInteira = new Date();
         var ano = dataInteira.getFullYear();
-        var mes = padLeft(dataInteira.getMonth() + 1, 2);
-        var dia = padLeft(dataInteira.getDate(), 2);
-        var hora = padLeft(dataInteira.getHours(), 2);
-        var minuto = padLeft(dataInteira.getMinutes(), 2);
-        var segundos = padLeft(dataInteira.getSeconds(), 2);
+        var mes = zeroEsquerda(dataInteira.getMonth() + 1, 2);
+        var dia = zeroEsquerda(dataInteira.getDate(), 2);
+        var hora = zeroEsquerda(dataInteira.getHours(), 2);
+        var minuto = zeroEsquerda(dataInteira.getMinutes(), 2);
+        var segundos = zeroEsquerda(dataInteira.getSeconds(), 2);
         
         var dataCriacao = `${ano}-${mes}-${dia} ${hora}:${minuto}:${segundos}`;
         
-        function padLeft(value, length) {
+        function zeroEsquerda(value, length) {
             return (value.toString().length < length) ? '0' + value : value;
         }
         
@@ -292,7 +292,7 @@ const btnSaveProj = document.getElementById("btn_save").addEventListener('click'
             if(resultado.ok){
                 alert("Projeto criado com sucesso!!!")
                 setTimeout(() => {
-                    window.location = "/dashboard/criarProjeto"
+                    window.location = "/dashboard/myListProjects"
                 }, 1000);
             } else{
                 throw "Erro HTML"
