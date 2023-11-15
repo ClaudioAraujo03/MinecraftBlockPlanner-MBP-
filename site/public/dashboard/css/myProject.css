@@ -9,6 +9,7 @@ section{
     width: 90%;
     height: 10%;
     gap: 5%;
+    margin: 2px;
 }
 .input{
     width: 50%;

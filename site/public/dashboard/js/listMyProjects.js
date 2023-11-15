@@ -1,9 +1,10 @@
+var meuProjeto;
 fetch(`/dashboard/myListProjects/${sessionStorage.getItem('ID_USER')}`)
 .then(resposta => {
     if(resposta.status == 200){
         resposta.json().then(resposta => {
             console.log(`Seus projetos forma encontrados com sucesso:${JSON.stringify(resposta)}`)
-            resultado = resposta;
+            meuProjeto = JSON.stringify(resposta);
             mostrarProjetos(resposta);
         })
     } else{
@@ -64,8 +65,46 @@ function mostrarProjetos(resposta){
             </div>    
         `;
     }
+    return resposta
 };
 function abrirProjeto(idProjeto) {
     sessionStorage.ID_PROJ = idProjeto;
     window.location = `/dashboard/project`;
+}
+
+var btnSearch = document.getElementById('search_btn');
+var search = document.getElementById('search_project');
+
+btnSearch.addEventListener('click', () => {
+    var pesquisa = search.value;
+    pesquisar(pesquisa);  
+})
+
+search.addEventListener('keypress', (e) => {
+    if(e.key == 'Enter'){
+        var pesquisa = search.value;
+        pesquisar(pesquisa);
+    }
+});
+
+function pesquisar(pesquisa){
+    fetch(`/dashboard/myListProjects/pesquisa/${sessionStorage.getItem('ID_USER')}`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            pesquisaServer: pesquisa
+        }),
+    })
+    .then(resposta => {
+        if(resposta.status == 200){
+            resposta.json().then(resposta => {
+                console.log(`Seus projetos forma encontrados com sucesso:${JSON.stringify(resposta)}`)
+                mostrarProjetos(resposta);
+            })
+        } else{
+            console.log('Não foi encontrado nenhum projeto.')
+        }       
+    })
 }

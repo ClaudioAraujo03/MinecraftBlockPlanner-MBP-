@@ -43,12 +43,158 @@
                         quibusdam dolores eum soluta minima debitis corporis.
                     </h6>
                 </div>
-                <div class="resume-project">
-                    
+                <div class="resume-project" id="resume">
+                    <h3>Material primário</h3>
+                    <div class="materia">
+                        <button class="btn-left" id="btn_left"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="resume-infos" id="resume_infos_materia_principal">
+                            <div class="card-infos" id="card_first">
+                                <h6>DEFAULT</h6>
+                                <div class="chart" >
+                                    <canvas id="donnut_nada"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>MADEIRA</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_madeira"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>PEDRA</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_pedra"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>FERRO</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_ferro"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>OURO</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_ouro"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>DIAMANTE</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_diamante"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos" id="card_last">
+                                <h6>NETHERITE</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_netherite"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="btn_right"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="materia">
+                        <button class="btn-left" id="btn_left"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="resume-infos">
+                            <div class="card-infos">
+                                <h6>DEFAULT</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_nada"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>MADEIRA</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_madeira"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>PEDRA</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_pedra"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>FERRO</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_ferro"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>OURO</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_ouro"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>DIAMANTE</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_diamante"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>NETHERITE</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_netherite"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <button><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="materia">
+                        <button class="btn-left" id="btn_left"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="resume-infos">
+                            <div class="card-infos">
+                                <h6>DEFAULT</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_nada"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>MADEIRA</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_madeira"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>PEDRA</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_pedra"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>FERRO</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_ferro"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>OURO</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_ouro"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>DIAMANTE</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_diamante"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-infos">
+                                <h6>NETHERITE</h6>
+                                <div class="chart">
+                                    <canvas id="donnut_netherite"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <button><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
                 </div>
             </div>
             <div class="bottom-info-project">
-                <div class="chart-info"></div>
+                <div class="chart-info" id="chart">
+
+                </div>
                 <div class="alter-configs">
                     <div class="privacidade-div">
                         <div class="confg">
@@ -71,3 +217,35 @@
 <script src="js/navSideBar.js"></script>
 <script src="js/loadSideBarValues.js"></script>
 <script src="js/projectPage.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+        
+    var graficoNada = document.getElementById('donnut_nada');
+    var graficoMadeira = document.getElementById('donnut_madeira');
+    var graficoPedra = document.getElementById('donnut_pedra');
+    var graficoFerro = document.getElementById('donnut_ferro');
+    var graficoOuro = document.getElementById('donnut_ouro');
+    var graficoDiamante = document.getElementById('donnut_diamante');
+    var graficoNetherite = document.getElementById('donnut_netherite');
+
+    function geraGrafico(grafico){
+        new Chart(grafico, {
+            type: 'doughnut',
+            data: {
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 0,
+            }]
+            }
+        });
+    };
+
+    geraGrafico(graficoNada);
+    geraGrafico(graficoMadeira);
+    geraGrafico(graficoPedra);
+    geraGrafico(graficoFerro);
+    geraGrafico(graficoOuro);
+    geraGrafico(graficoDiamante);
+    geraGrafico(graficoNetherite);
+</script>

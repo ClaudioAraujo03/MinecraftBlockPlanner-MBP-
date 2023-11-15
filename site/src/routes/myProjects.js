@@ -11,4 +11,8 @@ router.get('/myListProjects/:idUsuario', function(req, res){
     myProjectsController.listaProjetos(req, res);
 })
 
+router.post('/myListProjects/pesquisa/:idUsuario', function(req, res){
+    myProjectsController.searchProject(req, res);
+})
+
 module.exports = router;

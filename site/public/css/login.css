@@ -218,7 +218,7 @@ nav h4{
     box-shadow: #afafaf 0 0 10px 0;
 }
 .verificacao{
-    font-size: 8px;
+    font-size: 10px;
     color: rgb(255, 000, 000);
     font-family: var(--font-sans2);
     font-weight: 400;
@@ -227,4 +227,58 @@ nav h4{
     display: flex;
     align-items: center;
     gap: 2%;
+}
+
+.sucesso-card{
+    position: absolute;
+    width: 25%;
+    height: 20%;
+    background-color: #ffffff;
+    box-shadow: #000 0 0 5px 0;
+    margin-top: 5%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 0.7rem;
+    display: none;
+}
+.sucesso-card::before{
+    width: 0%;
+    height: 5px;
+    content: '';
+    position: absolute;
+    background-color: #02b52f;
+    box-shadow: #00ff84 0 0 6px 0;
+    align-self: last baseline;
+    animation: progress 3s linear;
+    transition: all 0.5s linear;
+}
+
+@keyframes progress{
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+
+.content-card{
+    height: 90%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content-card img{
+    width: 40%;
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+.content-card h6{
+    font-size: 20px;
+    font-family: var(--font-sans2);
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 2%;
 }

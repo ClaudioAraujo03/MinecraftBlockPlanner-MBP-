@@ -17,7 +17,7 @@ var btnOpenInventory = document.getElementById('input_icon_material').addEventLi
 var inputNameArea = document.getElementById('input_name_area').addEventListener('keyup', () => {
     var name = document.getElementById('input_name_area').value;
     var name = document.getElementById('name_area').innerText = name;
-    if(name == '') var name = document.getElementById('name_area').innerText = `Área ${numberArea}`;
+    if(name == '') var name = document.getElementById('name_area').innerText = `Área`;
     nomeArea = name
 })
 
@@ -173,10 +173,10 @@ const btnSaveProj = document.getElementById("btn_save").addEventListener('click'
         'Gelo',
         'Gelo compactado',
         'Gelo azul',
-        'Diorito',
-        'Diorito polido',
+        'Granito',
+        'Granito polido',
         'Lama',
-        'Lana compacta',
+        'Lama compacta',
         'Netherrack',
         'Obsidiana chorona',
         'Obsidian',
@@ -219,9 +219,11 @@ const btnSaveProj = document.getElementById("btn_save").addEventListener('click'
         'Pedra do end',
         'Pedra negra polida',
         'Prismarinho escuro',
-        'Red sandstone'
+        'Red sandstone',
+        'Minério de diamante da deepslate'
     ];
     var idBloco = nomesDosBlocos.indexOf(material);
+    var idSqlBlock = Number(idBloco) + 1
     console.log(idBloco + 1);
     var erros = 0;
     var mensagemErro = ``
@@ -278,7 +280,7 @@ const btnSaveProj = document.getElementById("btn_save").addEventListener('click'
                 dtCriacaoServer: dataCriacao,
                 descricaoServer: descricao,
                 nomeAreaServer: nomeArea,
-                materialServer: idBloco + 1,
+                materialServer: idSqlBlock,
                 formatoAreaServer: areaFormato,
                 larguraAreaServer: largura,
                 alturaAreaServer: altura,

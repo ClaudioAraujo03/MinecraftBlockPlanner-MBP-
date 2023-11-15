@@ -74,11 +74,19 @@ const btnCadastrar = document.getElementById('btn_cadastro').addEventListener('c
             console.log("resposta: ", resposta);
     
             if (resposta.ok) {
-              alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
-    
+              var card = document.getElementById('card');
+              card.innerHTML = `
+              <div class="content-card">
+                <img src="../assets/happy.gif" alt="">
+                <h6 id="text_content">
+                  Isso é muito! <br> Seu cadastro foi realizado com sucesso.
+                </h6>
+              </div>
+              `;
+              card.style.display = 'flex';
               setTimeout(() => {
                 window.location = "/login";
-              }, "2000");
+              }, "3000");
     
             } else {
               throw "Houve um erro ao tentar realizar o cadastro!, erro no HTML";

@@ -25,7 +25,6 @@ checkPubli.addEventListener('change', () => {
     } else{
         checkPriv.checked = true;
     };
-    
 });
 checkPriv.addEventListener('change', () => {
     if(checkPriv.checked){
@@ -49,3 +48,33 @@ function mostrarProjetos(resposta){
         checkPubli.checked = false;
     }
 };
+
+const btnLeft = document.getElementById('btn_left');
+const btnRight = document.getElementById('btn_right');
+
+var marginDireita = 0;
+
+btnRight.addEventListener('click', () => {
+    var resume = document.getElementById('card_first');
+    marginDireita += Number(resume.style.marginRight) - 260
+
+    if(marginDireita >= - 1300){
+        console.log(marginDireita)
+        resume.style.marginLeft = marginDireita + 'px'
+    } else{
+        marginDireita = 0;
+        resume.style.marginLeft = 0 + 'px' 
+    }
+})
+
+btnLeft.addEventListener('click', () => {
+    if(marginDireita < 0){
+        var resume = document.getElementById('card_first');
+        marginDireita += Number(resume.style.marginRight) + 260
+        console.log(marginDireita)
+        resume.style.marginLeft = marginDireita + 'px'
+    } else{
+        marginDireita = 0;
+        resume.style.marginLeft = 0 + 'px'
+    }
+})

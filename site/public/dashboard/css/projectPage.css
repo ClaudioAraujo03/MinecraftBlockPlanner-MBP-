@@ -36,6 +36,7 @@ section{
     align-items: center;
     font-family: var(--font-sans2);
     font-weight: 400;
+    overflow: auto;
 }
 .text-description{
     width: 90%;
@@ -43,7 +44,6 @@ section{
     font-size: 10px;
     font-family: var(--font-secundary);
     max-height: 85%;
-    overflow: auto;
 }
 .title-desc{
     width: 90%;
@@ -51,16 +51,84 @@ section{
 }
 .resume-project{
     width: 70%;
-    height: 90%;
+    height: 80%;
     margin-left: 5%;
+    max-width: 70%;
     display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: auto;
+    flex-direction: column;
+    padding: 10px;
     border-radius: 1rem;
     background-color: #E8E4E4;
     box-shadow: #E8E4E4 0 0 10px 0, #000 0 0 8px 0;
     font-family: var(--font-sans2);
+    max-width: 80%;
+}
+.materia{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
+.materia button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 100%;
+    width: 3.5%;
+    height: 12%;
+    background-color: #D68B53;
+    color: #ffffff;
+    cursor: pointer;
+}
+.btn-left{
+    margin-right: 5%;
+}
+.resume-project h3{
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+}
+.resume-infos{
+    width: 500px;
+    height: 90%;
+    max-width: 500px;
+    display: flex;
+    gap: 60px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    transition: all ease-in-out 0.5s;
+}
+.resume-infos .card-infos{
+    height: 90%;
+    width: 200px;
+    background-color: #c9c9c9;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-infos{
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    transition: all ease-in-out 0.5s;
+}
+.card-infos h6{
+    margin-top: 20px;
+}
+.chart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    padding: 20px;
+    height: 100px;
 }
 .bottom-info-project{
     width: 100%;
@@ -70,7 +138,7 @@ section{
     gap: 5%;
 }
 .chart-info{
-    width: 60%;
+    width: 63%;
     height: 100%;
     display: flex;
     align-items: center;
