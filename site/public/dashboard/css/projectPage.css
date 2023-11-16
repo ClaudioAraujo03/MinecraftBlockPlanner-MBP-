@@ -70,7 +70,7 @@ section{
     display: flex;
     flex-direction: column;
     font-family: var(--font-sans2);
-    display: none;
+    display: block;
 }
 .materia{
     width: 100%;
@@ -103,7 +103,7 @@ section{
 .content-data{
     width: 100%;
     height: 80%;
-    display: flex;
+    display: none;
     justify-content: center;
     overflow: auto;
     max-height: 80%;
@@ -124,7 +124,7 @@ section{
     font-size: 10px;
 }
 .title-resume h3{
-    width: 50%;
+    width: 60%;
     text-align: center;
     font-size: 15px;
 }
