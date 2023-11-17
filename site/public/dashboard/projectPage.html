@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/fonts/fonts.css">
     <link rel="stylesheet" href="css/projectPage.css">
     <script src="https://kit.fontawesome.com/265fd07209.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="side-bar" id="side_bar">
@@ -37,7 +38,7 @@
         <div class="div-projetos">
             <div class="top-info-project">
                 <div class="description">
-                    <h2 class="title-desc">Descrição:</h2>
+                    <h2 class="title-desc">Descrição: </h2>
                     <h6 class="text-description" id="desc_projeto">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel repellat ad deserunt totam, excepturi vitae quisquam fuga eveniet esse dicta voluptate, neque eos 
                         quibusdam dolores eum soluta minima debitis corporis.
@@ -45,10 +46,11 @@
                 </div>
                 <div class="resume-project" id="resume">
                     <div class="title-resume" id="title_resume">
-                        <h3>Tempo de coleta do material primário com eficiência</h3>
+                        <h3>Tempo de coleta do material com eficiência</h3>
                         <i class="fa-solid fa-chart-simple" id="change_chart"></i><i id="change_table" class="fa-solid fa-table-list"></i>
                     </div>
                     <div class="content-data" id="content_data">
+                        <h5 id="title_mat">Material Principal: </h5>
                         <table>
                              <tr>
                                 <th></th>
@@ -120,18 +122,178 @@
                                 <td id="netherite6"></td>
                                 <td id="netherite7"></td>
                             </tr>
-                        </table>    
+                        </table> 
+                        <table style="display: none;" id="table_fk1">
+                            <h5 id="title_fk1" style="display: none;">Matéria prima 1: </h5>
+                            <tr>
+                               <th></th>
+                               <th>Eficiência 1(sec)</th>
+                               <th>Eficiência 2(sec)</th>
+                               <th>Eficiência 3(sec)</th>
+                               <th>Eficiência 4(sec)</th>
+                               <th>Eficiência 5(sec)</th>
+                               <th>Ferramenta inadequada(sec)</th>
+                               <th>Quantidade de ferramentas</th>
+                           </tr>
+                           <tr>
+                               <td><img src="iconsFerramentas/Invicon_Wooden_Pickaxe.webp" alt=""></td>
+                               <td id="wooden1Fk1"></td>
+                               <td id="wooden2Fk1"></td>
+                               <td id="wooden3Fk1"></td>
+                               <td id="wooden4Fk1"></td>
+                               <td id="wooden5Fk1"></td>
+                               <td id="wooden6Fk1"></td>
+                               <td id="wooden7Fk1"></td>
+                           </tr>
+                           <tr>
+                               <td><img src="iconsFerramentas/Invicon_Stone_Pickaxe.webp" alt=""></td>
+                               <td id="stone1Fk1"></td>
+                               <td id="stone2Fk1"></td>
+                               <td id="stone3Fk1"></td>
+                               <td id="stone4Fk1"></td>
+                               <td id="stone5Fk1"></td>
+                               <td id="stone6Fk1"></td>
+                               <td id="stone7Fk1"></td>
+                           </tr>
+                           <tr>
+                               <td><img src="iconsFerramentas/Invicon_Iron_Pickaxe.webp" alt=""></td>
+                               <td id="iron1Fk1"></td>
+                               <td id="iron2Fk1"></td>
+                               <td id="iron3Fk1"></td>
+                               <td id="iron4Fk1"></td>
+                               <td id="iron5Fk1"></td>
+                               <td id="iron6Fk1"></td>
+                               <td id="iron7Fk1"></td>
+                           </tr>
+                           <tr>
+                               <td><img src="iconsFerramentas/Invicon_Golden_Pickaxe.webp" alt=""></td>
+                               <td id="gold1Fk1"></td>
+                               <td id="gold2Fk1"></td>
+                               <td id="gold3Fk1"></td>
+                               <td id="gold4Fk1"></td>
+                               <td id="gold5Fk1"></td>
+                               <td id="gold6Fk1"></td>
+                               <td id="gold7Fk1"></td>
+                           </tr>
+                           <tr>
+                               <td><img src="iconsFerramentas/Invicon_Diamond_Pickaxe.webp" alt=""></td>
+                               <td id="diamond1Fk1"></td>
+                               <td id="diamond2Fk1"></td>
+                               <td id="diamond3Fk1"></td>
+                               <td id="diamond4Fk1"></td>
+                               <td id="diamond5Fk1"></td>
+                               <td id="diamond6Fk1"></td>
+                               <td id="diamond7Fk1"></td>
+                           </tr>
+                           <tr>
+                               <td><img src="iconsFerramentas/Invicon_Netherite_Pickaxe.webp" alt=""></td>
+                               <td id="netherite1Fk1"></td>
+                               <td id="netherite2Fk1"></td>
+                               <td id="netherite3Fk1"></td>
+                               <td id="netherite4Fk1"></td>
+                               <td id="netherite5Fk1"></td>
+                               <td id="netherite6Fk1"></td>
+                               <td id="netherite7Fk1"></td>
+                           </tr>
+                       </table>
+                       <table style="display: none;" id="table_fk2">
+                            <h5 id="title_fk2" style="display: none;">Matéria prima 2: </h5>
+                            <tr>
+                                <th></th>
+                                <th>Eficiência 1(sec)</th>
+                                <th>Eficiência 2(sec)</th>
+                                <th>Eficiência 3(sec)</th>
+                                <th>Eficiência 4(sec)</th>
+                                <th>Eficiência 5(sec)</th>
+                                <th>Ferramenta inadequada(sec)</th>
+                                <th>Quantidade de ferramentas</th>
+                            </tr>
+                            <tr>
+                                <td><img src="iconsFerramentas/Invicon_Wooden_Pickaxe.webp" alt=""></td>
+                                <td id="wooden1Fk2"></td>
+                                <td id="wooden2Fk2"></td>
+                                <td id="wooden3Fk2"></td>
+                                <td id="wooden4Fk2"></td>
+                                <td id="wooden5Fk2"></td>
+                                <td id="wooden6Fk2"></td>
+                                <td id="wooden7Fk2"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="iconsFerramentas/Invicon_Stone_Pickaxe.webp" alt=""></td>
+                                <td id="stone1Fk2"></td>
+                                <td id="stone2Fk2"></td>
+                                <td id="stone3Fk2"></td>
+                                <td id="stone4Fk2"></td>
+                                <td id="stone5Fk2"></td>
+                                <td id="stone6Fk2"></td>
+                                <td id="stone7Fk2"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="iconsFerramentas/Invicon_Iron_Pickaxe.webp" alt=""></td>
+                                <td id="iron1Fk2"></td>
+                                <td id="iron2Fk2"></td>
+                                <td id="iron3Fk2"></td>
+                                <td id="iron4Fk2"></td>
+                                <td id="iron5Fk2"></td>
+                                <td id="iron6Fk2"></td>
+                                <td id="iron7Fk2"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="iconsFerramentas/Invicon_Golden_Pickaxe.webp" alt=""></td>
+                                <td id="gold1Fk2"></td>
+                                <td id="gold2Fk2"></td>
+                                <td id="gold3Fk2"></td>
+                                <td id="gold4Fk2"></td>
+                                <td id="gold5Fk2"></td>
+                                <td id="gold6Fk2"></td>
+                                <td id="gold7Fk2"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="iconsFerramentas/Invicon_Diamond_Pickaxe.webp" alt=""></td>
+                                <td id="diamond1Fk2"></td>
+                                <td id="diamond2Fk2"></td>
+                                <td id="diamond3Fk2"></td>
+                                <td id="diamond4Fk2"></td>
+                                <td id="diamond5Fk2"></td>
+                                <td id="diamond6Fk2"></td>
+                                <td id="diamond7Fk2"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="iconsFerramentas/Invicon_Netherite_Pickaxe.webp" alt=""></td>
+                                <td id="netherite1Fk2"></td>
+                                <td id="netherite2Fk2"></td>
+                                <td id="netherite3Fk2"></td>
+                                <td id="netherite4Fk2"></td>
+                                <td id="netherite5Fk2"></td>
+                                <td id="netherite6Fk2"></td>
+                                <td id="netherite7Fk2"></td>
+                            </tr>
+                        </table>   
                     </div>
                     <div class="content-resume" id="content_resume">
+                        
+                    </div>
+                    <div id="another_charts">
+
+                    </div>
+                    <div id="another_charts2">
                         
                     </div>
                 </div>
             </div>
             <div class="bottom-info-project">
                 <div class="chart-info" id="chart">
-                    <h5 id="nome_material1">
+                    <h5 class="nome-material" id="nome_material1">
                         Material escolhido: 
                     </h5>
+                    <div class="infos">
+                        <h5 id="info_qtd_blocos">Total de blocos(material principal): </h5>
+                        <h5 id="info_largura">Largura: </h5>
+                        <h5 id="info_altura">Altura: </h5>
+                        <h5 id="info_comprimento">Comprimento: </h5>
+                        <h5 id="info_raio">Raio: </h5>
+                        <h5 id="info_formato">Formato: </h5>
+                    </div>
                 </div>
                 <div class="alter-configs">
                     <div class="privacidade-div">
@@ -154,7 +316,80 @@
 <script src="js/navSideBar.js"></script>
 <script src="js/loadSideBarValues.js"></script>
 <script src="js/projectPage.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script> 
-    
-</script>
+<!-- 
+<div class="materia">
+    <button class="btn-left" id="btn_left"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="resume-infos" id="resume_infos_materia_principal">
+        <div class="card-infos" id="card_first">
+            <h6>Eficiência 1(Segundos)</h6>
+            <div class="chart">
+                <canvas id="donnut_madeira"></canvas>
+                <div class='legend'>
+                    <h5 style="color: blue">Madeira: ${tableWooden1Result}</h5><br>
+                    <h5 style="color: #c253d6">Pedra: ${tableStone1Result}</h5><br>
+                    <h5 style="color: #a2561c">Ferro: ${tableIron1Result}</h5><br>
+                    <h5 style="color: yellow">Ouro: ${tableGold1Result}</h5><br>
+                    <h5 style="color: #093432">Diamante: ${tableDiamond1Result}</h5><br>
+                    <h5 style="color: purple">Netherite: ${tableNetherite1Result}</h5><br>
+                </div>
+            </div>
+        </div>
+        <div class="card-infos">
+            <h6>Eficiência 2(Segundos)</h6>
+            <div class="chart">
+                <canvas id="donnut_pedra"></canvas>
+                <div class='legend'>
+                    <h5 style="color: blue">Madeira: ${tableWooden2Result}</h5><br>
+                    <h5 style="color: #c253d6">Pedra: ${tableStone2Result}</h5><br>
+                    <h5 style="color: #a2561c">Ferro: ${tableIron2Result}</h5><br>
+                    <h5 style="color: yellow">Ouro: ${tableGold2Result}</h5><br>
+                    <h5 style="color: #093432">Diamante: ${tableDiamond2Result}</h5><br>
+                    <h5 style="color: purple">Netherite: ${tableNetherite2Result}</h5><br>
+                </div>
+            </div>
+        </div>
+        <div class="card-infos">
+            <h6>Eficiência 3(Segundos)</h6>
+            <div class="chart">
+                <canvas id="donnut_ferro"></canvas>
+                <div class='legend'>
+                    <h5 style="color: blue">Madeira: ${tableWooden3Result}</h5><br>
+                    <h5 style="color: #c253d6">Pedra: ${tableStone3Result}</h5><br>
+                    <h5 style="color: #a2561c">Ferro: ${tableIron3Result}</h5><br>
+                    <h5 style="color: yellow">Ouro: ${tableGold3Result}</h5><br>
+                    <h5 style="color: #093432">Diamante: ${tableDiamond3Result}</h5><br>
+                    <h5 style="color: purple">Netherite: ${tableNetherite3Result}</h5><br>
+                </div>
+            </div>
+        </div>
+        <div class="card-infos">
+            <h6>Eficiência 4(Segundos)</h6>
+            <div class="chart">
+                <canvas id="donnut_ouro"></canvas>
+                <div class='legend'>
+                    <h5 style="color: blue">Madeira: ${tableWooden4Result}</h5><br>
+                    <h5 style="color: #c253d6">Pedra: ${tableStone4Result}</h5><br>
+                    <h5 style="color: #a2561c">Ferro: ${tableIron4Result}</h5><br>
+                    <h5 style="color: yellow">Ouro: ${tableGold4Result}</h5><br>
+                    <h5 style="color: #093432">Diamante: ${tableDiamond4Result}</h5><br>
+                    <h5 style="color: purple">Netherite: ${tableNetherite4Result}</h5><br>
+                </div>
+            </div>
+        </div>
+        <div class="card-infos">
+            <h6>Eficiência 5(Segundos)</h6>
+            <div class="chart">
+                <canvas id="donnut_diamante"></canvas>
+                <div class='legend'>
+                    <h5 style="color: blue">Madeira: ${tableWooden5Result}</h5><br>
+                    <h5 style="color: #c253d6">Pedra: ${tableStone5Result}</h5><br>
+                    <h5 style="color: #a2561c">Ferro: ${tableIron5Result}</h5><br>
+                    <h5 style="color: yellow">Ouro: ${tableGold5Result}</h5><br>
+                    <h5 style="color: #093432">Diamante: ${tableDiamond5Result}</h5><br>
+                    <h5 style="color: purple">Netherite: ${tableNetherite5Result}</h5><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="btn_right"><i class="fa-solid fa-chevron-right"></i></button>
+</div>  -->

@@ -9,4 +9,11 @@ function abrirProjetoModel(idProjeto){
     return database.executar(instrucao)
 }
 
-module.exports = { abrirProjetoModel };
+function achaBlocosModel(){
+    var instrucao = `
+        select * from blocos
+    `;
+    return database.executar(instrucao)
+};
+
+module.exports = { abrirProjetoModel, achaBlocosModel };

@@ -20,4 +20,23 @@ function meuProjetoController(req, res){
     ); 
 }
 
-module.exports = { meuProjetoController };
+function achaBlocos(req, res){
+    modelMeuProjeto.achaBlocosModel()
+    .then(
+        function(resultado){
+            console.log(resultado)
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao achar os blocos! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    ); 
+}
+
+module.exports = { meuProjetoController, achaBlocos };
