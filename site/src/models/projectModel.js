@@ -30,4 +30,11 @@ function deletaProjetoModel(idProjeto){
     return database.executar(instrucao);
 }
 
-module.exports = { abrirProjetoModel, achaBlocosModel, deletaAreaProjetosModel, deletaProjetoModel };
+function editarPrivacidadeModels(idProjeto, privacidade){
+    var instrucao = `
+        update projeto set privacidade = '${privacidade}' where idProjeto = ${idProjeto};   
+    `;
+    return database.executar(instrucao);
+}
+
+module.exports = { abrirProjetoModel, achaBlocosModel, deletaAreaProjetosModel, deletaProjetoModel, editarPrivacidadeModels };

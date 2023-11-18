@@ -76,4 +76,25 @@ function deletaProjetoController(req, res){
     )
 }
 
-module.exports = { meuProjetoController, achaBlocos, deletaProjetoController};
+function editarPrivacidadeController(req, res){
+    var idProjeto = req.params.idProjeto;
+    var privacidade = req.body.privacidadeServer;
+    modelMeuProjeto.editarPrivacidadeModels(idProjeto, privacidade)
+    .then(
+        function(resultado){
+            console.log(resultado)
+            res.json(resultado)
+        }
+    ).catch(
+        function(erro){
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao editar a privacidade do projeto! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    )
+}
+
+module.exports = { meuProjetoController, achaBlocos, deletaProjetoController, editarPrivacidadeController};

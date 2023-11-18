@@ -19,4 +19,8 @@ router.delete('/project/:idProjeto/:idArea', function(req, res){
     abrirMeuProjetoController.deletaProjetoController(req, res);
 });
 
+router.put('/project/:idProjeto', function(req, res){
+    abrirMeuProjetoController.editarPrivacidadeController(req, res);
+});
+
 module.exports = router;

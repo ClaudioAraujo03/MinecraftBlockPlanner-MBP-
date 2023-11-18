@@ -29,19 +29,27 @@ var descProj = document.getElementById('desc_projeto')
 var checkPubli = document.getElementById('checkbox_public')
 var checkPriv = document.getElementById('checkbox_privated')
 
+var privacidade = '';
+
 checkPubli.addEventListener('change', () => {
     if(checkPubli.checked){
         checkPriv.checked = false;
+        privacidade = 'público';
     } else{
         checkPriv.checked = true;
+        privacidade = 'privado';
     };
+    alteraPriv(privacidade);
 });
 checkPriv.addEventListener('change', () => {
     if(checkPriv.checked){
         checkPubli.checked = false;
+        privacidade = 'privado';
     } else{
         checkPubli.checked = true;
+        privacidade = 'público';
     };
+    alteraPriv(privacidade);
 });
 
 var qtdBlocos = 0
@@ -543,6 +551,7 @@ function insereTabela1(
     tableNetheriteQuantidade.innerHTML = tableNetheriteQuantidadeResult
 }
 
+
 function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
     fetch(`/dashboard/project/${sessionStorage.getItem('ID_PROJ')}/blocos`)
     .then(resposta => {
@@ -560,19 +569,19 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
         var fk1Nome = resposta[idFk1].nomeBloco;
         console.log(fk1Nome)
         var fk1Drop = resposta[idFk1].dropItens
-
+        
         infosArea.innerHTML += `<h5>Matéria prima 1: ${fk1Nome}</h5>`
         infosArea.innerHTML += `<h5>Total matéria prima 1: ${qtdBlocos * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop} blocos</h5>`
-
-        var titleFk1Table = document.getElementById('title_fk1');
+        
+        var titleFk1Table = document.getElementById('txt_padFk1');
         var tableFk1 = document.getElementById('table_fk1');
 
         titleFk1Table.style.display = 'block'
         tableFk1.style.display = 'block'
-
-        titleFk1Table.innerHTML += resposta[idFk1].nomeBloco;
+        
         titleFk1Table.style.display = 'block'
-
+        
+        
         var woodMultiplierFk1 = resposta[idFk1].dureza / 1.3333;
         var tableFk1Wooden1Result = Math.ceil((woodMultiplierFk1 - woodMultiplierFk1 * 0.25) * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop;
         var tableFk1Wooden2Result = Math.ceil((woodMultiplierFk1 - woodMultiplierFk1 * 0.30) * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop;
@@ -581,7 +590,7 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
         var tableFk1Wooden5Result = Math.ceil((woodMultiplierFk1 - woodMultiplierFk1 * 0.45) * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop;
         var tableFk1WoodenInadequadaResult = Math.ceil((resposta[idFk1].dureza * 2.5) * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop;
         var tableFk1WoodenQtdResult = Math.ceil(qtdBlocos / 60)* resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop;
-
+        
         var stoneMultiplierFk1 = resposta[idFk1].dureza / 2.6667;
         var tableFk1Stone1Result = Math.ceil((stoneMultiplierFk1 - stoneMultiplierFk1 * 0.25) * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop;
         var tableFk1Stone2Result = Math.ceil((stoneMultiplierFk1 - stoneMultiplierFk1 * 0.30) * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop;
@@ -933,13 +942,12 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
             infosArea.innerHTML += `<h5>Matéria prima 2: ${fk2Nome}</h5>`
             infosArea.innerHTML += `<h5>Total matéria prima 2: ${qtdBlocos * resposta[idBlocoPrincipal].materiaPrima2Quantidade / fk2Drop} blocos</h5>`
     
-            var titleFk2Table = document.getElementById('title_fk2');
+            var titleFk2Table = document.getElementById('txt_padFk2');
             var tableFk2 = document.getElementById('table_fk2');
     
             titleFk2Table.style.display = 'block'
             tableFk2.style.display = 'block'
     
-            titleFk2Table.innerHTML += resposta[idFk2].nomeBloco;
             titleFk2Table.style.display = 'block'
     
             var woodMultiplierFk2 = resposta[idFk2].dureza / 1.3333;
@@ -1337,12 +1345,30 @@ function geraInline(grafico, dado1, dado2, dado3, dado4, dado5, dado6, txt, divT
                 label: 'Tempo de coleta',
                 data: [dado1, dado2, dado3, dado4, dado5, dado6],
                 borderWidth: 0,
+                backgroundColor: [
+                    'rgba(0, 0, 255, 0.755)',
+                    '#c253d6df',
+                    '#a2561cb2',
+                    'rgba(255, 255, 0, 0.778)',
+                    'rgba(56, 169, 206, 0.722)',
+                    'rgba(128, 0, 128, 0.758)'
+                ],
+                borderColor: [
+                    'rgb(255, 255, 255)',
+                    'rgb(255, 255, 255)',
+                    'rgb(255, 255, 255)',
+                    'rgb(255, 255, 255)',
+                    'rgb(255, 255, 255)',
+                    'rgb(255, 255, 255)',
+                    'rgb(255, 255, 255)'
+                ],
+                borderWidth: 2,
             }]
         },
         options: {
             plugins: {
                 legend: {
-                    display: false
+                    display: false,
                 },
                 tooltip: {
                     bodyFont: {
@@ -1353,7 +1379,24 @@ function geraInline(grafico, dado1, dado2, dado3, dado4, dado5, dado6, txt, divT
                     },
                     boxWidth: 10
                 }
-            }
+            },
+            scales: {
+                x: {
+                  ticks: {
+                    color: 'rgba(255, 255, 255)'
+                },
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.2)'                  
+                }
+                },
+                y: {
+                  ticks: {
+                    color: 'rgba(255, 255, 255)'                  },
+                  grid: {
+                    color: 'rgba(255, 255, 255, 0.2)'
+                  }
+                }
+              }
         }
     });
 }
@@ -1380,3 +1423,27 @@ const deletarProjeto = document.getElementById('del_proj').addEventListener('cli
         console.log(`#ERRO: ${resposta}`);
     })
 });
+
+function alteraPriv(priv){
+    fetch(`/dashboard/project/${sessionStorage.getItem('ID_PROJ')}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body:JSON.stringify({
+            privacidadeServer: priv,
+        })
+    }).then(function(resposta){
+        console.log("Edição de privacidade realizada com sucesso", resposta);
+        if (resposta.ok) {
+            sessionStorage.SENHA_USER = senhaVar
+            sessionStorage.NICK_USER = nickVar
+            window.location = `/dashboard/project/${sessionStorage.getItem('ID_PROJ')}`;  
+        } else {
+            throw "Houve um erro ao tentar realizar a edição da privacidade do projeto!, erro no HTML";
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+    return false
+}
