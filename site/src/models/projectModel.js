@@ -16,4 +16,18 @@ function achaBlocosModel(){
     return database.executar(instrucao)
 };
 
-module.exports = { abrirProjetoModel, achaBlocosModel };
+function deletaAreaProjetosModel(idArea){
+    var instrucao = `
+        delete from areaProj where idArea = ${idArea};
+    `;
+    return database.executar(instrucao);
+}
+
+function deletaProjetoModel(idProjeto){
+    var instrucao = `
+        delete from projeto where idProjeto = ${idProjeto};
+    `;
+    return database.executar(instrucao);
+}
+
+module.exports = { abrirProjetoModel, achaBlocosModel, deletaAreaProjetosModel, deletaProjetoModel };

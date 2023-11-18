@@ -2,7 +2,10 @@ var resume = document.getElementById('content_resume');
 var resumeData = document.getElementById('content_data');
 var anotherFk2resume = document.getElementById('another_charts2');
 var anotherResume = document.getElementById('another_charts');
-
+var chartLine = document.getElementById('chart_line');
+var chartLineFk1 = document.getElementById('chart_lineFk1');
+var chartLineFk2 = document.getElementById('chart_lineFk2');
+var infosArea = document.getElementById('infos_area');
 
 fetch(`/dashboard/project/${sessionStorage.getItem('ID_PROJ')}`)
 .then(resposta => {
@@ -10,6 +13,8 @@ fetch(`/dashboard/project/${sessionStorage.getItem('ID_PROJ')}`)
         resposta.json().then(resposta => {
             console.log(`Seus projeto foi aberto com sucesso:${JSON.stringify(resposta)}`)
             mostrarProjetos(resposta);
+            sessionStorage.ID_AREA = resposta[0].idArea;
+            idAreaProj = resposta[0].idArea;
         })
     } else{
         console.log('Não foi possível abir seu  projeto.')
@@ -43,7 +48,6 @@ var qtdBlocos = 0
 
 function mostrarProjetos(resposta){
     var titleMaterial = document.getElementById('nome_material1');
-    
     titleMaterial.innerText += ' ' + resposta[0].nomeBloco;
     
     nameProj.innerHTML = resposta[0].nomeProjeto;
@@ -140,38 +144,73 @@ function mostrarProjetos(resposta){
             <button class="btn-left" id="btn_left"><i class="fa-solid fa-chevron-left"></i></button>
             <div class="resume-infos" id="resume_infos_materia_principal">
                 <div class="card-infos" id="card_first">
-                    <h6>Eficiência 1(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 1(Segundos)<br>${resposta[0].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="donnut_madeira"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableWooden1Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableStone1Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableIron1Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableGold1Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableDiamond1Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableNetherite1Result}</h5><br>
+                        </div>
                     </div>
                 </div>
                 <div class="card-infos">
-                    <h6>Eficiência 2(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 2(Segundos)<br>${resposta[0].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="donnut_pedra"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableWooden2Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableStone2Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableIron2Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableGold2Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableDiamond2Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableNetherite2Result}</h5><br>
+                        </div>
                     </div>
                 </div>
                 <div class="card-infos">
-                    <h6>Eficiência 3(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 3(Segundos)<br>${resposta[0].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="donnut_ferro"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableWooden3Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableStone3Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableIron3Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableGold3Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableDiamond3Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableNetherite3Result}</h5><br>
+                        </div>
                     </div>
                 </div>
                 <div class="card-infos">
-                    <h6>Eficiência 4(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 4(Segundos)<br>${resposta[0].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="donnut_ouro"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableWooden4Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableStone4Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableIron4Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableGold4Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableDiamond4Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableNetherite4Result}</h5><br>
+                        </div>
                     </div>
                 </div>
                 <div class="card-infos">
-                    <h6>Eficiência 5(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 5(Segundos)<br>${resposta[0].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="donnut_diamante"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableWooden5Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableStone5Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableIron5Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableGold5Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableDiamond5Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableNetherite5Result}</h5><br>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -329,7 +368,10 @@ function mostrarProjetos(resposta){
             fk2 = resposta[0].fkMateriaPrima2;
         }
         buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal);
-    } 
+    }
+    var txtDiv = document.getElementById('txt_pad')
+
+    geraInline(chartLine, parseInt(woodMultiplier * qtdBlocos), parseInt(stoneMultiplier * qtdBlocos), parseInt(ironMultiplier * qtdBlocos), parseInt(goldMultiplier * qtdBlocos), parseInt(diamondMultiplier * qtdBlocos), parseInt(netheriteMultiplier * qtdBlocos), resposta[0].nomeBloco, txtDiv)
 };
 
 
@@ -519,6 +561,9 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
         console.log(fk1Nome)
         var fk1Drop = resposta[idFk1].dropItens
 
+        infosArea.innerHTML += `<h5>Matéria prima 1: ${fk1Nome}</h5>`
+        infosArea.innerHTML += `<h5>Total matéria prima 1: ${qtdBlocos * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop} blocos</h5>`
+
         var titleFk1Table = document.getElementById('title_fk1');
         var tableFk1 = document.getElementById('table_fk1');
 
@@ -526,6 +571,7 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
         tableFk1.style.display = 'block'
 
         titleFk1Table.innerHTML += resposta[idFk1].nomeBloco;
+        titleFk1Table.style.display = 'block'
 
         var woodMultiplierFk1 = resposta[idFk1].dureza / 1.3333;
         var tableFk1Wooden1Result = Math.ceil((woodMultiplierFk1 - woodMultiplierFk1 * 0.25) * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop;
@@ -711,38 +757,73 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
             <button class="btn-left" id="btn_left_fk1"><i class="fa-solid fa-chevron-left"></i></button>
             <div class="resume-infos" id="resume_infos_materia_principal_fk1">
                 <div class="card-infos" id="card_first_fk1">
-                    <h6>Eficiência 1(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 1(Segundos)<br>${resposta[idFk1].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="fk1donnut_madeira"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableFk1Wooden1Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableFk1Stone1Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableFk1Iron1Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableFk1Gold1Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableFk1Diamond1Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableFk1Netherite1Result}</h5><br>
+                        </div>
                     </div>
                 </div>
                 <div class="card-infos">
-                    <h6>Eficiência 2(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 2(Segundos)<br>${resposta[idFk1].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="fk1donnut_pedra"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableFk1Wooden2Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableFk1Stone2Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableFk1Iron2Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableFk1Gold2Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableFk1Diamond2Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableFk1Netherite2Result}</h5><br>
+                        </div>
                     </div>
                 </div>
                 <div class="card-infos">
-                    <h6>Eficiência 3(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 3(Segundos)<br>${resposta[idFk1].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="fk1donnut_ferro"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableFk1Wooden3Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableFk1Stone3Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableFk1Iron3Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableFk1Gold3Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableFk1Diamond3Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableFk1Netherite3Result}</h5><br>
+                        </div>
                     </div>
                 </div>
                 <div class="card-infos">
-                    <h6>Eficiência 4(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 4(Segundos)<br>${resposta[idFk1].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="fk1donnut_ouro"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableFk1Wooden4Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableFk1Stone4Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableFk1Iron4Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableFk1Gold4Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableFk1Diamond4Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableFk1Netherite4Result}</h5><br>
+                        </div>
                     </div>
                 </div>
                 <div class="card-infos">
-                    <h6>Eficiência 5(Segundos)</h6>
+                    <h6 style='text-align: center;'>Eficiência 5(Segundos)<br>${resposta[idFk1].nomeBloco}</h6>
                     <div class="chart">
                         <canvas id="fk1donnut_diamante"></canvas>
-
+                        <div class='legend'>
+                            <h5 style="color: blue">Madeira: ${tableFk1Wooden5Result}</h5><br>
+                            <h5 style="color: #c253d6">Pedra: ${tableFk1Stone5Result}</h5><br>
+                            <h5 style="color: #a2561c">Ferro: ${tableFk1Iron5Result}</h5><br>
+                            <h5 style="color: yellow">Ouro: ${tableFk1Gold5Result}</h5><br>
+                            <h5 style="color: #093432">Diamante: ${tableFk1Diamond5Result}</h5><br>
+                            <h5 style="color: purple">Netherite: ${tableFk1Netherite5Result}</h5><br>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -807,8 +888,8 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
             tableFk1Wooden3Result,
             tableFk1Stone3Result,
             tableFk1Iron3Result,
-            tableFk1Diamond3Result,
             tableFk1Gold3Result,
+            tableFk1Diamond3Result,
             tableFk1Netherite3Result,
         );
         geraGrafico(
@@ -829,12 +910,28 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
             tableFk1Diamond5Result,
             tableFk1Netherite5Result
         );
+
+        var txtDivFk1 = document.getElementById('txt_padFk1')
+
+        chartLineFk1.style.display = 'block';
+
+        geraInline(
+            chartLineFk1, 
+            parseInt((woodMultiplierFk1 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop),
+            parseInt((stoneMultiplierFk1 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop), 
+            parseInt((ironMultiplierFk1 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop), 
+            parseInt((goldMultiplierFk1 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop), 
+            parseInt((diamondMultiplierFk1 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop), 
+            parseInt((netheriteMultiplierFk1 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop), resposta[idFk1].nomeBloco, txtDivFk1)
+
         
         if(fk2 !== null){
             var idFk2 = fk2 - 1;
             var fk2Nome = resposta[idFk2].nomeBloco;
-            console.log(fk2Nome)
             var fk2Drop = resposta[idFk2].dropItens
+
+            infosArea.innerHTML += `<h5>Matéria prima 2: ${fk2Nome}</h5>`
+            infosArea.innerHTML += `<h5>Total matéria prima 2: ${qtdBlocos * resposta[idBlocoPrincipal].materiaPrima2Quantidade / fk2Drop} blocos</h5>`
     
             var titleFk2Table = document.getElementById('title_fk2');
             var tableFk2 = document.getElementById('table_fk2');
@@ -843,6 +940,7 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
             tableFk2.style.display = 'block'
     
             titleFk2Table.innerHTML += resposta[idFk2].nomeBloco;
+            titleFk2Table.style.display = 'block'
     
             var woodMultiplierFk2 = resposta[idFk2].dureza / 1.3333;
             var tableFk2Wooden1Result = Math.ceil((woodMultiplierFk2 - woodMultiplierFk2 * 0.25) * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima2Quantidade / fk2Drop;
@@ -1027,38 +1125,73 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
                 <button class="btn-left" id="btn_left_fk2"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="resume-infos" id="resume_infos_materia_principal_fk2">
                     <div class="card-infos" id="card_first_fk2">
-                        <h6>Eficiência 1(Segundos)</h6>
+                        <h6 style='text-align: center;'>Eficiência 1(Segundos)<br>${resposta[idFk2].nomeBloco}</h6>
                         <div class="chart">
                             <canvas id="fk2donnut_madeira"></canvas>
-
+                            <div class='legend'>
+                                <h5 style="color: blue">Madeira: ${tableFk2Wooden1Result}</h5><br>
+                                <h5 style="color: #c253d6">Pedra: ${tableFk2Stone1Result}</h5><br>
+                                <h5 style="color: #a2561c">Ferro: ${tableFk2Iron1Result}</h5><br>
+                                <h5 style="color: yellow">Ouro: ${tableFk2Gold1Result}</h5><br>
+                                <h5 style="color: #093432">Diamante: ${tableFk2Diamond1Result}</h5><br>
+                                <h5 style="color: purple">Netherite: ${tableFk2Netherite1Result}</h5><br>
+                            </div>
                         </div>
                     </div>
                     <div class="card-infos">
-                        <h6>Eficiência 2(Segundos)</h6>
+                        <h6 style='text-align: center;'>Eficiência 2(Segundos)<br>${resposta[idFk2].nomeBloco}</h6>
                         <div class="chart">
                             <canvas id="fk2donnut_pedra"></canvas>
-
+                            <div class='legend'>
+                                <h5 style="color: blue">Madeira: ${tableFk2Wooden2Result}</h5><br>
+                                <h5 style="color: #c253d6">Pedra: ${tableFk2Stone2Result}</h5><br>
+                                <h5 style="color: #a2561c">Ferro: ${tableFk2Iron2Result}</h5><br>
+                                <h5 style="color: yellow">Ouro: ${tableFk2Gold2Result}</h5><br>
+                                <h5 style="color: #093432">Diamante: ${tableFk2Diamond2Result}</h5><br>
+                                <h5 style="color: purple">Netherite: ${tableFk2Netherite2Result}</h5><br>
+                            </div>
                         </div>
                     </div>
                     <div class="card-infos">
-                        <h6>Eficiência 3(Segundos)</h6>
+                        <h6 style='text-align: center;'>Eficiência 3(Segundos)<br>${resposta[idFk2].nomeBloco}</h6>
                         <div class="chart">
                             <canvas id="fk2donnut_ferro"></canvas>
-
+                            <div class='legend'>
+                                <h5 style="color: blue">Madeira: ${tableFk2Wooden3Result}</h5><br>
+                                <h5 style="color: #c253d6">Pedra: ${tableFk2Stone3Result}</h5><br>
+                                <h5 style="color: #a2561c">Ferro: ${tableFk2Iron3Result}</h5><br>
+                                <h5 style="color: yellow">Ouro: ${tableFk2Gold3Result}</h5><br>
+                                <h5 style="color: #093432">Diamante: ${tableFk2Diamond3Result}</h5><br>
+                                <h5 style="color: purple">Netherite: ${tableFk2Netherite3Result}</h5><br>
+                            </div>
                         </div>
                     </div>
                     <div class="card-infos">
-                        <h6>Eficiência 4(Segundos)</h6>
+                        <h6 style='text-align: center;'>Eficiência 4(Segundos)<br>${resposta[idFk2].nomeBloco}</h6>
                         <div class="chart">
                             <canvas id="fk2donnut_ouro"></canvas>
-
+                            <div class='legend'>
+                                <h5 style="color: blue">Madeira: ${tableFk2Wooden4Result}</h5><br>
+                                <h5 style="color: #c253d6">Pedra: ${tableFk2Stone4Result}</h5><br>
+                                <h5 style="color: #a2561c">Ferro: ${tableFk2Iron4Result}</h5><br>
+                                <h5 style="color: yellow">Ouro: ${tableFk2Gold4Result}</h5><br>
+                                <h5 style="color: #093432">Diamante: ${tableFk2Diamond4Result}</h5><br>
+                                <h5 style="color: purple">Netherite: ${tableFk2Netherite4Result}</h5><br>
+                            </div>
                         </div>
                     </div>
                     <div class="card-infos">
-                        <h6>Eficiência 5(Segundos)</h6>
+                        <h6 style='text-align: center;'>Eficiência 5(Segundos)<br>${resposta[idFk2].nomeBloco}</h6>
                         <div class="chart">
                             <canvas id="fk2donnut_diamante"></canvas>
-
+                            <div class='legend'>
+                                <h5 style="color: blue">Madeira: ${tableFk2Wooden5Result}</h5><br>
+                                <h5 style="color: #c253d6">Pedra: ${tableFk2Stone5Result}</h5><br>
+                                <h5 style="color: #a2561c">Ferro: ${tableFk2Iron5Result}</h5><br>
+                                <h5 style="color: yellow">Ouro: ${tableFk2Gold5Result}</h5><br>
+                                <h5 style="color: #093432">Diamante: ${tableFk2Diamond5Result}</h5><br>
+                                <h5 style="color: purple">Netherite: ${tableFk2Netherite5Result}</h5><br>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1101,6 +1234,20 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
             var fk2graficoOuro = document.getElementById('fk2donnut_ouro');
             var fk2graficoDiamante = document.getElementById('fk2donnut_diamante');
 
+            var txtDivFk2 = document.getElementById('txt_padFk2')
+
+            chartLineFk2.style.display = 'block'
+            geraInline(
+                chartLineFk2, 
+                parseInt((woodMultiplierFk2 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk2Drop),
+                parseInt((stoneMultiplierFk2 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk2Drop), 
+                parseInt((ironMultiplierFk2 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk2Drop), 
+                parseInt((goldMultiplierFk2 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk2Drop), 
+                parseInt((diamondMultiplierFk2 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk2Drop), 
+                parseInt((netheriteMultiplierFk2 * qtdBlocos) * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk2Drop), resposta[idFk2].nomeBloco, txtDivFk2
+            )
+    
+
             geraGrafico(
                 fk2graficoMadeira, 
                 tableFk2Wooden1Result,
@@ -1124,8 +1271,8 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
                 tableFk2Wooden3Result,
                 tableFk2Stone3Result,
                 tableFk2Iron3Result,
-                tableFk2Diamond3Result,
                 tableFk2Gold3Result,
+                tableFk2Diamond3Result,
                 tableFk2Netherite3Result,
             );
             geraGrafico(
@@ -1168,6 +1315,37 @@ function geraGrafico(grafico, dado1, dado2, dado3, dado4, dado5, dado6){
                 },
                 tooltip: {
                     bodyFont: {
+                        size: 6 
+                    },
+                    titleFont: {
+                        size: 6
+                    },
+                    boxWidth: 5
+                }
+            }
+        }
+    });
+};
+
+function geraInline(grafico, dado1, dado2, dado3, dado4, dado5, dado6, txt, divTxt){
+    divTxt.innerHTML += txt;
+    new Chart(grafico, {
+        type: 'bar',
+        data: {
+            labels: ['Madeira', 'Pedra', 'Ferro', 'Ouro', 'Diamante', 'Netherite'],
+            datasets: [{
+                label: 'Tempo de coleta',
+                data: [dado1, dado2, dado3, dado4, dado5, dado6],
+                borderWidth: 0,
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    bodyFont: {
                         size: 8 
                     },
                     titleFont: {
@@ -1178,4 +1356,27 @@ function geraGrafico(grafico, dado1, dado2, dado3, dado4, dado5, dado6){
             }
         }
     });
-};
+}
+
+const deletarProjeto = document.getElementById('del_proj').addEventListener('click', () => {
+    fetch(`/dashboard/project/${sessionStorage.getItem('ID_PROJ')}/${sessionStorage.getItem('ID_AREA')}`, {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function(resposta){
+        if(resposta.ok){
+            var popUpDel = document.getElementById('pop_up_del');
+            popUpDel.style.display = 'block'
+            setTimeout(() => {
+                window.location = "/dashboard/myListProjects"
+            }, 1500);
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar apagar o seu projeto! Código da resposta: " + resposta.status);
+        }
+    }).catch(function(resposta){
+        console.log(`#ERRO: ${resposta}`);
+    })
+});

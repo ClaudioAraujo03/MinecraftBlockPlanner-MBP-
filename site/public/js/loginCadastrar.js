@@ -79,7 +79,7 @@ const btnCadastrar = document.getElementById('btn_cadastro').addEventListener('c
               <div class="content-card">
                 <img src="../assets/happy.gif" alt="">
                 <h6 id="text_content">
-                  Isso é muito! <br> Seu cadastro foi realizado com sucesso.
+                  Isso é muito bom! <br> Seu cadastro foi realizado com sucesso.
                 </h6>
               </div>
               `;

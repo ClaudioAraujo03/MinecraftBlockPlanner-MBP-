@@ -273,7 +273,7 @@
                     <div class="content-resume" id="content_resume">
                         
                     </div>
-                    <div id="another_charts">
+                    <div style="margin-top: 30px;" id="another_charts">
 
                     </div>
                     <div id="another_charts2">
@@ -283,16 +283,24 @@
             </div>
             <div class="bottom-info-project">
                 <div class="chart-info" id="chart">
-                    <h5 class="nome-material" id="nome_material1">
-                        Material escolhido: 
-                    </h5>
-                    <div class="infos">
+                    <div class="infos" id="infos_area">
+                        <h5 class="nome-material" id="nome_material1">
+                            Material escolhido: 
+                        </h5>
                         <h5 id="info_qtd_blocos">Total de blocos(material principal): </h5>
                         <h5 id="info_largura">Largura: </h5>
                         <h5 id="info_altura">Altura: </h5>
                         <h5 id="info_comprimento">Comprimento: </h5>
                         <h5 id="info_raio">Raio: </h5>
                         <h5 id="info_formato">Formato: </h5>
+                    </div>
+                    <div class="container-chart" >
+                        <h5 id="txt_pad">Tempo de coleta padrão: </h5>
+                        <canvas id="chart_line"></canvas>
+                        <h5 style="margin-top: 20px; display: none;" id="txt_padFk1">Tempo de coleta padrão: </h5>
+                        <canvas style="display: none;" id="chart_lineFk1"></canvas>
+                        <h5 style="display: none;" id="txt_padFk2">Tempo de coleta padrão: </h5>
+                        <canvas style="display: none;" id="chart_lineFk2"></canvas>
                     </div>
                 </div>
                 <div class="alter-configs">
@@ -305,91 +313,20 @@
                         <img src="../assets/steve alex wolf and creeper.png" alt="" class="steve">
                     </div>
                     <div class="btn-configs">
-                        <button class="btn-del"><span>APAGAR PROJETO</span></button>
+                        <button id="del_proj" class="btn-del"><span>APAGAR PROJETO</span></button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <div class="pop-up-del" id="pop_up_del">
+        <div class="content-pop-up">
+            <img src="../assets/Trashy_overworld.webp" alt="">
+            <h3>O PROJETO FOI EXCLUÍDO!!!</h3>
+        </div>
+    </div>
 </body>
 </html>
 <script src="js/navSideBar.js"></script>
 <script src="js/loadSideBarValues.js"></script>
 <script src="js/projectPage.js"></script>
-<!-- 
-<div class="materia">
-    <button class="btn-left" id="btn_left"><i class="fa-solid fa-chevron-left"></i></button>
-    <div class="resume-infos" id="resume_infos_materia_principal">
-        <div class="card-infos" id="card_first">
-            <h6>Eficiência 1(Segundos)</h6>
-            <div class="chart">
-                <canvas id="donnut_madeira"></canvas>
-                <div class='legend'>
-                    <h5 style="color: blue">Madeira: ${tableWooden1Result}</h5><br>
-                    <h5 style="color: #c253d6">Pedra: ${tableStone1Result}</h5><br>
-                    <h5 style="color: #a2561c">Ferro: ${tableIron1Result}</h5><br>
-                    <h5 style="color: yellow">Ouro: ${tableGold1Result}</h5><br>
-                    <h5 style="color: #093432">Diamante: ${tableDiamond1Result}</h5><br>
-                    <h5 style="color: purple">Netherite: ${tableNetherite1Result}</h5><br>
-                </div>
-            </div>
-        </div>
-        <div class="card-infos">
-            <h6>Eficiência 2(Segundos)</h6>
-            <div class="chart">
-                <canvas id="donnut_pedra"></canvas>
-                <div class='legend'>
-                    <h5 style="color: blue">Madeira: ${tableWooden2Result}</h5><br>
-                    <h5 style="color: #c253d6">Pedra: ${tableStone2Result}</h5><br>
-                    <h5 style="color: #a2561c">Ferro: ${tableIron2Result}</h5><br>
-                    <h5 style="color: yellow">Ouro: ${tableGold2Result}</h5><br>
-                    <h5 style="color: #093432">Diamante: ${tableDiamond2Result}</h5><br>
-                    <h5 style="color: purple">Netherite: ${tableNetherite2Result}</h5><br>
-                </div>
-            </div>
-        </div>
-        <div class="card-infos">
-            <h6>Eficiência 3(Segundos)</h6>
-            <div class="chart">
-                <canvas id="donnut_ferro"></canvas>
-                <div class='legend'>
-                    <h5 style="color: blue">Madeira: ${tableWooden3Result}</h5><br>
-                    <h5 style="color: #c253d6">Pedra: ${tableStone3Result}</h5><br>
-                    <h5 style="color: #a2561c">Ferro: ${tableIron3Result}</h5><br>
-                    <h5 style="color: yellow">Ouro: ${tableGold3Result}</h5><br>
-                    <h5 style="color: #093432">Diamante: ${tableDiamond3Result}</h5><br>
-                    <h5 style="color: purple">Netherite: ${tableNetherite3Result}</h5><br>
-                </div>
-            </div>
-        </div>
-        <div class="card-infos">
-            <h6>Eficiência 4(Segundos)</h6>
-            <div class="chart">
-                <canvas id="donnut_ouro"></canvas>
-                <div class='legend'>
-                    <h5 style="color: blue">Madeira: ${tableWooden4Result}</h5><br>
-                    <h5 style="color: #c253d6">Pedra: ${tableStone4Result}</h5><br>
-                    <h5 style="color: #a2561c">Ferro: ${tableIron4Result}</h5><br>
-                    <h5 style="color: yellow">Ouro: ${tableGold4Result}</h5><br>
-                    <h5 style="color: #093432">Diamante: ${tableDiamond4Result}</h5><br>
-                    <h5 style="color: purple">Netherite: ${tableNetherite4Result}</h5><br>
-                </div>
-            </div>
-        </div>
-        <div class="card-infos">
-            <h6>Eficiência 5(Segundos)</h6>
-            <div class="chart">
-                <canvas id="donnut_diamante"></canvas>
-                <div class='legend'>
-                    <h5 style="color: blue">Madeira: ${tableWooden5Result}</h5><br>
-                    <h5 style="color: #c253d6">Pedra: ${tableStone5Result}</h5><br>
-                    <h5 style="color: #a2561c">Ferro: ${tableIron5Result}</h5><br>
-                    <h5 style="color: yellow">Ouro: ${tableGold5Result}</h5><br>
-                    <h5 style="color: #093432">Diamante: ${tableDiamond5Result}</h5><br>
-                    <h5 style="color: purple">Netherite: ${tableNetherite5Result}</h5><br>
-                </div>
-            </div>
-        </div>
-    </div>
-    <button id="btn_right"><i class="fa-solid fa-chevron-right"></i></button>
-</div>  -->

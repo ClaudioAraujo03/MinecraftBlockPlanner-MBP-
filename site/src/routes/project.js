@@ -15,4 +15,8 @@ router.get('/project/:idProjeto/blocos', function(req, res){
     abrirMeuProjetoController.achaBlocos(req, res);
 })
 
+router.delete('/project/:idProjeto/:idArea', function(req, res){
+    abrirMeuProjetoController.deletaProjetoController(req, res);
+});
+
 module.exports = router;

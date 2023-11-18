@@ -39,4 +39,41 @@ function achaBlocos(req, res){
     ); 
 }
 
-module.exports = { meuProjetoController, achaBlocos };
+function deletaProjetoController(req, res){
+    var idMeuProjeto = req.params.idProjeto;
+    var idMinhaArea = req.params.idArea;
+    modelMeuProjeto.deletaAreaProjetosModel(idMinhaArea)
+    .then(
+        function(resultado){
+            console.log(resultado)
+            res.json(resultado);
+            modelMeuProjeto.deletaProjetoModel(idMeuProjeto)
+            .then(
+                function(resultado){
+                    console.log(resultado)
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao Apagar o projeto! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            )
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao Apagar a area! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    )
+}
+
+module.exports = { meuProjetoController, achaBlocos, deletaProjetoController};
