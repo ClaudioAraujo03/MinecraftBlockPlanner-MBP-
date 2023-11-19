@@ -57,6 +57,13 @@ var qtdBlocos = 0
 function mostrarProjetos(resposta){
     var titleMaterial = document.getElementById('nome_material1');
     titleMaterial.innerText += ' ' + resposta[0].nomeBloco;
+
+    if(sessionStorage.ID_USER != resposta[0].fkUsuario){
+        var divModificar = document.getElementById('alterar_configs');
+        divModificar.style.display = 'none'
+        var divChart = document.getElementById('chart_div')
+        divChart.style.width = '80%'
+    }
     
     nameProj.innerHTML = resposta[0].nomeProjeto;
     descProj.innerHTML = resposta[0].descricao;

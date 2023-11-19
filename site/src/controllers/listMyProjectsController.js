@@ -12,7 +12,7 @@ function listaProjetos(req, res){
         function (erro) {
             console.log(erro);
             console.log(
-                "\nHouve um erro ao criar o projeto! Erro: ",
+                "\nHouve um erro ao listar os projetos! Erro: ",
                 erro.sqlMessage
             );
             res.status(500).json(erro.sqlMessage);
@@ -33,7 +33,7 @@ function searchProject(req, res){
         function (erro) {
             console.log(erro);
             console.log(
-                "\nHouve um erro ao criar o projeto! Erro: ",
+                "\nHouve um erro ao procurar o projeto! Erro: ",
                 erro.sqlMessage
             );
             res.status(500).json(erro.sqlMessage);
