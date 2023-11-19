@@ -1,8 +1,8 @@
 var database = require('../database/config');
 
-function editar(nick, senha, id){
+function editar(nick, senha, id, img){
     var instrucao = `
-        UPDATE usuarios SET nick = '${nick}', senha = '${senha}' where idUsuario = ${id};
+        UPDATE usuarios SET nick = '${nick}', senha = '${senha}', imagemPerfil = '${img}' where idUsuario = ${id};
     `;
     return database.executar(instrucao);
 }

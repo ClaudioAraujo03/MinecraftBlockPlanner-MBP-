@@ -4,8 +4,9 @@ function editar(req, res){
     var nick = req.body.nickConfigServer;
     var senha = req.body.senhaConfigServer;
     var id = req.params.idUsuario;
+    var img = req.body.caminhoImgServer;
 
-    configsModel.editar(nick, senha, id)
+    configsModel.editar(nick, senha, id, img)
         .then(
             function(resultado){
                 res.json(resultado)

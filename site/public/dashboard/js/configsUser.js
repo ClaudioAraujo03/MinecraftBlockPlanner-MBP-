@@ -5,6 +5,27 @@ var dia = dtCriacao.getDate()
 var mes = dtCriacao.getMonth() + 1
 var ano = dtCriacao.getFullYear()
 
+var imgLogoUser =  document.getElementById('logo_user')
+var abreDisplayImagens = document.getElementById('imgs_display');
+var fechaDisplayImg = document.getElementById('close_img')
+
+imgLogoUser.src = sessionStorage.IMG_USER
+
+fechaDisplayImg.addEventListener('click', () => {
+    abreDisplayImagens.style.display = 'none'
+})
+
+var choseImg = document.getElementById('chose_img').addEventListener('click', () => {
+    abreDisplayImagens.style.display = 'flex';
+});
+
+function pegaCaminho(img){
+    var caminho = img.src
+    imgLogoUser.src = caminho
+    abreDisplayImagens.style.display = 'none'
+    sessionStorage.IMG_USER = caminho
+}
+
 dtCriacaoSession.innerHTML = `Conta criada em ${dia}/${mes}/${ano}`
 
 var inputName = document.getElementById('input_name')
@@ -41,6 +62,7 @@ const btnSave = document.getElementById('btn_save')
 btnSave.addEventListener('click', () => {
     var nickVar = inputNick.value
     var senhaVar = inputSenha.value
+    var caminhoRelativo = imgLogoUser.src.replace(window.location.origin, '');
     fetch(`/dashboard/configuracao/${sessionStorage.getItem("ID_USER")}`, {
         method: 'PUT',
         headers: {
@@ -49,6 +71,7 @@ btnSave.addEventListener('click', () => {
         body: JSON.stringify({
             nickConfigServer: nickVar,
             senhaConfigServer: senhaVar,
+            caminhoImgServer: caminhoRelativo
         }),
     }).then(function(resposta){
         console.log("Edição realizada com sucesso", resposta);

@@ -16,10 +16,24 @@
     font-family: var(--font-secundary);
     margin-top: 2%;
 }
+.fa-image{
+    background-color: #D68B53;
+    margin-left: 45%;
+    padding: 10px;
+    border-radius: 100%;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.fa-image:hover{
+    background-color: #00BF63;
+    font-size: 18px;
+    box-shadow: #00BF63 0 0 5px 1px;
+}
 .del-conta{
     width: 50%;
     height: 5%;
-    margin-top: 5%;
+    margin-top: 1%;
     background-color: #D68B53;
     font-family: var(--font-third);
     color: #fff;
@@ -234,4 +248,61 @@ input{
     color: #D68B53;
     font-size: 18px;
     font-weight: 700;
+}
+.chose-img{
+    background-color: #00BF63;
+    width: 40%;
+    position: absolute;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
+    left: 50%;
+    top: 50%;
+    display: none;
+    flex-direction: column;
+    border-radius: 1.4rem;
+    box-shadow: #000 0 0 10px 2px;
+    transform: translate(-50%, -50%);
+}
+.top-img{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+    font-family: var(--font-secundary);
+}
+.top-img h3{
+    margin-left: 25%;
+}
+.top-img i{
+    margin-left: 20%;
+    margin-top: 0.5%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out all;
+}
+.top-img i:hover{
+    color: #0e7141;
+}
+.line{
+    width: 95%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    gap: 4%;
+    justify-content: center;
+}
+.line img{
+    width: 10%;
+    height: auto;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.line img:hover{
+    scale: 1.1;
+    box-shadow: #000 0 0 8px 0;
 }

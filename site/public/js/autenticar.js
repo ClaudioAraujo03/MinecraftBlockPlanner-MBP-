@@ -34,7 +34,7 @@ btnLogin.addEventListener('click', () => {
                     sessionStorage.SENHA_USER = json.senha
                     sessionStorage.NICK_USER = json.nick
                     sessionStorage.DT_USER = json.dtCriacao
-                    
+                    sessionStorage.IMG_USER =json.imagemPerfil
                     setTimeout(function(){
                         window.location = '/dashboard/myListProjects'
                     }, 1000)
