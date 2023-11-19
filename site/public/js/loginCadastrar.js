@@ -89,6 +89,18 @@ const btnCadastrar = document.getElementById('btn_cadastro').addEventListener('c
               }, "3000");
     
             } else {
+              var card = document.getElementById('card');
+              card.innerHTML = `
+              <div class="content-card">
+                <h6 id="text_content">
+                  Já existe uma conta com este email.
+                </h6>
+              </div>
+              `;
+              setTimeout(() => {
+                card.style.display = 'none'
+              }, "3000");
+              card.style.display = 'flex';
               throw "Houve um erro ao tentar realizar o cadastro!, erro no HTML";
             }
           })
@@ -99,3 +111,4 @@ const btnCadastrar = document.getElementById('btn_cadastro').addEventListener('c
         return false;
     }
 })
+

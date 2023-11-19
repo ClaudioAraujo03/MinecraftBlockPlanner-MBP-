@@ -83,8 +83,25 @@ function mostrarProjetos(resposta){
         medidaComprimento.innerHTML += ComprimentoBlocos + ' blocos'  
     } else{
         var medidaRaio = document.getElementById('info_raio')
+        medidaRaio.innerHTML += raioBlocos + ' blocos' 
+        
+        var area = 0;
+        var raioCir = raioBlocos
+        var perimetro = parseInt(2 * Math.PI * (raioCir - 0.5));
+        
+        for (var k = -raioCir; k <= raioCir; k++) {
+            for (var j = -raioCir; j <= raioCir; j++) {
+                var distance = Math.sqrt(Math.pow(k, 2) + Math.pow(j, 2));
+                if (distance < raioCir) {
+                    area++;
+                }
+            }
+        }
+        
+        var qtdBlocosPeri = (AlturaBlocos - 2) + perimetro;
+        var qtdBlocosBase = 2 * area
+        var qtdBlocos = qtdBlocosPeri + qtdBlocosBase
         medidaQtdBlocos.innerHTML += qtdBlocos + ' blocos'   
-        medidaRaio.innerHTML += raioBlocos + ' blocos'    
     }
     
     if(resposta[0].privacidade == 'público'){
@@ -1391,7 +1408,8 @@ function geraInline(grafico, dado1, dado2, dado3, dado4, dado5, dado6, txt, divT
                 },
                 y: {
                   ticks: {
-                    color: 'rgba(255, 255, 255)'                  },
+                    color: 'rgba(255, 255, 255)'                  
+                    },
                   grid: {
                     color: 'rgba(255, 255, 255, 0.2)'
                   }

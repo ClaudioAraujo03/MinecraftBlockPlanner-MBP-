@@ -107,6 +107,7 @@ body{
     margin-top: 5%;
     margin-bottom: 7%;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 .low-itens{
     list-style: none;
@@ -135,12 +136,6 @@ body{
 .itens li:hover{
     color: #0e834a;
 }
-.itens li i{
-    transition: all 0.5s ease-in-out;
-}
-.itens li:hover i{
-    color: #0e834a;
-}
 .low-nav{
     height: 36%;
     width: 100%;
@@ -150,12 +145,6 @@ body{
     flex-direction: column; 
 }
 .low-itens li:hover{
-    color: #0e834a;
-}
-.low-itens li i{
-    transition: all 0.5s ease-in-out;
-}
-.low-itens li:hover i{
     color: #0e834a;
 }
 .fa-bars{

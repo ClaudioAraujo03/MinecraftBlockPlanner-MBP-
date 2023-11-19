@@ -34,15 +34,13 @@ btnLogin.addEventListener('click', () => {
                     sessionStorage.SENHA_USER = json.senha
                     sessionStorage.NICK_USER = json.nick
                     sessionStorage.DT_USER = json.dtCriacao
-
+                    
                     setTimeout(function(){
-                        window.location = '/dashboard/configuracao'
+                        window.location = '/dashboard/myListProjects'
                     }, 1000)
                 })
             } else{
-
                 console.log("Houve um erro ao tentar realizar o login!");
-
                 resposta.text().then(texto => {
                     console.error(texto);
                 });

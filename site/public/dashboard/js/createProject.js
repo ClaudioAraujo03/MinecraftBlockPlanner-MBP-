@@ -292,9 +292,10 @@ const btnSaveProj = document.getElementById("btn_save").addEventListener('click'
             console.log("resposta", resultado);
 
             if(resultado.ok){
-                alert("Projeto criado com sucesso!!!")
+                const popUpSucess = document.getElementById('sucess_create');
+                popUpSucess.style.display = 'block';
                 setTimeout(() => {
-                    window.location = "/dashboard/myListProjects"
+                    window.location = `/dashboard/myListProjects`
                 }, 1000);
             } else{
                 throw "Erro HTML"

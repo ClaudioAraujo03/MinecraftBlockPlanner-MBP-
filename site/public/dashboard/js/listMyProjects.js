@@ -5,7 +5,11 @@ fetch(`/dashboard/myListProjects/${sessionStorage.getItem('ID_USER')}`)
         resposta.json().then(resposta => {
             console.log(`Seus projetos forma encontrados com sucesso:${JSON.stringify(resposta)}`)
             meuProjeto = JSON.stringify(resposta);
-            mostrarProjetos(resposta);
+            if(resposta.length > 0){
+                mostrarProjetos(resposta);
+            } else{
+                mostraNada();
+            }
         })
     } else{
         console.log('Não foi encontrado nenhum projeto.')
@@ -15,7 +19,21 @@ fetch(`/dashboard/myListProjects/${sessionStorage.getItem('ID_USER')}`)
     console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
 });
 
+
 var sectionProjetos = document.getElementById('all_projects');
+
+function mostraNada(){
+    sectionProjetos.innerHTML = `
+        <img class='steve' src='../assets/nf.gif' alt='Não foi encontrado nenhum projeto'>
+        <h2 class='nt-txt'>Não foi encontrado nenhum projeto! <br>
+        Que tal criar um agora?</h2>
+        <button class='btn-ir' id='btn_ir'>Ir criar um projeto!</button>
+    `;
+
+    const btnIr = document.getElementById('btn_ir').addEventListener('click', () => {
+        window.location = '/dashboard/criarProjeto'
+    })
+}
 
 function mostrarProjetos(resposta){
     
@@ -34,6 +52,13 @@ function mostrarProjetos(resposta){
 
         var dataFormatada = ano + "/" + mes + "/" + dia;
 
+        var hora = data.getHours()
+        if(hora < 10) hora = '0' + hora;
+        var minuto = data.getMinutes()
+        if(minuto < 10) minuto = '0' + minuto
+
+        var horaCompleta = hora + ':' + minuto
+
         var larguraBlocos = resposta[i].largura
         var AlturaBlocos = resposta[i].altura
         var ComprimentoBlocos = resposta[i].comprimento
@@ -43,6 +68,24 @@ function mostrarProjetos(resposta){
 
         if(resposta[i].formato == 'paralelepipedo'){
             var qtdBlocos = 2 * (larguraBlocos * AlturaBlocos + (ComprimentoBlocos - 2) * AlturaBlocos + (larguraBlocos * ComprimentoBlocos) - (larguraBlocos * 2 + (ComprimentoBlocos - 2) * 2))
+        } else if(resposta[i].formato == 'circular'){
+
+            var area = 0;
+            var raioCir = raioBlocos
+            var perimetro = parseInt(2 * Math.PI * (raioCir - 0.5));
+
+            for (var k = -raioCir; k <= raioCir; k++) {
+                for (var j = -raioCir; j <= raioCir; j++) {
+                    var distance = Math.sqrt(Math.pow(k, 2) + Math.pow(j, 2));
+                    if (distance < raioCir) {
+                        area++;
+                    }
+                }
+            }
+
+            var qtdBlocosPeri = (AlturaBlocos - 2) + perimetro;
+            var qtdBlocosBase = 2 * area
+            var qtdBlocos = qtdBlocosPeri + qtdBlocosBase
         }
 
         sectionProjetos.innerHTML += `
@@ -50,7 +93,8 @@ function mostrarProjetos(resposta){
                 <div class="head-project">
                     <span>Projeto: ${resposta[i].nomeProjeto}</span>
                     <span>Quantidade de blocos: ${qtdBlocos}</span>
-                    <span>Data de criação: ${dataFormatada}</span>
+                    <span>Data de criação: ${dataFormatada} | ${horaCompleta}</span>
+                    <span>Privacidade: ${resposta[i].privacidade}</span>
                 </div>
                 <div class="description">
                     <h6 class="text-description">
@@ -65,7 +109,6 @@ function mostrarProjetos(resposta){
             </div>    
         `;
     }
-    return resposta
 };
 function abrirProjeto(idProjeto) {
     sessionStorage.ID_PROJ = idProjeto;
@@ -101,10 +144,166 @@ function pesquisar(pesquisa){
         if(resposta.status == 200){
             resposta.json().then(resposta => {
                 console.log(`Seus projetos forma encontrados com sucesso:${JSON.stringify(resposta)}`)
-                mostrarProjetos(resposta);
+                if(resposta.length > 0){
+                    mostrarProjetos(resposta);
+                } else{
+                    mostraNada(resposta);
+                }
             })
         } else{
             console.log('Não foi encontrado nenhum projeto.')
         }       
     })
 }
+
+var filtro = document.getElementById('filtro');
+const btnAbreFiltro = document.getElementById('btn_filter').addEventListener('click', () => {
+    filtro.style.display = 'flex';
+});
+
+const btnClose = document.getElementById('close_filter').addEventListener('click', () => {
+    filtro.style.display = 'none';
+});
+
+var privacidade = 'todos';
+
+var checkTodos = document.getElementById('chk_todos')
+var checkPubli = document.getElementById('chk_publi')
+var checkPriv = document.getElementById('chk_priv')
+
+checkTodos.addEventListener('change', () => {
+    if(checkTodos.checked){
+        checkPubli.checked = false
+        checkPriv.checked = false
+        privacidade = 'todos'
+    } else{
+        checkPubli.checked = true
+        privacidade = 'público'
+    }
+})
+
+checkPubli.addEventListener('change', () => {
+    if(checkPubli.checked){
+        checkTodos.checked = false
+        checkPriv.checked = false
+        privacidade = 'público'
+    } else{
+        checkTodos.checked = true
+        privacidade = 'todos'
+    }
+})
+
+checkPriv.addEventListener('change', () => {
+    if(checkPriv.checked){
+        checkPubli.checked = false
+        checkTodos.checked = false 
+        privacidade = 'privado'
+    } else{
+        checkTodos.checked = true
+        privacidade = 'todos'
+    }
+})
+var checkTodasAreas = document.getElementById('chk_todos_area')
+var checkPara = document.getElementById('chk_para')
+var checkCir = document.getElementById('chk_cir')
+
+var area = 'todas'
+
+checkTodasAreas.addEventListener('change', () => {
+    if(checkTodasAreas.checked){
+        checkPara.checked = false
+        checkCir.checked = false 
+        area = 'todas'
+    } else{
+        checkPara.checked = true
+        area = 'paralelepipedo'
+
+    }
+})
+
+checkPara.addEventListener('change', () => {
+    if(checkPara.checked){
+        checkTodasAreas.checked = false
+        checkCir.checked = false 
+        area = 'paralelepipedo'
+    } else{
+        checkTodasAreas.checked = true
+        area = 'todas'
+
+    }
+})
+
+checkCir.addEventListener('change', () => {
+    if(checkCir.checked){
+        checkPara.checked = false
+        checkTodasAreas.checked = false
+        area = 'circular'
+    } else{
+        checkTodasAreas.checked = true
+        area = 'todas'
+    }
+})
+
+
+var chkOrdDescBlocos = document.getElementById('chk_ord_desc_blocos')
+var chkOrdAscBlocos = document.getElementById('chk_ord_asc_blocos')
+var chkDescData = document.getElementById('chk_ord_desc_data')
+var chkAscData = document.getElementById('chk_ord_asc_data')
+
+var ordem = 'dataDesc'
+
+chkDescData.addEventListener('change', () => {
+    if(chkDescData.checked){
+        chkAscData.checked = false
+        ordem = 'dataDesc'
+
+    } else{
+        chkDescData.checked = true
+        ordem = 'dataDesc'
+
+    }
+})
+
+chkAscData.addEventListener('change', () => {
+    if(chkAscData.checked){
+        chkDescData.checked = false 
+        ordem = 'dataAsc'
+    } else{
+        chkAscData.checked = true
+        ordem = 'dataAsc'
+    }
+})
+
+const btnFilter = document.getElementById('filter_button').addEventListener('click', () => {
+        fetch(`/dashboard/myListProjects/filtra/${sessionStorage.getItem('ID_USER')}`, ({
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                privacidadeServer: privacidade,
+                areaServer: area,
+                ordemServer: ordem
+            }),
+        }))
+        .then(resposta => {
+            if(resposta.status == 200){
+                resposta.json().then(resposta => {
+                    console.log(`Sua filtragem foi feita com sucesso:${JSON.stringify(resposta)}`)
+                    if(resposta.length > 0){
+                        mostrarProjetos(resposta);
+                        filtro.style.display = 'none';
+
+                    } else{
+                        mostraNada(resposta);
+                        filtro.style.display = 'none';
+                    }
+                })
+            } else{
+                console.log('Não foi encontrado nenhum projeto.')
+            }       
+        })
+})
+
+
+

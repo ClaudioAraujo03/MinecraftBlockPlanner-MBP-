@@ -83,7 +83,6 @@ const btnConfirm = document.getElementById('confirm').addEventListener('click', 
         },
     }).then(function(resposta){
         if(resposta.ok){
-            alert('perfil excluído')
             window.location = "/"
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");

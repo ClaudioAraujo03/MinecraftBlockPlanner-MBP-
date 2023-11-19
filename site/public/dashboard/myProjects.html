@@ -39,12 +39,54 @@
                 <input type="text" class="input-search" id="search_project">
                 <i class="fa-solid fa-magnifying-glass" id="search_btn"></i>
             </div>
-            <button class="btn-search">FILTRO</button>
+            <button class="btn-search" id="btn_filter">FILTRO</button>
         </div>
         <div class="all-projects" id="all_projects">
             
         </div>
+        <div class="filtro" id="filtro">
+            <div class="top-filter">
+                <h2>FILTRO</h2>
+                <i id="close_filter" class="fa-regular fa-circle-xmark"></i>
+            </div>
+            <div class="div-filter">
+                <h4>Privacidade:</h4>
+                <div class="checkfilter">
+                    <label for="todas">Todos</label>
+                    <input type="checkbox" checked name="todas" id="chk_todos">
+                    <label for="todas">Público</label>
+                    <input type="checkbox" name="todas" id="chk_publi">
+                    <label for="todas">Privado</label>
+                    <input type="checkbox" name="todas" id="chk_priv">
+                </div>    
+            </div>
+            <div class="div-filter">
+                <h4>Área:</h4>
+                <div class="checkfilter">
+                    <label for="todas">Todas</label>
+                    <input type="checkbox" checked name="todas" id="chk_todos_area">
+                    <label for="todas">Paralelepipedo</label>
+                    <input type="checkbox" name="todas" id="chk_para">
+                    <label for="todas">Circular</label>
+                    <input type="checkbox" name="todas" id="chk_cir">
+                </div>    
+            </div>
+            <div class="div-filter">
+                <h4>Ordenar por:</h4>
+                <div class="checkfilter" style="justify-content: space-around;">
+                    <label for="todas" class="ord">Data(DESC)</label>
+                    <input type="checkbox" checked name="max" id="chk_ord_desc_data" class="num-input">
+                    <label for="todas" class="ord">Data(ASC)</label>
+                    <input type="checkbox" name="max" id="chk_ord_asc_data" class="num-input">
+                </div>     
+            </div>
+            <div class="div-filter">  
+                <button class="btn-filter" id="filter_button">FILTRAR</button>
+            </div>
+        </div>
     </section>
+    <div class="sucesso-card" id="card">
+    </div>
 </body>
 </html>
 <script src="js/navSideBar.js"></script>
