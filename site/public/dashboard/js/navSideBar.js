@@ -14,6 +14,10 @@ var listProjectIcon = document.getElementById('my_project_area').addEventListene
     window.location = `/dashboard/myListProjects`;
 });
 
+var feedProject = document.getElementById('feed_area').addEventListener('click', () => {
+    window.location = `/dashboard/feed`
+});
+
 var sideBar = document.getElementById('side_bar');
 var contentSite = document.getElementById('content');
 var sideBarClick = 0;
