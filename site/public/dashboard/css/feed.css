@@ -242,3 +242,103 @@ section{
     cursor: pointer;
     box-shadow: #00000070 0 0 5px 0;
 }
+.filtro{
+    width: 30%;
+    height: 50%;
+    background-color: #00BF63;
+    box-shadow: #038848 3px 3.5px 1px 3px, #000 3px 3.5px 5px 0;
+    border-radius: 0.8rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    color: #fff;
+}
+.top-filter{
+    display: flex;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+}
+.top-filter i{
+    display: flex;
+    text-align: center;
+    margin-left: 70%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.top-filter i:hover{
+    color: #038848;
+}
+.filtro h2{
+    font-family: var(--font-third);
+    margin-left: 4%;
+}
+.div-filter{
+    width: 100%;
+    display: flex;
+    height: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.div-filter:nth-child(4){
+    margin-top: 10%;
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    color: #000000;
+}
+.div-filter:nth-child(4) input{
+    border-bottom: #000000 solid 2px;
+}
+.div-filter h4{
+    font-family: var(--font-third);
+    font-weight: 400;
+    margin-top: 2%;
+    width: 80%;
+    text-align: left;
+}
+.checkfilter{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    gap: 2%;
+}
+.checkfilter label{
+    margin-right: 2%;
+    font-family: var(--font-fourth);
+}
+.checkfilter input{
+    margin-right: 5%;
+    margin-top: 0.5%;
+}
+.num-input{
+    width: 10%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: #000 1.5px solid;
+}
+.ord{
+    font-size: 10px;
+}
+.btn-filter{
+    width: 35%;
+    height: 62%;
+    border: none;
+    font-size: 15px;
+    font-family: var(--font-third);
+    background-color: #006cbf;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.btn-filter:hover{
+    background-color: #087cd4;
+}

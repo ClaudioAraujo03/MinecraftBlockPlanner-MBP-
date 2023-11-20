@@ -245,8 +245,6 @@ checkCir.addEventListener('change', () => {
 })
 
 
-var chkOrdDescBlocos = document.getElementById('chk_ord_desc_blocos')
-var chkOrdAscBlocos = document.getElementById('chk_ord_asc_blocos')
 var chkDescData = document.getElementById('chk_ord_desc_data')
 var chkAscData = document.getElementById('chk_ord_asc_data')
 

@@ -20,4 +20,8 @@ router.post('/feed/pesquisa', function(req, res){
     feedControle.pesquisaTodosController(req, res)
 })
 
+router.post('/feed/filtra', function(req, res){
+    feedControle.filtraTodosController(req, res)
+})
+
 module.exports = router;

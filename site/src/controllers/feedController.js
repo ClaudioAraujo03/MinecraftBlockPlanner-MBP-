@@ -58,4 +58,25 @@ function pesquisaTodosController(req, res){
     ); 
 }
 
-module.exports = { listaTodosProjetos, dadosProjetosController, pesquisaTodosController }
+function filtraTodosController(req, res){
+    var area = req.body.areaServer
+    var ordem = req.body.ordemServer
+    feedModels.filtraTodosModel(area, ordem)
+    .then(
+        function(resultado){
+            console.log(resultado)
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao filtrar os projetos! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    ); 
+}
+
+module.exports = { listaTodosProjetos, dadosProjetosController, pesquisaTodosController, filtraTodosController }

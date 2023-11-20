@@ -163,3 +163,111 @@ function pesquisar(pesquisa){
         }       
     })
 }
+
+var filtro = document.getElementById('filtro');
+const btnAbreFiltro = document.getElementById('btn_filter').addEventListener('click', () => {
+    filtro.style.display = 'flex';
+});
+
+const btnClose = document.getElementById('close_filter').addEventListener('click', () => {
+    filtro.style.display = 'none';
+});
+
+var checkTodasAreas = document.getElementById('chk_todos_area')
+var checkPara = document.getElementById('chk_para')
+var checkCir = document.getElementById('chk_cir')
+
+var area = 'todas'
+
+checkTodasAreas.addEventListener('change', () => {
+    if(checkTodasAreas.checked){
+        checkPara.checked = false
+        checkCir.checked = false 
+        area = 'todas'
+    } else{
+        checkPara.checked = true
+        area = 'paralelepipedo'
+
+    }
+})
+
+checkPara.addEventListener('change', () => {
+    if(checkPara.checked){
+        checkTodasAreas.checked = false
+        checkCir.checked = false 
+        area = 'paralelepipedo'
+    } else{
+        checkTodasAreas.checked = true
+        area = 'todas'
+
+    }
+})
+
+checkCir.addEventListener('change', () => {
+    if(checkCir.checked){
+        checkPara.checked = false
+        checkTodasAreas.checked = false
+        area = 'circular'
+    } else{
+        checkTodasAreas.checked = true
+        area = 'todas'
+    }
+})
+
+
+var chkDescData = document.getElementById('chk_ord_desc_data')
+var chkAscData = document.getElementById('chk_ord_asc_data')
+
+var ordem = 'dataDesc'
+
+chkDescData.addEventListener('change', () => {
+    if(chkDescData.checked){
+        chkAscData.checked = false
+        ordem = 'dataDesc'
+
+    } else{
+        chkDescData.checked = true
+        ordem = 'dataDesc'
+
+    }
+})
+
+chkAscData.addEventListener('change', () => {
+    if(chkAscData.checked){
+        chkDescData.checked = false 
+        ordem = 'dataAsc'
+    } else{
+        chkAscData.checked = true
+        ordem = 'dataAsc'
+    }
+})
+
+const btnFilter = document.getElementById('filter_button').addEventListener('click', () => {
+    fetch(`/dashboard/feed/filtra`, ({
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            areaServer: area,
+            ordemServer: ordem
+        }),
+    }))
+    .then(resposta => {
+        if(resposta.status == 200){
+            resposta.json().then(resposta => {
+                console.log(`Sua filtragem foi feita com sucesso:${JSON.stringify(resposta)}`)
+                if(resposta.length > 0){
+                    mostrarTodosProjetos(resposta);
+                    filtro.style.display = 'none';
+
+                } else{
+                    // mostraNada(resposta);
+                    filtro.style.display = 'none';
+                }
+            })
+        } else{
+            console.log('Não foi encontrado nenhum projeto.')
+        }       
+    })
+})
