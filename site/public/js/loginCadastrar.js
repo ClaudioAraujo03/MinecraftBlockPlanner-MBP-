@@ -40,11 +40,13 @@ const btnCadastrar = document.getElementById('btn_cadastro').addEventListener('c
     if(senhaVar == ''){
         senhaInput.value = '';
         senhaInput.placeholder = 'Senha inválida';
-        erros++;
+        erros++;  
+        resetaValidacao()    
     } else if(!regexNum.test(senhaVar) || !regexLow.test(senhaVar) || !regexUp.test(senhaVar) || senhaVar.length < 8){
         senhaInput.value = '';
         senhaInput.placeholder = 'Senha deve ter a-z, A-Z, 0-9 e tamanho 8 ';
         erros++;
+        resetaValidacao()
     }
     if(nickVar == '' || nickVar.length < 5){
         nickInput.value = '';
@@ -112,3 +114,30 @@ const btnCadastrar = document.getElementById('btn_cadastro').addEventListener('c
     }
 })
 
+function resetaValidacao(){
+  
+  var verificaNum = document.getElementById('ver_num');
+  var verificaNumIcon = document.getElementById('icon_num');
+
+  var verificaMai = document.getElementById('ver_mai');
+  var verificaMaiIcon = document.getElementById('icon_mai');
+
+  var verificaMin = document.getElementById('ver_min');
+  var verificaMinIcon = document.getElementById('icon_min');
+
+  var verificaLen = document.getElementById('ver_len');
+  var verificaLenIcon = document.getElementById('icon_len');
+  
+  verificaNum.style.color = 'red';
+  verificaNumIcon.classList.remove('fa-circle-check')
+  verificaNumIcon.classList.add('fa-xmark')
+  verificaMai.style.color = 'red';
+  verificaMaiIcon.classList.remove('fa-circle-check')
+  verificaMaiIcon.classList.add('fa-xmark')
+  verificaMin.style.color = 'red';
+  verificaMinIcon.classList.remove('fa-circle-check')
+  verificaMinIcon.classList.add('fa-xmark')
+  verificaLen.style.color = 'red';
+  verificaLenIcon.classList.remove('fa-circle-check')
+  verificaLenIcon.classList.add('fa-xmark')
+}

@@ -500,6 +500,7 @@ footer{
     flex-direction: row;
     align-items: center;
     gap: 10%;
+    cursor: pointer;
 }
 .input-suport{
     width: 80%;

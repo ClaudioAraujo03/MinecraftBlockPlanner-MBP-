@@ -40,6 +40,18 @@ btnLogin.addEventListener('click', () => {
                     }, 1000)
                 })
             } else{
+                var card = document.getElementById('card');
+                card.innerHTML = `
+                <div class="content-card">
+                  <h6 id="text_content">
+                    Senha ou email inválido.
+                  </h6>
+                </div>
+                `;
+                card.style.display = 'flex';
+                setTimeout(() => {
+                  card.style.display = 'none';
+                }, "3000");
                 console.log("Houve um erro ao tentar realizar o login!");
                 resposta.text().then(texto => {
                     console.error(texto);
