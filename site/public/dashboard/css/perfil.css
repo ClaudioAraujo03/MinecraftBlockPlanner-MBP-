@@ -49,6 +49,48 @@ section{
     line-height: 30px;
     font-family: var(--font-fourth);
 }
+
+.info-grafico{
+    width: 40%;
+    height: 180px;
+    background-color: #00BF63;
+    margin-left: 3%;
+    border-radius: 0.8rem;
+    border: 1px solid #127a48;
+    box-shadow: #000 0 0 10px 0;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    font-family: var(--font-fourth);
+}
+.body-infos{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.txt-infos, .content-chart{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.txt-infos h6{
+    margin-left: 10px;
+    font-size: 8px;
+    line-height: 20px;
+}
+.content-chart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding: 5px;
+}
 .search{
     display: flex;
     align-items: center;

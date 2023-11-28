@@ -136,4 +136,17 @@ function filtraPerfilModel(area, ordem, idUser){
     return database.executar(instrucao);
 }
 
-module.exports = { exibeInfos, pesquisarProjetoPerfil, filtraPerfilModel }
+function mostraTopBlocos(idUser){
+    var instrucao = `
+        select count(nomeBloco) as quantidadeProjetos, nomeBloco 
+        from blocos 
+        join areaProj on fkBloco = idBloco
+        join projeto on fkProjeto = idProjeto
+        join usuarios on fkUsuario = idUsuario
+        where idUsuario = ${idUser} group by (nomeBloco) order by quantidadeProjetos desc
+        limit 5;
+    `;
+    return database.executar(instrucao)
+}
+
+module.exports = { exibeInfos, pesquisarProjetoPerfil, filtraPerfilModel, mostraTopBlocos }

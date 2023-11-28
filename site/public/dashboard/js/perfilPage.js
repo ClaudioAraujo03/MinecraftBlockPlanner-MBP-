@@ -280,3 +280,56 @@ const btnFilter = document.getElementById('filter_button').addEventListener('cli
         }       
     })
 })
+
+fetch(`/dashboard/perfil/top/${sessionStorage.getItem('ID_PERFIL')}`)
+    .then(resposta => {
+        if (resposta.status === 200) {
+            resposta.json().then(resposta => {
+                console.log(`O top blocos do usuário foi encontrado:\n${JSON.stringify(resposta)}`);
+                geraGraficoTop(resposta);
+            });
+        } else {
+            console.log('Não foi encontrado nenhum projeto.');
+        }
+    })
+    .catch(erro => {
+        console.error('Ocorreu um erro na requisição:', erro);
+    });
+
+function geraGraficoTop(resposta){
+    var listaNomeBlocos = []
+    var divTopBlocos = document.getElementById('top_blocos')
+    var listaQtdBlocos = []
+    for(var i = 0; i < resposta.length; i++){
+        var nomeBloco = resposta[i].nomeBloco;
+        var qtdBloco = resposta[i].quantidadeProjetos;
+        listaNomeBlocos.push(nomeBloco)
+        listaQtdBlocos.push(qtdBloco)
+        divTopBlocos.innerHTML += `<h6>${i + 1}° ${nomeBloco} (Número de projetos ${qtdBloco})</h6>`;
+    }
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: listaNomeBlocos,
+            datasets: [{
+                label: 'Quantidade de projetos',
+                data: listaQtdBlocos,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    display: false,
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+}

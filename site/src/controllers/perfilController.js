@@ -1,9 +1,29 @@
 var perfilModel = require('../models/perfilModel')
 
 function encontraInfosPerfil(req, res){
-    console.log('estou no controllers')
     var idUsuario = req.params.idPerfil
     perfilModel.exibeInfos(idUsuario)
+    .then(
+        function(resposta){
+            console.log(resposta)
+            res.json(resposta)
+        }
+    )
+    .catch(
+        function(erro){
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao realizar a busca do perfil do usuário! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    )
+}
+
+function encontraTopPerfil(req, res){
+    var idUsuario = req.params.idPerfil
+    perfilModel.mostraTopBlocos(idUsuario)
     .then(
         function(resposta){
             console.log(resposta)
@@ -66,4 +86,4 @@ function filtraPerfil(req, res){
     ); 
 }
 
-module.exports = { encontraInfosPerfil, pesquisarPerfil, filtraPerfil }
+module.exports = { encontraInfosPerfil, pesquisarPerfil, filtraPerfil, encontraTopPerfil }

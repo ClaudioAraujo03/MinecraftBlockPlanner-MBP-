@@ -19,4 +19,8 @@ router.post('/perfil/filtra/:idPerfil', function(req, res){
     perfilController.filtraPerfil(req, res)
 })
 
+router.get('/perfil/top/:idPerfil', function(req, res){
+    perfilController.encontraTopPerfil(req, res)
+})
+
 module.exports =  router
