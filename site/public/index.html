@@ -6,11 +6,11 @@
     <title>MinecraftBlockPlanner</title>
     <link rel="stylesheet" type="text/css" href="./css/site.css">
     <link rel="stylesheet" type="text/css" href="./css/fonts/fonts.css">
+    <script src="https://kit.fontawesome.com/265fd07209.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="first-content">
         <nav class="nav-bar" id="navbar">
-            <!-- <a id="link_cal">CALCULADORA</a> -->
             <h4><span style="color: #758749;">M</span><span style="color: #563C85;">B</span><span style="color: #D68B53;">P</span></h4>
             <a id="link_abt">SOBRE</a>
             <a id="link_home">HOME</a>
@@ -135,46 +135,73 @@
             </h3>
         </div>
     </section>
-    <section class="third-section" id="third_section">
+    <section class="third-section">
         <div class="left-inform">
-            <h1>Saiba mais</h1>
-            <h1>Sobre a plataforma</h1>
+                <span>S</span>
+                <span>A</span>
+                <span>I</span>
+                <span>B</span>
+                <span>A</span>
+                <span> </span>
+                <span>M</span>
+                <span>A</span>
+                <span>I</span>
+                <span>S</span>
         </div>
-        <div class="right-inform">
-            <div class="card1">
-                <div class="text-card-right">
-                    <h1>Estamos comprometidos com você e seu projeto, para que ele possa ser desenvolvido de forma suatentável sem que haja perda de recursos e de tempo</h1>
+        <div class="right-inform" id="third_section">
+            <div class="card1" style="background-image: url(./assets/card1wall.jpg); background-size: cover;">
+                <h2 class="title-card-about">COMPROMETIMENTO</h2>
+                <button id="open_btn1"><i id="icon_arrow1" class="fa-solid fa-caret-up"></i></button>
+                <div class="text-card-right" id="txt_1">
+                    <h1>Estamos comprometidos com você e seu projeto, para que ele possa ser desenvolvido de forma sustentável sem que haja perda de recursos e de tempo, por isso é bom lembrar que o projeto tem relação com a ODS 11 (CIDADES E COMUNIDADES SUSTENTÁVEIS) e 12 (CONSUMO E PRODUÇÃO RESPONSÁVEL)</h1>
                 </div>
             </div>
-            <div class="group1">
-                <div class="card2">
-                    <div class="text-card-right">
-                        <h1>Você consegue visualizar o tempo de coleta dos blocos desejados com cada tipo de picareta e com cada tipo de equipamento.</h1>
-                    </div>
-                </div>
-                <div class="card2">
-                    <div class="text-card-right">
-                        <h1>Fora o tipo da picareta fornecemos os dados com os encatamentos de eficiência e duração de cada uma, para que você saiba quantas picaretas serão necessárias</h1>
-                    </div>
+            
+            <div class="card1" style="background-image: url(./assets/card2wall.jpg); background-size: cover;">
+                <h2 class="title-card-about">OBJETIVO DE DESENVOLVIMENTO SUSTENTÁVEL<br>(CIDADES E COMUNIDADES SUSTENTÁVEIS)</h2>
+                <button id="open_btn2"><i id="icon_arrow2" class="fa-solid fa-caret-up"></i></button>
+                <div class="text-card-right" id="txt_2">
+                    <h1>O projeto se relaciona com a seguinte ods de número 11, pois o objetivo dele é ajudar os players a construirem suas  cidades evitando o desperdicío de recursos ou até mesmo evitando a coleta exagerada desses recursos.</h1>
                 </div>
             </div>
-            <div class="group2">
-                <div class="card3">
-                    <div class="text-card-right">
-                        <h1>Hoje trazemos a possibilidade de criação de áres nos formatos de paralelogramos e circulos.</h1>
-                    </div>
-                </div>
-                <div class="card3">
-                    <div class="text-card-right">
-                        <h1>Possibilitamos a visualização de gráficos na págino do seu projeto para monitoramento de recursos, quais estão presentes em maior quantidade.</h1>
-                    </div>
-                </div>
-                <div class="card3">
-                    <div class="text-card-right">
-                        <h1>Em nossa plataforma você poderá visualizar os projetos criados por outras pessoas.</h1>
-                    </div>
+            
+            <div class="card1" style="background-image: url(./assets/cardwall3.jpg); background-size: cover;">
+                <h2 class="title-card-about">OBJETIVO DE DESENVOLVIMENTO SUSTENTÁVEL<br>(CONSUMO E PRODUÇÃO RESPONSÁVEIS)</h2>
+                <button id="open_btn3"><i id="icon_arrow3" class="fa-solid fa-caret-up"></i></button>
+                <div class="text-card-right" id="txt_3">
+                    <h1>Nossa plataforma ira lhe irformar a quantidade de recursos necessários que deverão ser consumidos para a construção dos seus projetos e áreas e isso está relacionado a ODS de número 12.</h1>
                 </div>
             </div>
+            
+            <div class="card1" style="background-image: url(./assets/card4wall.jpg); background-size: cover;">
+                <h2 class="title-card-about">AMIZADE</h2>
+                <button id="open_btn4"><i id="icon_arrow4" class="fa-solid fa-caret-up"></i></button>
+                <div class="text-card-right" id="txt_4">
+                    <h1>A colaboração estratégica é essencial para superar desafios, construir projetos elaborados e estimular a criatividade. Além disso, a troca contínua de recursos e o apoio mútuo entre os participantes fortalecem as relações sociais, estabelecendo uma comunidade interconectada e robusta.</h1>
+                </div>
+            </div>
+            
+            <div class="card1" style="background-image: url(./assets/card5wall.jpg); background-size: cover;">
+                <h2 class="title-card-about">DEDICAÇÃO</h2>
+                <button id="open_btn5"><i id="icon_arrow5" class="fa-solid fa-caret-up"></i></button>
+                <div class="text-card-right" id="txt_5">
+                    <h1>No universo digital do Minecraft, a dedicação se manifesta como a força motriz por trás das conquistas. Dos primeiros blocos que quebramos aos elaborados projetos que construímos, cada momento é uma expressão de compromisso. A persistência na exploração, na superação de obstáculos e na busca pela excelência é o alicerce sobre o qual se erguem as grandes realizações. No coração do Minecraft, a dedicação é a chave para desbloquear o potencial máximo deste vasto e dinâmico mundo virtual.</h1>
+                </div>
+            </div>
+            
+            <div class="card1" style="background-image: url(./assets/card6wall.jpg); background-size: cover;">
+                <h2 class="title-card-about">FEED</h2>
+                <button id="open_btn6"><i id="icon_arrow6" class="fa-solid fa-caret-up"></i></button>
+                <div class="text-card-right" id="txt_6">
+                    <h1>Você tem a possibilidade de visualizar os projetos dos demais usuários que estiverem públicos e compartilhar seus projetos em nosso feed tambem, assim você pode se desafiar a fazer o projeto de alguma outra pessoa e consumir tudo aqulo que a nossa plataforma tem a lhe oferecer.</h1>
+                </div>
+            </div>          
+        </div>
+        <div class="buttons-change-cards">
+            <button id="primeiro_button"></button>
+            <button id="segundo_button"></button>
+            <button id="terceiro_button"></button>
+            <button id="quarto_button"></button>
         </div>
     </section>
     <footer>

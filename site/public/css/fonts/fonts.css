@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Montserrat&family=Open+Sans:wght@500&family=Questrial&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
 :root{
 
     --font-first: 'Arimo', sans-serif;
@@ -7,4 +8,5 @@
     --font-third: 'Open Sans', sans-serif;
     --font-fourth: 'Questrial', sans-serif;
     --font-sans2: 'Open Sans', sans-serif;
+    --font-5: 'Vina Sans', sans-serif;
 };

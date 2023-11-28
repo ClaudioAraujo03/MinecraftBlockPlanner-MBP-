@@ -246,7 +246,7 @@ nav h4{
 .div-text-sobre{
     width: 30%;
     height: 50%;
-    font-family: var(--font-first);
+    font-family: var(--font-fourth);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -264,190 +264,165 @@ nav h4{
     font-size: 15px;
     font-weight: 400;
 }
+.left-inform{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    font-family: var(--font-sans2);
+}
+.left-inform span{
+    color: #fff;
+    font-size: 120px;
+    text-align: left;
+    cursor: default;
+    transition: all 0.3s ease-in-out;
+}
+.left-inform span:hover{
+    font-size: 122px;
+    color: #e3f0c2;
+    text-shadow: #000 0 0 5px 0;
+}
 .third-section{
     width: 100%;
     height: 45%;
+    max-width: 90%;
+    overflow-x: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+.third-section::before{
+    height: 110%;
+    width: 100%;    
+    position: absolute;
+    z-index: -1;
     background-image: url("../assets/background\ 4k.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-.left-inform{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-family: var(--font-sans2);
-}
-.left-inform h1{
-    margin-left: 5%;
-    text-shadow: 0px 10px 10px #00000095;
-}
-.left-inform h1:nth-child(1){
-    color: #fff;
-    font-size: 120px;
-}
-.left-inform h1:nth-child(2){
-    color: #fff;
-    font-size: 130px;
+    filter: blur(3px);
+    filter: brightness(40%);
+    content: '';
 }
 .right-inform{
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    height: 70%;
+    max-width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
     font-family: var(--font-sans2);
-    gap: 2%;
     text-align: justify;
+    transition: all ease-in-out 0.5s;
 }
 .card1{
-    width: 90%;
-    height: 25%;
+    width: 400px;
+    height: 100%;
     border-radius: 1rem;
     font-size: 20px;
     display: flex;
     align-items: center;
-    justify-content: left;
-    background-image: url(../assets/background\ 4k\ 3.jpg);
-    background-size: cover;
-    box-shadow: 0 0 10px 0 #00000071;
+    justify-content: space-between;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+}
+.card1:hover{
+    scale: 1.04;
+    box-shadow: #000 0 0 10px 0;
+}
+.title-card-about{
+    color: #fff;
+    text-align: center;
+    margin-top: 2%;
+    font-size: 13px;
+    height: 100px;
 }
 .text-card-right{
-    box-shadow: 0 0 10px 0 #00000071;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
-    height: 100%;
-    background-color: #fff;
-    border-radius: 1rem 0 0 1rem;
+    width: 400px;
+    height: 200px;
+    opacity: 0;
+    background-color: #167398;
+    border-radius: 0 0 1rem 1rem;
     transition: all 0.5s ease-in-out;
-}
-.card1:hover .text-card-right{
-    background: rgba(255, 255, 255, 0.21);
-    border-radius: 1rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.1px);
-    -webkit-backdrop-filter: blur(4.1px);
-    width: 100%;
+    flex-direction: column;
 }
 .text-card-right h1{
     width: 90%;
     font-size: 12px;
     font-weight: 400;
     height: 100%;
-    color: #000;
+    color: #fff;
     display: flex;
     align-items: center;
-    justify-content: center;
     text-align: left;
     
 }
-.group1{
-    width: 90%;
-    height: 25%;
-    gap: 5%;
-    display: flex;
-    justify-content: space-between;
-}
-.card2{
-    width: 90%;
-    border-radius: 1rem;
-    height: 100%;
+.card1 button{
+    margin-bottom: 5px;
+    margin-top: 500px;
+    width: 360px;
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #1295c9;
+    border: none;
+    border-radius: 1rem 1rem 0.5rem 0.5rem;
+    color: #fff;
     display: flex;
     align-items: center;
-    justify-content: left;
-    width: 80%;
-    transition: all 0.8s ease-in-out;
-}
-.card2:hover .text-card-right{
-    background: rgba(255, 255, 255, 0.21);
-    border-radius: 1rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.1px);
-    -webkit-backdrop-filter: blur(4.1px);
-    width: 100%;
-}
-.card1:hover .text-card-right h1{
-    color: #fff;
-    text-shadow: 0px 2px 5px #00000095;
-}
-.card2:hover .text-card-right h1{
-    color: #fff;
-    text-shadow: 0px 2px 5px #00000095;
-}
-.card3:hover .text-card-right h1{
-    color: #fff;
-    text-shadow: 0px 2px 5px #00000095;
-}
-.card2:nth-child(1){
-    background-image: url(../assets/background.jpg);
-    background-size: cover;
-}
-.card2:nth-child(2){
-    background-image: url(../assets/backgroun\ 5.jpg);
-    background-size: cover;
-}
-.card2 h1{
-    font-size: 12px;
-    font-weight: 500;
-    width: 70%;
-}
-.group2{
-    width: 90%;
-    height: 25%;
-    gap: 5%;
-    display: flex;
-    justify-content: space-between;
-}
-.card3{
-    width: 30%;
-    height: 100%;
-    display: flex;
-    align-items: end;
     justify-content: center;
-    background-color: #fff;
-    border-radius: 1rem;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out all;
 }
-.card3 .text-card-right{
+.card1:nth-child(2) button{
+    margin-top: 482px;
+}
+.card1:nth-child(3) button{
+    margin-top: 482px;
+}
+.card1 button:hover{
+    scale: 1.05;
+    border: 1px solid #167398;
+    box-shadow: 0 0 10px 0 #000;
+}
+.buttons-change-cards{
+    margin-top: 180px;
     width: 100%;
-    height: 40%;
-    border-radius: 0 0 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    height: 15%;
+    gap: 1%;
+    transition: all ease-in-out 0.5s;
+    z-index: 2;
 }
-.card3:hover .text-card-right{
-    background: rgba(255, 255, 255, 0.21);
-    border-radius: 1rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.1px);
-    -webkit-backdrop-filter: blur(4.1px);
-    height: 100%;
-    color: #fff;
+.buttons-change-cards button{
+    width: 1.45%;
+    height: 22%;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    background-color: transparent;
+    border: 2px solid #fff;
+    box-shadow: #000 0 0 5px 0;
+    transition: all ease-in-out 0.5s;
 }
-
-.card3:nth-child(1){
-    background-image: url(../assets/backgroun\ 6.jpg);
-    background-size: cover;
+.buttons-change-cards button:hover{
+    background-color: #758749;
 }
-.card3:nth-child(2){
-    background-image: url(../assets/backgroun\ 7.jpg);
-    background-size: cover;
-}
-.card3:nth-child(3){
-    background-image: url(../assets/background\ 8.png);
-    background-size: cover;
-}
-.card3 h1{
-    width: 90%;
-    font-weight: 500;
-    font-size: 10px;
-    text-align: justify;
+.buttons-change-cards button:nth-child(1){
+    background-color: green;
 }
 footer{
     width: 100%;
