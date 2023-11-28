@@ -80,17 +80,21 @@ function mostrarProjetos(resposta){
     medidaAltura.innerHTML += AlturaBlocos + ' blocos' 
     medidaFormato.innerHTML += resposta[0].formato 
     
+    var medidaLargura = document.getElementById('info_largura')
+    var medidaComprimento = document.getElementById('info_comprimento') 
+    var medidaRaio = document.getElementById('info_raio')
+
     if(resposta[0].formato == 'paralelepipedo'){
         var qtdBlocos = 2 * (larguraBlocos * AlturaBlocos + (ComprimentoBlocos - 2) * AlturaBlocos + (larguraBlocos * ComprimentoBlocos) - (larguraBlocos * 2 + (ComprimentoBlocos - 2) * 2))
-        var medidaLargura = document.getElementById('info_largura')
-        var medidaComprimento = document.getElementById('info_comprimento') 
         
         medidaQtdBlocos.innerHTML += qtdBlocos + ' blocos'  
         medidaLargura.innerHTML += larguraBlocos + ' blocos'  
-        medidaComprimento.innerHTML += ComprimentoBlocos + ' blocos'  
+        medidaComprimento.innerHTML += ComprimentoBlocos + ' blocos'
+        medidaRaio.innerHTML += 'N/A'
     } else{
-        var medidaRaio = document.getElementById('info_raio')
-        medidaRaio.innerHTML += raioBlocos + ' blocos' 
+        medidaRaio.innerHTML += raioBlocos + ' blocos'
+        medidaLargura.innerHTML += ' N/A'  
+        medidaComprimento.innerHTML += ' N/A'
         
         var area = 0;
         var raioCir = raioBlocos
@@ -594,8 +598,8 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
         console.log(fk1Nome)
         var fk1Drop = resposta[idFk1].dropItens
         
-        infosArea.innerHTML += `<h5>Matéria prima 1: ${fk1Nome}</h5>`
-        infosArea.innerHTML += `<h5>Total matéria prima 1: ${qtdBlocos * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop} blocos</h5>`
+        infosArea.innerHTML += `<h5>Matéria prima 1:    ${fk1Nome}</h5>`
+        infosArea.innerHTML += `<h5>Total de blocos matéria prima 1: ${qtdBlocos * resposta[idBlocoPrincipal].materiaPrima1Quantidade / fk1Drop} blocos</h5>`
         
         var titleFk1Table = document.getElementById('txt_padFk1');
         var tableFk1 = document.getElementById('table_fk1');
@@ -964,7 +968,7 @@ function buscaMateriaPrima(fk1, fk2, qtdBlocos, idBlocoPrincipal){
             var fk2Drop = resposta[idFk2].dropItens
 
             infosArea.innerHTML += `<h5>Matéria prima 2: ${fk2Nome}</h5>`
-            infosArea.innerHTML += `<h5>Total matéria prima 2: ${qtdBlocos * resposta[idBlocoPrincipal].materiaPrima2Quantidade / fk2Drop} blocos</h5>`
+            infosArea.innerHTML += `<h5>Total de blocos matéria prima 2: ${qtdBlocos * resposta[idBlocoPrincipal].materiaPrima2Quantidade / fk2Drop} blocos</h5>`
     
             var titleFk2Table = document.getElementById('txt_padFk2');
             var tableFk2 = document.getElementById('table_fk2');

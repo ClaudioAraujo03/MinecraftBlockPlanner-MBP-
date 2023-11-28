@@ -1,0 +1,296 @@
+section{
+    flex-direction: column;
+}
+.banner{
+    width: 98%;
+    height: 40%;
+    align-self: baseline;
+    display: flex;
+    justify-content:left;
+    align-items: end;
+    background-image: url('../../assets/backgroun\ 5.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: inset #000 0 0 8px 2px;
+    border-radius: 0 0 0.8rem 0;
+}
+.container-img{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 50% 0 0;
+    background-color: #fff;
+}
+.user-image{
+    border-radius: 100%;
+    border: 2px solid #fff;
+    margin-top: 2px;
+    margin-right: 2px;
+    width: 100%;
+    height:100%;
+    background-color: antiquewhite;
+}
+.info-perfil{
+    width: 30%;
+    height: 160px;
+    background-color: #00BF63;
+    margin-left: 5%;
+    border-radius: 0.8rem;
+    border: 1px solid #127a48;
+    box-shadow: #000 0 0 10px 0;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    line-height: 30px;
+    font-family: var(--font-fourth);
+}
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 98%;
+    height: 10%;
+    gap: 5%;
+    margin: 2px;
+}
+.input{
+    width: 85%;
+    display: flex;
+    justify-content: left;
+    height: 45%;
+    box-shadow: #8E9593 0 0 8px 0, #00000070 0 0 10px 0;
+    border-radius: 2rem;
+}
+.input-search{
+    background-color: #EDEDED;
+    border: none;
+    outline: none;
+    border-radius: 2rem 0 0 2rem;
+    width: 95%;
+    height: 100%;
+    font-size: 15px;
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    color: #00BF63;
+}
+.input i{
+    width: 15%;
+    border-radius: 0 2rem 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #EDEDED;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    color: #00BF63;
+}
+.input i:hover{
+    color: #fff;
+    background-color: #00BF63;
+}
+.btn-search{
+    width: 10%;
+    background-color: #00BF63;
+    color: #fff;
+    border-radius: 1rem;
+    font-family: var(--font-third);
+    height: 50%;
+    border: none;
+    cursor: pointer;
+}
+.all-projects{
+    width: 98%;
+    height: 49%;
+    max-height: 365px;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+}
+.project{
+    height: 40%;
+    background-color: #EDEDED;
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
+    border-radius: 1.5rem;
+    box-shadow: #8E9593 0 0 8px 0, #00000070 0 0 10px 0;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.head-project{
+    width: 90%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-third);
+}
+.description{
+    width: 90%;
+    height: 80px;
+    max-height: 35%;
+    overflow: auto;
+}
+.text-description{
+    width: 100%;
+    height: auto;
+    font-family: var(--font-third);
+    font-size: 10px;
+}
+.btn-abrir{
+    width: 90%;
+    height: 20%;
+    background-color: #00BF63;
+    cursor: pointer;
+    border: none;
+    transition: all ease-in-out 0.5s;
+    margin-top: 1%;
+    border-radius: 1rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 5px 0 #00000070;
+}
+.btn-abrir span{
+    display: flex;
+    text-align: center;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 90%;
+    transition: all 0.5s ease-in-out;
+}
+.btn-abrir:hover{
+    border: 2px solid #00BF63;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 #00000070;
+}
+.btn-abrir:hover span{
+    font-size: 15px;
+    font-weight: 600;
+    color: #00BF63;
+    width: 100%;
+    height: 100%;
+    background-color: #EDEDED;
+}
+.filtro{
+    width: 30%;
+    height: 50%;
+    background-color: #00BF63;
+    box-shadow: #038848 3px 3.5px 1px 3px, #000 3px 3.5px 5px 0;
+    border-radius: 0.8rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    color: #fff;
+}
+.top-filter{
+    display: flex;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+}
+.top-filter i{
+    display: flex;
+    text-align: center;
+    margin-left: 70%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.top-filter i:hover{
+    color: #038848;
+}
+.filtro h2{
+    font-family: var(--font-third);
+    margin-left: 4%;
+}
+.div-filter{
+    width: 100%;
+    display: flex;
+    height: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.div-filter:nth-child(4){
+    margin-top: 10%;
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    color: #000000;
+}
+.div-filter:nth-child(4) input{
+    border-bottom: #000000 solid 2px;
+}
+.div-filter h4{
+    font-family: var(--font-third);
+    font-weight: 400;
+    margin-top: 2%;
+    width: 80%;
+    text-align: left;
+}
+.checkfilter{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    gap: 2%;
+}
+.checkfilter label{
+    margin-right: 2%;
+    font-family: var(--font-fourth);
+}
+.checkfilter input{
+    margin-right: 5%;
+    margin-top: 0.5%;
+}
+.num-input{
+    width: 10%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: #000 1.5px solid;
+}
+.ord{
+    font-size: 10px;
+}
+.btn-filter{
+    width: 35%;
+    height: 62%;
+    border: none;
+    font-size: 15px;
+    font-family: var(--font-third);
+    background-color: #006cbf;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.btn-filter:hover{
+    background-color: #087cd4;
+}
+.nt-txt{
+    font-family: var(--font-third);
+    text-align: center;
+}
+.steve{
+    height: 60%;
+}

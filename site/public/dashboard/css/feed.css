@@ -194,8 +194,21 @@ section{
     width: 60%;
     height: auto;
     border-radius: 100%;
+    transition: all ease-in-out 0.5s;
+    cursor: pointer;
+}
+.left-content-card img:hover{
+    scale: 1.05;
+    box-shadow: #000 0 0 6px 0;
+}
+.left-content-card h5:hover{
+   font-size: 15px;
+    text-shadow: #000 0 0 1px ;
+    font-weight: bold;
 }
 .left-content-card h5{
+    transition: all ease-in-out 0.5s;
+    cursor: pointer;
     color: #00BF63;
     font-family: var(--font-third);
 }

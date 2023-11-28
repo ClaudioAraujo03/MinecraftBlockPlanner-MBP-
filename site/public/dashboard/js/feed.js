@@ -53,7 +53,7 @@ function mostrarTodosProjetos(resposta){
         if(dia < 10) dia = "0" + dia; 
         
 
-        var dataFormatada = ano + "/" + mes + "/" + dia;
+        var dataFormatada = dia + "/" + mes + "/" + ano;
 
         var hora = data.getHours()
         if(hora < 10) hora = '0' + hora;
@@ -100,8 +100,8 @@ function mostrarTodosProjetos(resposta){
                     </div>
                 <div class="content-card">
                     <div class="left-content-card">
-                        <img src="${resposta[i].imagemPerfil}" alt="">
-                        <h5>${resposta[i].nick}</h5>
+                        <img onclick="abrirPerfil(${resposta[i].idUsuario})" src="${resposta[i].imagemPerfil}" alt="">
+                        <h5 onclick="abrirPerfil(${resposta[i].idUsuario})">${resposta[i].nick}</h5>
                     </div>
                     <div class="center-content-card">
                         <h5>Nome área: ${resposta[i].nomeArea}</h5>
@@ -118,6 +118,12 @@ function mostrarTodosProjetos(resposta){
         `;
     }
 };
+
+function abrirPerfil(idUser, nick){
+    sessionStorage.ID_PERFIL = idUser
+    window.location = `/dashboard/perfil`
+}
+
 function abrirProjeto(idProjeto) {
     sessionStorage.ID_PROJ = idProjeto;
     window.location = `/dashboard/project`;

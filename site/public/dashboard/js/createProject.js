@@ -24,13 +24,11 @@ var inputNameArea = document.getElementById('input_name_area').addEventListener(
 var blockSelect = document.querySelectorAll('#block_material');
 var inputMaterial = document.getElementById('input_material');
 
-blockSelect.forEach((image, index) => {
-    image.addEventListener('click', () => {
-        inputMaterial.value = image.getAttribute("value");
-        material = image.getAttribute("value");
-        iconInventory.style.display = 'none';
-    });
-});
+function escolheBloco(valor){
+    material = valor;
+    inputMaterial.value = valor;
+    iconInventory.style.display = 'none';
+}
 
 checkCir.addEventListener('change', () => {
     if(checkCir.checked){
@@ -114,8 +112,8 @@ var areaPar = `
 `;
 var areaCir = `
     <div class="area-largura">
-            <span>Raio:</span>
-            <input class="input-num" type="number" name="" id="input_raio">
+        <span>Raio:</span>
+        <input class="input-num" type="number" name="" id="input_raio">
     </div>
     <div class="area-altura">
         <span>Altura:</span>
