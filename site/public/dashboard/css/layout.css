@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    cursor: default;
 }
 body{
     width: 100%;
@@ -48,6 +49,12 @@ body{
 .banner-user .logo{
     width: 50%;
     border-radius: 100%;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+.banner-user .logo:hover{
+    scale: 1.05;
+    box-shadow: #12435d 0 0 8px 2px;
 }
 .pig-logo{
     width: 70px;
@@ -173,4 +180,7 @@ body{
     font-size: 70px;
     font-family: var(--font-third);
     text-shadow: 0px 2px 5px #00000095;
+}
+li i, h6{
+    cursor: pointer;
 }

@@ -119,7 +119,7 @@ function mostrarTodosProjetos(resposta){
     }
 };
 
-function abrirPerfil(idUser, nick){
+function abrirPerfil(idUser){
     sessionStorage.ID_PERFIL = idUser
     window.location = `/dashboard/perfil`
 }
@@ -161,13 +161,21 @@ function pesquisar(pesquisa){
                 if(resposta.length > 0){
                     mostrarTodosProjetos(resposta);
                 } else{
-                    // mostraNada(resposta);
+                    mostraNada(resposta);
                 }
             })
         } else{
             console.log('Não foi encontrado nenhum projeto.')
         }       
     })
+}
+
+function mostraNada(){
+    divProjetos.innerHTML = `
+        <img class='steve' src='../assets/nf.gif' alt='Não foi encontrado nenhum projeto'>
+        <h2 class='nt-txt'>Não foi encontrado nenhum projeto! <br>
+        Que tal fazer outra pesquisa?</h2>
+    `;
 }
 
 var filtro = document.getElementById('filtro');

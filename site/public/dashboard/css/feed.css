@@ -355,3 +355,11 @@ section{
 .btn-filter:hover{
     background-color: #087cd4;
 }
+.nt-txt{
+    font-family: var(--font-third);
+    text-align: center;
+}
+.steve{
+    margin-left: 27%;
+    width: 40%;
+}
