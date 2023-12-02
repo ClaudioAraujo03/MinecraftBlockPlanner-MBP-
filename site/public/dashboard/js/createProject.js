@@ -293,7 +293,7 @@ const btnSaveProj = document.getElementById("btn_save").addEventListener('click'
                 const popUpSucess = document.getElementById('sucess_create');
                 popUpSucess.style.display = 'block';
                 setTimeout(() => {
-                    window.location = `/dashboard/myListProjects`
+                    window.location = `./myProjects.html`
                 }, 1000);
             } else{
                 throw "Erro HTML"

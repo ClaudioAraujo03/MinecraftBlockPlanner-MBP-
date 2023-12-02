@@ -43,6 +43,10 @@ function mostrarTodosProjetos(resposta){
     divProjetos.innerHTML = '';
     
     for(var i = 0; i < resposta.length; i++){
+        if(resposta[i].nomeProjeto == null) {
+            mostraNada() 
+            break
+        }
 
         var data = new Date(resposta[i].dtCriacaoProjeto);
 
@@ -121,12 +125,12 @@ function mostrarTodosProjetos(resposta){
 
 function abrirPerfil(idUser){
     sessionStorage.ID_PERFIL = idUser
-    window.location = `/dashboard/perfil`
+    window.location = `./userPage.html`
 }
 
 function abrirProjeto(idProjeto) {
     sessionStorage.ID_PROJ = idProjeto;
-    window.location = `/dashboard/project`;
+    window.location = `./projectPage.html`;
 }
 
 var btnSearch = document.getElementById('search_btn');

@@ -31,7 +31,7 @@ function mostraNada(){
     `;
 
     const btnIr = document.getElementById('btn_ir').addEventListener('click', () => {
-        window.location = '/dashboard/criarProjeto'
+        window.location = './createProject.html'
     })
 }
 
@@ -112,7 +112,7 @@ function mostrarProjetos(resposta){
 };
 function abrirProjeto(idProjeto) {
     sessionStorage.ID_PROJ = idProjeto;
-    window.location = `/dashboard/project`;
+    window.location = `./projectPage.html`;
 }
 
 var btnSearch = document.getElementById('search_btn');

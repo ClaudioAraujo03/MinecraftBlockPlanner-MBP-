@@ -12,5 +12,5 @@ imgUserSideBar.addEventListener('click', () => {
 })
 function abrirPerfil(idUser){
     sessionStorage.ID_PERFIL = idUser
-    window.location = `/dashboard/perfil`
+    window.location = `./userPage.html`
 }

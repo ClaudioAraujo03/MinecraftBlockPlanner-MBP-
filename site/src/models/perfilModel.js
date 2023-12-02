@@ -10,6 +10,14 @@ function exibeInfos(idUser){
     return database.executar(instrucao);
 }
 
+function exibeInfosUsuario(idUser){
+    var instrucao = `
+        select * from usuarios where idUsuario = ${idUser};
+    `
+    console.log(instrucao)
+    return database.executar(instrucao);
+}
+
 function pesquisarProjetoPerfil(pesquisa, idUser){
     if(pesquisa  == ''){
         var instrucao = `
@@ -149,4 +157,4 @@ function mostraTopBlocos(idUser){
     return database.executar(instrucao)
 }
 
-module.exports = { exibeInfos, pesquisarProjetoPerfil, filtraPerfilModel, mostraTopBlocos }
+module.exports = { exibeInfos, pesquisarProjetoPerfil, filtraPerfilModel, mostraTopBlocos, exibeInfosUsuario }

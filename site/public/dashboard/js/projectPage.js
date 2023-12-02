@@ -1441,7 +1441,7 @@ const deletarProjeto = document.getElementById('del_proj').addEventListener('cli
             var popUpDel = document.getElementById('pop_up_del');
             popUpDel.style.display = 'block'
             setTimeout(() => {
-                window.location = "/dashboard/myListProjects"
+                window.location = "./myProjects.html"
             }, 1500);
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");

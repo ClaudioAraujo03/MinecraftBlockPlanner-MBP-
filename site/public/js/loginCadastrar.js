@@ -87,7 +87,7 @@ const btnCadastrar = document.getElementById('btn_cadastro').addEventListener('c
               `;
               card.style.display = 'flex';
               setTimeout(() => {
-                window.location = "/login";
+                window.location = "loginSignup.html";
               }, "3000");
     
             } else {

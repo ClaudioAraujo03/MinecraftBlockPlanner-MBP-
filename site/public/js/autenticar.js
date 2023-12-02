@@ -36,7 +36,7 @@ btnLogin.addEventListener('click', () => {
                     sessionStorage.DT_USER = json.dtCriacao
                     sessionStorage.IMG_USER =json.imagemPerfil
                     setTimeout(function(){
-                        window.location = '/dashboard/myListProjects'
+                        window.location = './dashboard/myProjects.html'
                     }, 1000)
                 })
             } else{

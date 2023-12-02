@@ -5,8 +5,8 @@ var cors = require("cors");
 const app = express();
 var path = require("path");
 
-app.engine("html", require("ejs").renderFile);
-app.set("view engine", "html");
+// app.engine("html", require("ejs").renderFile);
+// app.set("view engine", "html");
 
 
 var PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 8080;

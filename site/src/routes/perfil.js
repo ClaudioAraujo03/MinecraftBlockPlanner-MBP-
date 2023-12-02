@@ -3,9 +3,9 @@ var router = express.Router();
 
 var perfilController = require('../controllers/perfilController');
 
-router.get('/perfil', function (req, res){
-    res.render('dashboard/userPage')
-})
+// router.get('/perfil', function (req, res){
+//     res.render('dashboard/userPage')
+// })
 
 router.get('/perfil/:idPerfil', function(req, res){
     perfilController.encontraInfosPerfil(req, res)

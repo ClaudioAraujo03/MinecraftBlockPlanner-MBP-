@@ -64,7 +64,7 @@ function abreCard(card){
             cards.style.backgroundImage = img
         }
         btn.addEventListener('click', () => {
-            for(let i = 0; i <= listCard.length; i++){
+            for(var i = 0; i <= listCard.length; i++){
                 var cards = listCard[i];
                 var texto = textCards[i];
                 var btns = listBtn[i];

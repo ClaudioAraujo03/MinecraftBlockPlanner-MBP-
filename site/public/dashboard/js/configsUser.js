@@ -78,7 +78,7 @@ btnSave.addEventListener('click', () => {
         if (resposta.ok) {
             sessionStorage.SENHA_USER = senhaVar
             sessionStorage.NICK_USER = nickVar
-            window.location = "/dashboard/configuracao";  
+            window.location = "./configsUser.html";  
         } else {
             throw "Houve um erro ao tentar realizar a edição!, erro no HTML";
         }
@@ -106,7 +106,7 @@ const btnConfirm = document.getElementById('confirm').addEventListener('click', 
         },
     }).then(function(resposta){
         if(resposta.ok){
-            window.location = "/"
+            window.location = "../index.html"
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
         } else {

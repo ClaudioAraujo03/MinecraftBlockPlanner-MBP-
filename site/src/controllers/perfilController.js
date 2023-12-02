@@ -1,14 +1,21 @@
 var perfilModel = require('../models/perfilModel')
 
-function encontraInfosPerfil(req, res){
-    var idUsuario = req.params.idPerfil
+function encontraInfosPerfil(req, res) {
+    var idUsuario = req.params.idPerfil;
+
     perfilModel.exibeInfos(idUsuario)
-    .then(
-        function(resposta){
-            console.log(resposta)
-            res.json(resposta)
+    .then(function (resposta) {
+        console.log(resposta);
+        if (resposta.length <= 0) {
+            perfilModel.exibeInfosUsuario(idUsuario)
+                .then(function (resposta) {
+                    console.log(resposta);
+                    res.json(resposta);
+                });
+        } else {
+            res.json(resposta);
         }
-    )
+    })
     .catch(
         function(erro){
             console.log(erro);

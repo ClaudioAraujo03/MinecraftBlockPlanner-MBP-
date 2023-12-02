@@ -36,7 +36,7 @@ function geraInfos(resultado){
     var userQtd = document.getElementById('qtd_projs')
     var userDt = document.getElementById('dt_user')
 
-    var data = new Date(resultado[0].dtCriacaoProjeto);
+    var data = new Date(resultado[0].dtCriacao);
 
     var ano = data.getFullYear();
     var mes = data.getMonth() + 1;
@@ -44,18 +44,25 @@ function geraInfos(resultado){
     if(mes < 10) mes = "0" + mes;
     if(dia < 10) dia = "0" + dia; 
 
+    
     userImg.src = resultado[0].imagemPerfil;
     userNome.innerHTML += resultado[0].nome
     userNick.innerHTML += resultado[0].nick
     userEmail.innerHTML += resultado[0].email
-    userQtd.innerHTML += resultado[0].totalProjetos
     userDt.innerHTML += dia + '/' + mes + '/' + ano
+
+    if(resultado[0].totalProjetos == undefined) userQtd.innerHTML += 'Nenhum projeto'
+    else userQtd.innerHTML += resultado[0].totalProjetos
+
 }
 
 function mostraProjetos(resposta){
     sectionProjetos.innerHTML = '';
     
     for(var i = 0; i < resposta.length; i++){
+        if(resposta[i].nomeProjeto == null || resposta[i].nomeProjeto == undefined){
+            break
+        }
 
         var data = new Date(resposta[i].dtCriacaoProjeto);
 
@@ -170,7 +177,7 @@ function pesquisar(pesquisa){
 
 function abrirProjeto(idProjeto) {
     sessionStorage.ID_PROJ = idProjeto;
-    window.location = `/dashboard/project`;
+    window.location = `./projectPage.html`;
 }
 
 var filtro = document.getElementById('filtro');

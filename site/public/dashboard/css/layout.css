@@ -184,3 +184,6 @@ body{
 li i, h6{
     cursor: pointer;
 }
+input{
+    cursor:text;
+}
