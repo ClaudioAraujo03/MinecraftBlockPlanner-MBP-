@@ -53,10 +53,6 @@ CREATE TABLE usuarios (
     dtNasc DATE,
     dtCriacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-select * from usuarios;
-select * from blocos;
-select * from projeto;
-select * from areaProj;
 
 describe usuarios;
 describe blocos;
@@ -73,31 +69,6 @@ drop table areaProj;
 drop table usuarios;
 
 alter table blocos rename column nome to nomeBloco;
-
-select * from usuarios 
-	join projeto on fkUsuario = idUsuario
-    join areaProj on fkProjeto = idProjeto
-    join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
-    left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
-    left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
-    where idUsuario = 1;
-
-select * from usuarios 
-	join projeto on fkUsuario = idUsuario
-	join areaProj on fkProjeto = idProjeto
-	join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
-	left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
-	left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco;
-    
-select projeto.*, areaProj.*, materiaPrincipal.*,
-	materiaPrima1.nomeBloco as nomeBloco1, materiaPrima1.dureza as durezaBloco1, materiaPrima1.dropItens as materiaPrima1,
-	materiaPrima2.nomeBloco as nomeBloco2, materiaPrima2.dureza as durezaBloco2, materiaPrima2.dropItens as materiaPrima2  
-    from projeto 
-	join areaProj on idProjeto = fkProjeto 
-    join blocos as materiaPrincipal on fkBloco = idBloco
-    left join blocos as materiaPrima1 on materiaPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
-    left join blocos as materiaPrima2 on materiaPrima1.fkMateriaPrima2 = materiaPrima2.idBloco
-    where fkUsuario = 1;
 
 insert into blocos values
     (1, 'Andesito', 1.5, 'coletável', null, null, 1, null, null),
@@ -180,17 +151,461 @@ insert into blocos values
     (78, 'Prismarinho escuro', 1.5, 'coletável', null, null, 1, null, null),
     (79, 'Red sandstone', 0.8, 'criável', 4, null, 1, 55, null);
 
-insert into blocos(idBloco, nomeBloco, dureza, disponibilidade, dropItens) values
-	(80, 'Minério de diamante da deepslate', 4.5, 'coletável', 1);
-
-select * from blocos where nomeBloco like'%lana%';
-
 update blocos set nomeBloco = 'Lama compactada' where idBloco = 36;
 
-select * from usuarios 
-	left join projeto on fkUsuario = idUsuario
-    left join areaProj on fkProjeto = idProjeto
-    left join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
-    left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
-    left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
-    where idUsuario = 1 and nomeProjeto like '%t%';
+alter table usuarios add column imagemPerfil varchar(200) default ('../assets/creeper face.png');
+
+-- SELECTS PADRÕES
+select * from usuarios;
+select * from projeto;
+select * from areaProj;
+select * from blocos;
+
+-- SELECTS DO FEED
+
+	-- Listar todos os projetos
+		select * from usuarios 
+			join projeto on fkUsuario = idUsuario
+			join areaProj on fkProjeto = idProjeto
+			join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+			left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+			left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+			where privacidade = 'público';
+            
+	-- Exibir quantidade de projetos cadastrados
+		select
+			(select count(fkProjeto) from areaProj) as totalProjetos,
+			(select count(formato) from areaProj where formato = 'paralelepipedo') as totalParalelepipedo,
+			(select count(formato) from areaProj where formato = 'circular') as totalCircular;
+    
+    -- Barra de pesquisa
+    
+		-- Se vazia
+			select * from usuarios 
+				join projeto on fkUsuario = idUsuario
+				join areaProj on fkProjeto = idProjeto
+				join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+				left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+				left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco;  
+		
+        -- Com alguma informação 
+			select * from usuarios 
+				left join projeto on fkUsuario = idUsuario
+				left join areaProj on fkProjeto = idProjeto
+				left join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+				left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+				left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+				where nomeProjeto like '%casa%' or usuarios.nick like '%clau%';
+                
+	-- Filtro
+		
+        -- Formato paralelepípedo  ordem decrescente
+        
+			select * from usuarios 
+                join projeto on fkUsuario = idUsuario
+                join areaProj on fkProjeto = idProjeto
+                join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+                left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+                left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+                where privacidade = 'público' and formato = 'paralelepipedo' order by projeto.dtCriacaoProjeto desc;
+                
+		-- Formato paralelepípedo ordem crescente
+        
+			select * from usuarios 
+                join projeto on fkUsuario = idUsuario
+                join areaProj on fkProjeto = idProjeto
+                join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+                left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+                left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+                where privacidade = 'público' and formato = 'paralelepipedo' order by projeto.dtCriacaoProjeto asc
+                ;
+                
+		-- Formato paralelepípedo sem ordem informada
+        
+			select * from usuarios 
+                join projeto on fkUsuario = idUsuario
+                join areaProj on fkProjeto = idProjeto
+                join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+                left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+                left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+                where privacidade = 'público' and formato = 'paralelepipedo';
+		
+        -- Formato circular ordem decrescente
+        
+			select * from usuarios 
+                join projeto on fkUsuario = idUsuario
+                join areaProj on fkProjeto = idProjeto
+                join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+                left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+                left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+                where privacidade = 'público' and formato = 'circular' order by projeto.dtCriacaoProjeto desc
+                ;
+                
+		-- Formato circular ordem crescente
+        
+			select * from usuarios 
+                join projeto on fkUsuario = idUsuario
+                join areaProj on fkProjeto = idProjeto
+                join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+                left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+                left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+                where privacidade = 'público' and formato = 'circular' order by projeto.dtCriacaoProjeto asc
+                ;
+                
+		-- Formato circular sem ordem informada
+        
+			select * from usuarios 
+                join projeto on fkUsuario = idUsuario
+                join areaProj on fkProjeto = idProjeto
+                join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+                left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+                left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+                where privacidade = 'público' and formato = 'circular';
+                
+		-- Ordem decrescente todos os formatos
+        
+			select * from usuarios 
+                join projeto on fkUsuario = idUsuario
+                join areaProj on fkProjeto = idProjeto
+                join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+                left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+                left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+                where privacidade = 'público' order by projeto.dtCriacaoProjeto desc
+                ;
+                
+		-- Todos os formatos ordem crescente
+        
+			select * from usuarios 
+                join projeto on fkUsuario = idUsuario
+                join areaProj on fkProjeto = idProjeto
+                join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+                left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+                left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+                where privacidade = 'público' order by projeto.dtCriacaoProjeto asc;
+                
+		-- Ordem não informada e todos os formatos
+				
+                select * from usuarios 
+                    join projeto on fkUsuario = idUsuario
+                    join areaProj on fkProjeto = idProjeto
+                    join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+                    left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+                    left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+                    where privacidade = 'público'; 
+                    
+-- SELECTS do login
+	
+    select * from usuarios where email = 'bento@gmail.com' and senha = 'Bento12345';
+    
+-- SELECTS DA PÁGINA DO PROJETO
+
+	-- Coleta as informações do projeto e da área
+		select *  from projeto 
+			join areaProj on idProjeto = fkProjeto 
+			join blocos as materiaPrincipal on fkBloco = idBloco where fkProjeto = 10;
+            
+	-- Achar todos os blocos 
+		select * from blocos;
+        
+-- SELECT para criar projeto
+	select idProjeto from projeto where fkUsuario = 2 and dtCriacaoProjeto = '2023-11-18 18:34:56';
+    
+-- SELECTS para lista dos projetos do usuário
+
+	select * from usuarios 
+        join projeto on fkUsuario = idUsuario
+        join areaProj on fkProjeto = idProjeto
+        join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+        left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+        left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+        where idUsuario = 2;
+        
+	-- SELECT barra de pesquisa
+		
+        -- Barra de pesquisa vazia
+			select * from usuarios 
+				join projeto on fkUsuario = idUsuario
+				join areaProj on fkProjeto = idProjeto
+				join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+				left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+				left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+				where idUsuario = 2;
+                
+		-- Barra de pesquisa com qualquer informação
+        
+			select * from usuarios 
+				left join projeto on fkUsuario = idUsuario
+				left join areaProj on fkProjeto = idProjeto
+				left join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+				left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+				left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+				where idUsuario = 2 and nomeProjeto like '%teste%';
+                
+	-- SELECT PARA O FILTRO
+		
+        -- Privado
+			
+			-- Formato paralelepípedo
+            
+				-- Ordem decrescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'privado' and formato = 'paralelepipedo' order by projeto.dtCriacaoProjeto desc;
+              
+				-- Ordem crescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'privado' and formato = 'paralelepipedo' order by projeto.dtCriacaoProjeto asc;
+                        
+				-- Sem ordem informada
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'privado' and formato = 'paralelepipedo'; 
+                        
+			-- Formato circular
+				
+                -- Ordem decrescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'privado' and formato = 'circular' order by projeto.dtCriacaoProjeto desc;
+			
+				-- Ordem crescentee
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'privado' and formato = 'circular' order by projeto.dtCriacaoProjeto asc;
+                        
+				-- Sem ordem informada
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'privado' and formato = 'circular';
+                        
+			-- Todas as áreas 
+				
+                -- Ordem decrescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'privado' order by projeto.dtCriacaoProjeto desc;
+                        
+				-- Ordem crescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'privado' order by projeto.dtCriacaoProjeto asc;
+                        
+				-- Sem ordem informada
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'privado'; 
+                        
+        -- Público
+			
+			-- Formato paralelepípedo
+            
+				-- Ordem decrescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'paralelepipedo' order by projeto.dtCriacaoProjeto desc;
+              
+				-- Ordem crescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'paralelepipedo' order by projeto.dtCriacaoProjeto asc;
+                        
+				-- Sem ordem informada
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'paralelepipedo'; 
+                        
+			-- Formato circular
+				
+                -- Ordem decrescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'circular' order by projeto.dtCriacaoProjeto desc;
+			
+				-- Ordem crescentee
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'circular' order by projeto.dtCriacaoProjeto asc;
+                        
+				-- Sem ordem informada
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'circular';
+                        
+			-- Todas as áreas 
+				
+                -- Ordem decrescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' order by projeto.dtCriacaoProjeto desc;
+                        
+				-- Ordem crescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' order by projeto.dtCriacaoProjeto asc;
+                        
+				-- Sem ordem informada
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público';
+                        
+		-- Todas as privacidades
+			-- Formato paralelepípedo
+            
+				-- Ordem decrescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'paralelepipedo' order by projeto.dtCriacaoProjeto desc;
+              
+				-- Ordem crescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'paralelepipedo' order by projeto.dtCriacaoProjeto asc;
+                        
+				-- Sem ordem informada
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'paralelepipedo'; 
+                        
+			-- Formato circular
+				
+                -- Ordem decrescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'circular' order by projeto.dtCriacaoProjeto desc;
+			
+				-- Ordem crescentee
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'circular' order by projeto.dtCriacaoProjeto asc;
+                        
+				-- Sem ordem informada
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 and privacidade = 'público' and formato = 'circular';
+                        
+			-- Todas as áreas 
+				
+                -- Ordem decrescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 order by projeto.dtCriacaoProjeto desc;
+                        
+				-- Ordem crescente
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 order by projeto.dtCriacaoProjeto asc;
+                        
+				-- Sem ordem informada
+					select * from usuarios 
+						join projeto on fkUsuario = idUsuario
+						join areaProj on fkProjeto = idProjeto
+						join blocos as materialPrincipal on fkBloco = materialPrincipal.idBloco
+						left join blocos as materiaPrima1 on materialPrincipal.fkMateriaPrima1 = materiaPrima1.idBloco
+						left join blocos as materiaPrima2 on materialPrincipal.fkMateriaPrima2 = materiaPrima2.idBloco
+						where idUsuario = 2 ;
+            

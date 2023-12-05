@@ -17,7 +17,7 @@ function listaTodosProjetosModel(){
 function dadosProjetos(){
     var instrucao = `
         select
-        (select count(idProjeto) from projeto) as totalProjetos,
+        (select count(fkProjeto) from areaProj) as totalProjetos,
         (select count(formato) from areaProj where formato = 'paralelepipedo') as totalParalelepipedo,
         (select count(formato) from areaProj where formato = 'circular') as totalCircular;
     `;

@@ -4,10 +4,6 @@ var router = express.Router()
 
 var feedControle = require('../controllers/feedController');
 
-router.get('/feed', function(req, res){
-    res.render('dashboard/feed')
-})
-
 router.get('/feed/projetos', function(req, res){
     feedControle.listaTodosProjetos(req, res)
 })

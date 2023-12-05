@@ -2,9 +2,9 @@ var database = require('../database/config')
 
 function exibeInfos(idUser){
     var instrucao = `
-        select (select count(*) from projeto where fkUsuario = ${idUser}) as totalProjetos, usuarios.*, projeto.*, areaProj.* from projeto 
-            join usuarios on idUsuario = fkUsuario 
-            join areaProj on fkProjeto = idProjeto where fkUsuario = ${idUser} and privacidade = 'público';
+        select (select count(fkUsuario) from projeto where fkUsuario = ${idUser} and privacidade = 'público') as totalProjetos, usuarios.*, projeto.*, areaProj.* from projeto 
+        join usuarios on idUsuario = fkUsuario 
+        join areaProj on fkProjeto = idProjeto where fkUsuario = ${idUser} and privacidade = 'público';
     `
     console.log(instrucao)
     return database.executar(instrucao);
