@@ -95,20 +95,13 @@ function mostraProjetos(resposta){
 
             var area = 0;
             var raioCir = raioBlocos
-            var perimetro = parseInt(2 * Math.PI * (raioCir - 0.5));
+            var perimetro = parseInt(2 * Math.PI * (raioCir));
 
-            for (var k = -raioCir; k <= raioCir; k++) {
-                for (var j = -raioCir; j <= raioCir; j++) {
-                    var distance = Math.sqrt(Math.pow(k, 2) + Math.pow(j, 2));
-                    if (distance < raioCir) {
-                        area++;
-                    }
-                }
-            }
+            var area = Math.PI * (raioBlocos ** 2);
 
             var qtdBlocosPeri = (AlturaBlocos - 2) + perimetro;
             var qtdBlocosBase = 2 * area
-            var qtdBlocos = qtdBlocosPeri + qtdBlocosBase
+            var qtdBlocos = parseInt(qtdBlocosPeri + qtdBlocosBase)
         }
 
         sectionProjetos.innerHTML += `
